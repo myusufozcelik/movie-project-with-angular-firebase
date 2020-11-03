@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  isRegister = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  // tslint:disable-next-line: typedef
+  registerNow() {
+    console.log(this.isRegister);
+    this.isRegister = !this.isRegister;
   }
 
 }

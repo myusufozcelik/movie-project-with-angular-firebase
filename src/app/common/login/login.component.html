@@ -22,6 +22,8 @@
             <input id="password" class='lf--input' placeholder='Password' type='password'>
         </div>
         <input class='lf--submit' type='submit' value='LOGIN'>
+        <a class='lf--forgot' href='#'>Forgot password?</a>
+        <a class="lf--register" href="/login" (click)="registerNow()">Register now</a>
     </form>
-    <a class='lf--forgot' href='#'>Forgot password?</a>
+   <app-register [register] *ngIf="isRegister"></app-register>
 </div>

@@ -96,8 +96,25 @@
     margin-top: 1em;
     color: #00d6b7;
     font-size: 0.65em;
-    text-align: center;
+    text-align: left;
     position: relative;
+    text-decoration: none;
+    &:hover {
+      background-color:rgba(137, 126, 121, .1);
+    }    
+  }
+
+  .lf--register {
+    margin-top: 1em;
+    color: #00d6b7;
+    font-size: 0.65em;
+    margin-left: 3em;
+    text-align: right;
+    position: relative;
+    text-decoration: none;
+    &:hover {
+      background-color:rgba(137, 126, 121, .1);
+    } 
   }
   ::placeholder {
     color: #8f8f8f;
