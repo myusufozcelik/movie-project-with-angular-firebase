@@ -286,8 +286,15 @@ input[type="radio"]:checked + .page{
   
 }
 
-
-
+.btn-more {
+  position: absolute;
+  border: none !important;
+  bottom: 3px;
+  right: 0; 
+   &:hover {
+     background-color: $secondary;
+  }
+}
 
 
 
