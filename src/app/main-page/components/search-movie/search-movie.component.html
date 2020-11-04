@@ -24,7 +24,28 @@
           <h4>
             <strong class="header-movie noselect" (click)="getImdbScore()">IMDB Puanı</strong>
           </h4>
-          <p [hidden]="!imdbScore" class="text-faded mb-0">Freshly redesigned for Bootstrap 4.</p>
+          
+          <div [hidden]="!imdbScore" class="section over-hide z-bigger">
+          <div class="col-xl-10 pb-5" >
+						<input class="checkbox-budget" type="radio" name="budget" id="budget-1" checked>
+						<label class="for-checkbox-budget" for="budget-1">
+							<span data-hover="1-5">1-5</span>
+						</label><!--
+						--><input class="checkbox-budget" type="radio" name="budget" id="budget-2">
+						<label class="for-checkbox-budget" for="budget-2">							
+							<span data-hover="5-7">5-7</span>
+						</label><!--
+						--><input class="checkbox-budget" type="radio" name="budget" id="budget-3">
+						<label class="for-checkbox-budget" for="budget-3">							
+							<span data-hover="7-8">7-8</span>
+						</label><!--
+						--><input class="checkbox-budget" type="radio" name="budget" id="budget-4">
+						<label class="for-checkbox-budget" for="budget-4">							
+							<span data-hover="8-9">8-9</span>
+						</label>
+					</div>
+        </div>
+          
         </div>
         <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
           <span class="service-icon rounded-circle mx-auto mb-3">
@@ -33,9 +54,12 @@
           <h4>
             <strong class="header-movie noselect" (click)="getReleaseDate()">Çıkış Yılı</strong>
           </h4>
-          <p [hidden]="!releaseDate" class="text-faded mb-0">Millions of users
-            <i class="fas fa-heart"></i>
-            Start Bootstrap!</p>
+          
+
+            
+
+
+            
         </div>
         <div class="col-lg-3 col-md-6">
           <span class="service-icon rounded-circle mx-auto mb-3">
@@ -45,9 +69,7 @@
            <h4>
              <strong class="header-movie noselect" (click)="getOriginCountry()">Menşei</strong>
            </h4>
-            
-          
-        
+
           <div [hidden]="!originCountry" class="btn-group">
             <button  type="button" class="btn btn-danger btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Action

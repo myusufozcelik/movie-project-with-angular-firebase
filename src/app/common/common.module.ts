@@ -1,3 +1,4 @@
+import { ComboboxComponent } from './combobox/combobox.component';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -10,7 +11,8 @@ import { LoadingComponent } from './loading/loading.component';
     declarations: [
         LoginComponent,
         RegisterComponent,
-        LoadingComponent
+        LoadingComponent,
+        ComboboxComponent
     ]
 })
 export class CommonModules { }
