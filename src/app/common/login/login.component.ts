@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,12 +13,6 @@ export class LoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  // tslint:disable-next-line: typedef
-  registerNow() {
-    console.log(this.isRegister);
-    this.isRegister = !this.isRegister;
   }
 
 }

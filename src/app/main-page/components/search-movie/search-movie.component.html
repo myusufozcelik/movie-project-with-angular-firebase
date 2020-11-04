@@ -13,27 +13,27 @@
             
           </span>
           <h4>
-            <strong style="cursor: pointer;">Film Türü</strong>
+            <strong class="header-movie noselect" (click)="getMovieType()">Film Türü</strong>
           </h4>
-          <p class="text-faded mb-0">Looks great on any screen size!</p>
+          <p [hidden]="movieType" class="text-faded mb-0">Looks great on any screen size!</p>
         </div>
         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
           <span class="service-icon rounded-circle mx-auto mb-3">
             <i class="icon-pencil"></i>
           </span>
           <h4>
-            <strong style="cursor: pointer;">IMDB Puanı</strong>
+            <strong class="header-movie noselect" (click)="getImdbScore()">IMDB Puanı</strong>
           </h4>
-          <p class="text-faded mb-0">Freshly redesigned for Bootstrap 4.</p>
+          <p [hidden]="!imdbScore" class="text-faded mb-0">Freshly redesigned for Bootstrap 4.</p>
         </div>
         <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
           <span class="service-icon rounded-circle mx-auto mb-3">
             <i class="icon-like"></i>
           </span>
           <h4>
-            <strong style="cursor: pointer;">Çıkış Yılı</strong>
+            <strong class="header-movie noselect" (click)="getReleaseDate()">Çıkış Yılı</strong>
           </h4>
-          <p class="text-faded mb-0">Millions of users
+          <p [hidden]="!releaseDate" class="text-faded mb-0">Millions of users
             <i class="fas fa-heart"></i>
             Start Bootstrap!</p>
         </div>
@@ -41,10 +41,25 @@
           <span class="service-icon rounded-circle mx-auto mb-3">
             <i class="icon-mustache"></i>
           </span>
-          <h4>
-            <strong style="cursor: pointer;">Menşei</strong>
-          </h4>
-          <p class="text-faded mb-0">I mustache you a question...</p>
+          
+           <h4>
+             <strong class="header-movie noselect" (click)="getOriginCountry()">Menşei</strong>
+           </h4>
+            
+          
+        
+          <div [hidden]="!originCountry" class="btn-group">
+            <button  type="button" class="btn btn-danger btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Action
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
