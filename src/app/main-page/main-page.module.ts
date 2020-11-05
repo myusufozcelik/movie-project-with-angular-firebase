@@ -14,6 +14,7 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { MoreDetailComponent } from './components/search-movie/more-detail/more-detail.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { SelectedMovieComponent } from './components/selected-movie/selected-movie.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
         ActionComponent,
         SearchMovieComponent,
         RecommendMovieComponent,
-        MoreDetailComponent
+        MoreDetailComponent,
+        SelectedMovieComponent
     ],
     imports: [
         CommonModule,
