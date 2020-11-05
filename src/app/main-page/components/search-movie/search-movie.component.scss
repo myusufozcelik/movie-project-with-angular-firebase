@@ -56,6 +56,7 @@ body{
 	transition: all 300ms linear; 
 }
 
+
 ::selection {
 	color: var(--white);
 	background-color: var(--black);
@@ -68,6 +69,8 @@ mark{
 	color: var(--white);
 	background-color: var(--black);
 }
+
+
 .section {
     position: relative;
 	width: 100%;
@@ -230,7 +233,10 @@ mark{
     text-stroke: 1px var(--white);
     -webkit-text-fill-color: transparent;
     text-fill-color: transparent;
-    color: transparent;
+	color: transparent;
+	&:hover {
+		background-color: #FF7F01;
+	}
 }
 .checkbox-budget:not(:checked) + label{
 	background-color: var(--dark-light);
@@ -515,6 +521,5 @@ mark{
 	  align-items: center;
 	  justify-content: center;
 	  background-image: linear-gradient(298deg, var(--red), var(--yellow));
-
   }
  

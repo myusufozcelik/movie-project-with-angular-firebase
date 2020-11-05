@@ -6,46 +6,46 @@
         <h3 class="text-dark mb-0">FİLTRELE</h3>
         <h2 class="mb-5">Aklındaki Filmi Bul!</h2>
       </div>
+      
       <div class="row">
         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
           <span class="service-icon rounded-circle mx-auto mb-3" (click)="getMovieType()" style="background-image: url(../../../../assets/img/vizyon.png); background-color: #FFDFD3; background-repeat: no-repeat; background-size: cover; cursor: pointer;">
           </span>
           <h4>
             <strong class="header-movie noselect" (click)="getMovieType()">Film Türü</strong>
-          </h4>
+          </h4> 
           
-          <div [hidden]="!movieType" class="section over-hide z-bigger">
-            
-            <div class="col-xl-10 pb-5">
-              <form >  
-
-              <input class="checkbox-budget" type="radio" value="Action" name="movieType" id="movieType-1" checked>
+          <div [hidden]="!movieType" class="section over-hide z-bigger" >
+            <form #movieTypeForm>
+            <div class="col-xl-10 pb-5" >
+              
+              <input class="checkbox-budget" type="radio" value="Action" name="movieType" id="movieType-1" [(ngModel)]="movieTypeData" checked>
               <label class="for-checkbox-budget" style="padding-right: 20px;" for="movieType-1">
                 <span #action data-hover="Aksiyon">Aksiyon</span>
               </label>
-              <input class="checkbox-budget" type="radio" value="Comedy" name="movieType" id="movieType-2">
+              <input class="checkbox-budget" type="radio" value="Comedy" name="movieType" id="movieType-2" [(ngModel)]="movieTypeData">
               <label class="for-checkbox-budget" style="padding-right: 15px;" for="movieType-2">						
                 <span data-hover="Komedi">Komedi</span>
               </label>
-              <input class="checkbox-budget" type="radio" name="movieType" value="Drama" id="movieType-3">
+              <input class="checkbox-budget" type="radio" name="movieType" value="Drama" id="movieType-3" [(ngModel)]="movieTypeData">
               <label class="for-checkbox-budget" style="padding-right: 15px;" for="movieType-3">						
                 <span data-hover="Dram">Dram</span>
               </label>
-              <input class="checkbox-budget" type="radio" name="movieType" value="Fantasy" id="movieType-4">
+              <input class="checkbox-budget" type="radio" name="movieType" value="Fantasy" id="movieType-4" [(ngModel)]="movieTypeData">
               <label class="for-checkbox-budget" style="font-size: 46px; text-align: left; padding-left: 3px;" for="movieType-4">							
                 <span data-hover="Fantastik">Fantastik</span>
               </label>
-              <input class="checkbox-budget" type="radio" name="movieType" value="Horror" id="movieType-5">
+              <input class="checkbox-budget" type="radio" name="movieType" value="Horror" id="movieType-5" [(ngModel)]="movieTypeData">
               <label class="for-checkbox-budget" style="padding-right: 18px;" for="movieType-5">							
                 <span data-hover="Korku">Korku</span>
               </label>
-              <input class="checkbox-budget" type="radio" name="movieType" value="Mystery & Romance & Thriller & Western" id="movieType-6">
+              <input class="checkbox-budget" type="radio" name="movieType" value="Mystery & Romance & Thriller & Western" id="movieType-6" [(ngModel)]="movieTypeData">
               <label class="for-checkbox-budget" style="padding-right: 15px;" for="movieType-6">							
                 <span data-hover="Diğer">Diğer</span>
               </label>
-            </form>
+            
             </div>
-        
+          </form>
           </div>
 
         
@@ -61,29 +61,29 @@
           
           
           <div [hidden]="!imdbScore" class="section over-hide z-bigger">
-            <div class="col-xl-10 pb-5" >
+            <div class="col-xl-10 pb-5"  >
              
-              <input class="checkbox-budget" type="radio" name="imdbScore" id="imdbScore-1">
+              <input class="checkbox-budget" type="radio" value="1-4" name="imdbScore" id="imdbScore-1" [(ngModel)]="imdbScoreData">
               <label class="for-checkbox-budget text-center" for="imdbScore-1">
                 <span data-hover="1-4">1-4</span>
               </label>
-              <input class="checkbox-budget" type="radio" name="imdbScore" id="imdbScore-2">
+              <input class="checkbox-budget" type="radio" value="4-6" name="imdbScore" id="imdbScore-2" [(ngModel)]="imdbScoreData">
               <label class="for-checkbox-budget text-center" for="imdbScore-2">							
                 <span data-hover="4-6">4-6</span>
               </label>
-              <input class="checkbox-budget" type="radio" name="imdbScore" id="imdbScore-3">
+              <input class="checkbox-budget" type="radio" value="6-7" name="imdbScore" id="imdbScore-3" [(ngModel)]="imdbScoreData">
               <label class="for-checkbox-budget text-center" for="imdbScore-3">							
                 <span data-hover="6-7">6-7</span>
               </label>
-              <input class="checkbox-budget" type="radio" name="imdbScore" id="imdbScore-4" checked>
+              <input class="checkbox-budget" type="radio" name="imdbScore" value="7-8" id="imdbScore-4" [(ngModel)]="imdbScoreData" checked>
               <label class="for-checkbox-budget text-center" for="imdbScore-4">							
                 <span data-hover="7-8">7-8</span>
               </label>
-              <input class="checkbox-budget" type="radio" name="imdbScore" id="imdbScore-5">
+              <input class="checkbox-budget" type="radio" name="imdbScore" value="8-9" id="imdbScore-5" [(ngModel)]="imdbScoreData">
               <label class="for-checkbox-budget text-center" for="imdbScore-5">							
                 <span data-hover="8-9">8-9</span>
               </label>
-              <input class="checkbox-budget" type="radio" name="imdbScore" id="imdbScore-6">
+              <input class="checkbox-budget" type="radio" name="imdbScore" value="9-10" id="imdbScore-6" [(ngModel)]="imdbScoreData">
               <label class="for-checkbox-budget text-center" for="imdbScore-6">							
                 <span data-hover="9-10">9-10</span>
               </label>
@@ -100,27 +100,27 @@
           
           <div [hidden]="!releaseDate" class="section over-hide z-bigger">
             <div class="col-xl-10 pb-5" >
-              <input class="checkbox-budget" type="radio" name="releaseDate" id="releaseDate-0">
+              <input class="checkbox-budget" type="radio" value="Eski" name="releaseDate" id="releaseDate-0" [(ngModel)]="releaseDateData">
               <label class="for-checkbox-budget" style="padding-right: 15px;" for="releaseDate-0">
                 <span data-hover="ESKI">ESKI</span>
               </label>
-              <input class="checkbox-budget" type="radio" name="releaseDate" id="releaseDate-1">
+              <input class="checkbox-budget" type="radio" name="releaseDate" value="1980" id="releaseDate-1" [(ngModel)]="releaseDateData">
               <label class="for-checkbox-budget" style="padding-right: 10px;"  for="releaseDate-1">
                 <span data-hover="1980's"> 1980's</span>
               </label><!--
-              --><input class="checkbox-budget" type="radio" name="releaseDate" id="releaseDate-2">
+              --><input class="checkbox-budget" type="radio" name="releaseDate" value="1990" id="releaseDate-2" [(ngModel)]="releaseDateData">
               <label class="for-checkbox-budget" style="padding-right: 10px;" for="releaseDate-2">							
                 <span data-hover="1990's">1990'S</span>
               </label><!--
-              --><input class="checkbox-budget" type="radio" name="releaseDate" id="releaseDate-3">
+              --><input class="checkbox-budget" type="radio" name="releaseDate" value="2000" id="releaseDate-3" [(ngModel)]="releaseDateData">
               <label class="for-checkbox-budget" style="padding-right: 10px;" for="releaseDate-3">							
                 <span data-hover="2000's">2000'S</span>
               </label><!--
-              --><input class="checkbox-budget" type="radio" name="releaseDate" id="releaseDate-4">
+              --><input class="checkbox-budget" type="radio" name="releaseDate" value="2010" id="releaseDate-4" [(ngModel)]="releaseDateData">
               <label class="for-checkbox-budget" style="padding-right: 10px;" for="releaseDate-4">							
                 <span data-hover="2010's">2010'S</span>
               </label>
-            <input class="checkbox-budget" type="radio" name="releaseDate" id="releaseDate-5" checked>
+            <input class="checkbox-budget" type="radio" name="releaseDate" value="Yeni" id="releaseDate-5" checked [(ngModel)]="releaseDateData">
             <label class="for-checkbox-budget" style="padding-right: 10px;" for="releaseDate-5">							
               <span data-hover="Yeni">Yeni</span>
             </label>
@@ -137,27 +137,27 @@
 
            <div [hidden]="!originCountry" class="section over-hide z-bigger">
             <div class="col-xl-10 pb-5" >
-              <input class="checkbox-budget" type="radio" name="originCountry" id="originCountry-1" checked>
-              <label class="for-checkbox-budget" style="padding-right: 20px;" for="originCountry-1">
+              <input class="checkbox-budget" type="radio" name="originCountry" value="Amerika" id="originCountry-1"  [(ngModel)]="originCountryData" > 
+              <label class="for-checkbox-budget" style="padding-right: 20px;" for="originCountry-1" >
                 <span data-hover="Amerika">Amerika</span>
               </label>
-              <input class="checkbox-budget" type="radio" name="originCountry" id="originCountry-2">
+              <input class="checkbox-budget" type="radio" name="originCountry" value="Avrupa" id="originCountry-2" [(ngModel)]="originCountryData">
               <label class="for-checkbox-budget" style="padding-right: 20px;" for="originCountry-2">							
                 <span data-hover="Avrupa">Avrupa</span>
               </label>
-              <input class="checkbox-budget" type="radio" name="originCountry" id="originCountry-3">
+              <input class="checkbox-budget" type="radio" name="originCountry" value="Hint" id="originCountry-3" [(ngModel)]="originCountryData">
               <label class="for-checkbox-budget" style="padding-right: 10px;" for="originCountry-3">							
                 <span data-hover="Hint">Hint</span>
               </label>
-              <input class="checkbox-budget" type="radio" name="originCountry" id="originCountry-4">
+              <input class="checkbox-budget" type="radio" name="originCountry" value="Kore" id="originCountry-4" [(ngModel)]="originCountryData">
               <label class="for-checkbox-budget" style="padding-right: 10px;" for="originCountry-4">							
                 <span data-hover="Kore">Kore</span>
               </label>
-              <input class="checkbox-budget" type="radio" name="originCountry" id="originCountry-5">
+              <input class="checkbox-budget" type="radio" name="originCountry" value="Yerli" id="originCountry-5" [(ngModel)]="originCountryData">
               <label class="for-checkbox-budget" style="padding-right: 8px;" for="originCountry-5">							
                 <span data-hover="Yerli">Yerli</span>
               </label>
-              <input class="checkbox-budget" type="radio" name="originCountry" id="originCountry-6">
+              <input class="checkbox-budget" type="radio" name="originCountry" value="Diger" id="originCountry-6" [(ngModel)]="originCountryData">
               <label class="for-checkbox-budget" style="padding-right: 10px;" for="originCountry-6">							
                 <span data-hover="Diğer">Diğer</span>
               </label>
@@ -165,11 +165,11 @@
           </div>
           
         </div>
-        <a  type="submit" [hidden]="!search" class="button pulse searchButton btn-block" style="margin-left: 20px;">
+        <button (click)="saveMovieSearch(movieTypeData, imdbScoreData, releaseDateData, originCountryData)" [hidden]="!search" class="button pulse searchButton btn-block" style="margin-left: 20px;">
           Aklındaki Filmi Ara
-        </a>
+        </button>
       </div>
-    
+   
     </div> 
     
   </section>

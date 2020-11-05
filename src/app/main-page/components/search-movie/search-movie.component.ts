@@ -14,7 +14,11 @@ export class SearchMovieComponent implements OnInit {
   releaseDate = false;
   originCountry = false;
   search = false;
-  @ViewChild('f', {static: true}) test: ElementRef;
+  @ViewChild('movieTypeForm', {static: true}) test: ElementRef;
+  movieTypeData;
+  imdbScoreData;
+  releaseDateData;
+  originCountryData;
 
   constructor() { }
 
@@ -56,10 +60,14 @@ export class SearchMovieComponent implements OnInit {
     }
   }
 
-  getMovie(f) {
-    console.log(f);
+  // tslint:disable-next-line: typedef
+  saveMovieSearch(type= 'action', imdb= '7-8', release= 'Yeni', origin= 'Amerika') {
+
+   console.log(type);
+   console.log(imdb);
+   console.log(release);
+   console.log(origin);
+
   }
-
-
 
 }
