@@ -11,7 +11,11 @@ $primary: #1D809F !default;
     display: block;
     line-height: 7.5rem;
     font-size: 2.25rem;
-    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+	&:hover {
+		clip-path: circle(49%);
+		
+	}
   }
   
   .header-movie {
