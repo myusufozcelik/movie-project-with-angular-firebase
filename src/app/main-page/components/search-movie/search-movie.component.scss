@@ -432,3 +432,89 @@ mark{
 	height: auto;
 	display: block;
 }
+
+.text-center {
+	padding-right: 15px !important;
+}
+
+// Search Button
+
+@keyframes pulse {
+	0% {
+	  transform: scale(0);
+	  opacity: 0;
+	}
+	33% {
+	  transform: scale(1);
+	  opacity: 1;
+	}
+	100% {
+	  transform: scale(3);
+	  opacity: 0;
+	}
+  }
+  
+  .button {
+	display: inline-flex;
+	align-items: center;
+	background: #645f60;
+	box-shadow: 0 3px 2px 0 rgba(218, 202, 202, 0.1);
+	border-radius: 5px;
+	height: 45px;
+	font-family: 'Poppins', sans-serif;
+	font-size: 20px;
+	padding: 0 30px;
+	letter-spacing: 5px;
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: background .3s, transform .3s, box-shadow .3s;
+	 will-change: transform;
+	
+	&:hover {
+		background-image: linear-gradient(298deg, var(--red), var(--yellow));
+		box-shadow: 0 4px 17px rgba(207, 207, 197, 0.2);
+	  transform: translate3d(0, -2px, 0);
+	}
+	&:active {
+	  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+	  transform: translate3d(0, 1px, 0);
+	}
+  }
+  
+  .pulse {
+	position: relative;
+	
+	&:before, &:after {
+	  content: '';
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  background: rgba(78, 8, 8, 0.4);
+	  border-radius: 50%;
+	  width: 20px;
+	  height: 20px;
+	  opacity: 0;
+	  margin: auto;
+	}
+	&:before {
+	  animation: pulse 1.5s infinite linear;
+	}
+	&:after {
+	  animation: pulse 2s .4s infinite linear;
+	}
+	&:hover:before, &:hover:after {
+	  display: none;
+	}
+  }
+
+  .searchButton {
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  background-image: linear-gradient(298deg, var(--red), var(--yellow));
+
+  }
+ 

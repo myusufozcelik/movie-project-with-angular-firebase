@@ -1,3 +1,6 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './../app-routing.module';
+import { CommonModule } from '@angular/common';
 import { RecommendMovieComponent } from './components/recommend-movie/recommend-movie.component';
 import { SearchMovieComponent } from './components/search-movie/search-movie.component';
 import { ActionComponent } from './components/action/action.component';
@@ -8,6 +11,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { MoreDetailComponent } from './components/search-movie/more-detail/more-detail.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -19,7 +25,16 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
         ServicesComponent,
         ActionComponent,
         SearchMovieComponent,
-        RecommendMovieComponent
+        RecommendMovieComponent,
+        MoreDetailComponent
+    ],
+    imports: [
+        CommonModule,
+        AppRoutingModule,
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule
     ]
 })
 export class MainPageModule { }

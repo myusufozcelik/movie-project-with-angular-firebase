@@ -8,81 +8,168 @@
       </div>
       <div class="row">
         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-          <span class="service-icon rounded-circle mx-auto mb-3">
-             <!--Logo buraya-->
-            
+          <span class="service-icon rounded-circle mx-auto mb-3" (click)="getMovieType()" style="background-image: url(../../../../assets/img/vizyon.png); background-color: #FFDFD3; background-repeat: no-repeat; background-size: cover; cursor: pointer;">
           </span>
           <h4>
             <strong class="header-movie noselect" (click)="getMovieType()">Film Türü</strong>
           </h4>
-          <p [hidden]="movieType" class="text-faded mb-0">Looks great on any screen size!</p>
+          
+          <div [hidden]="!movieType" class="section over-hide z-bigger">
+            
+            <div class="col-xl-10 pb-5">
+              <form >  
+
+              <input class="checkbox-budget" type="radio" value="Action" name="movieType" id="movieType-1" checked>
+              <label class="for-checkbox-budget" style="padding-right: 20px;" for="movieType-1">
+                <span #action data-hover="Aksiyon">Aksiyon</span>
+              </label>
+              <input class="checkbox-budget" type="radio" value="Comedy" name="movieType" id="movieType-2">
+              <label class="for-checkbox-budget" style="padding-right: 15px;" for="movieType-2">						
+                <span data-hover="Komedi">Komedi</span>
+              </label>
+              <input class="checkbox-budget" type="radio" name="movieType" value="Drama" id="movieType-3">
+              <label class="for-checkbox-budget" style="padding-right: 15px;" for="movieType-3">						
+                <span data-hover="Dram">Dram</span>
+              </label>
+              <input class="checkbox-budget" type="radio" name="movieType" value="Fantasy" id="movieType-4">
+              <label class="for-checkbox-budget" style="font-size: 46px; text-align: left; padding-left: 3px;" for="movieType-4">							
+                <span data-hover="Fantastik">Fantastik</span>
+              </label>
+              <input class="checkbox-budget" type="radio" name="movieType" value="Horror" id="movieType-5">
+              <label class="for-checkbox-budget" style="padding-right: 18px;" for="movieType-5">							
+                <span data-hover="Korku">Korku</span>
+              </label>
+              <input class="checkbox-budget" type="radio" name="movieType" value="Mystery & Romance & Thriller & Western" id="movieType-6">
+              <label class="for-checkbox-budget" style="padding-right: 15px;" for="movieType-6">							
+                <span data-hover="Diğer">Diğer</span>
+              </label>
+            </form>
+            </div>
+        
+          </div>
+
+        
+
+
         </div>
         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-          <span class="service-icon rounded-circle mx-auto mb-3">
-            <i class="icon-pencil"></i>
+          <span class="service-icon rounded-circle mx-auto mb-3" (click)="getImdbScore()" style="cursor: pointer; background-image: url(../../../../assets/img/imdb.png); background-color:#F2DB83; background-repeat: no-repeat; background-size: cover;">
           </span>
           <h4>
             <strong class="header-movie noselect" (click)="getImdbScore()">IMDB Puanı</strong>
           </h4>
           
-          <div [hidden]="!imdbScore" class="section over-hide z-bigger">
-          <div class="col-xl-10 pb-5" >
-						<input class="checkbox-budget" type="radio" name="budget" id="budget-1" checked>
-						<label class="for-checkbox-budget" for="budget-1">
-							<span data-hover="1-5">1-5</span>
-						</label><!--
-						--><input class="checkbox-budget" type="radio" name="budget" id="budget-2">
-						<label class="for-checkbox-budget" for="budget-2">							
-							<span data-hover="5-7">5-7</span>
-						</label><!--
-						--><input class="checkbox-budget" type="radio" name="budget" id="budget-3">
-						<label class="for-checkbox-budget" for="budget-3">							
-							<span data-hover="7-8">7-8</span>
-						</label><!--
-						--><input class="checkbox-budget" type="radio" name="budget" id="budget-4">
-						<label class="for-checkbox-budget" for="budget-4">							
-							<span data-hover="8-9">8-9</span>
-						</label>
-					</div>
-        </div>
           
+          <div [hidden]="!imdbScore" class="section over-hide z-bigger">
+            <div class="col-xl-10 pb-5" >
+             
+              <input class="checkbox-budget" type="radio" name="imdbScore" id="imdbScore-1">
+              <label class="for-checkbox-budget text-center" for="imdbScore-1">
+                <span data-hover="1-4">1-4</span>
+              </label>
+              <input class="checkbox-budget" type="radio" name="imdbScore" id="imdbScore-2">
+              <label class="for-checkbox-budget text-center" for="imdbScore-2">							
+                <span data-hover="4-6">4-6</span>
+              </label>
+              <input class="checkbox-budget" type="radio" name="imdbScore" id="imdbScore-3">
+              <label class="for-checkbox-budget text-center" for="imdbScore-3">							
+                <span data-hover="6-7">6-7</span>
+              </label>
+              <input class="checkbox-budget" type="radio" name="imdbScore" id="imdbScore-4" checked>
+              <label class="for-checkbox-budget text-center" for="imdbScore-4">							
+                <span data-hover="7-8">7-8</span>
+              </label>
+              <input class="checkbox-budget" type="radio" name="imdbScore" id="imdbScore-5">
+              <label class="for-checkbox-budget text-center" for="imdbScore-5">							
+                <span data-hover="8-9">8-9</span>
+              </label>
+              <input class="checkbox-budget" type="radio" name="imdbScore" id="imdbScore-6">
+              <label class="for-checkbox-budget text-center" for="imdbScore-6">							
+                <span data-hover="9-10">9-10</span>
+              </label>
+            </div>
+          </div>
+
         </div>
         <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-          <span class="service-icon rounded-circle mx-auto mb-3">
-            <i class="icon-like"></i>
+          <span class="service-icon rounded-circle mx-auto mb-3" (click)="getReleaseDate()" style="cursor: pointer; background-image: url(../../../../assets/img/calendar.png); background-color: #e0ad88;  background-repeat: no-repeat; background-size: cover;">
           </span>
           <h4>
             <strong class="header-movie noselect" (click)="getReleaseDate()">Çıkış Yılı</strong>
           </h4>
           
-
-            
-
-
+          <div [hidden]="!releaseDate" class="section over-hide z-bigger">
+            <div class="col-xl-10 pb-5" >
+              <input class="checkbox-budget" type="radio" name="releaseDate" id="releaseDate-0">
+              <label class="for-checkbox-budget" style="padding-right: 15px;" for="releaseDate-0">
+                <span data-hover="ESKI">ESKI</span>
+              </label>
+              <input class="checkbox-budget" type="radio" name="releaseDate" id="releaseDate-1">
+              <label class="for-checkbox-budget" style="padding-right: 10px;"  for="releaseDate-1">
+                <span data-hover="1980's"> 1980's</span>
+              </label><!--
+              --><input class="checkbox-budget" type="radio" name="releaseDate" id="releaseDate-2">
+              <label class="for-checkbox-budget" style="padding-right: 10px;" for="releaseDate-2">							
+                <span data-hover="1990's">1990'S</span>
+              </label><!--
+              --><input class="checkbox-budget" type="radio" name="releaseDate" id="releaseDate-3">
+              <label class="for-checkbox-budget" style="padding-right: 10px;" for="releaseDate-3">							
+                <span data-hover="2000's">2000'S</span>
+              </label><!--
+              --><input class="checkbox-budget" type="radio" name="releaseDate" id="releaseDate-4">
+              <label class="for-checkbox-budget" style="padding-right: 10px;" for="releaseDate-4">							
+                <span data-hover="2010's">2010'S</span>
+              </label>
+            <input class="checkbox-budget" type="radio" name="releaseDate" id="releaseDate-5" checked>
+            <label class="for-checkbox-budget" style="padding-right: 10px;" for="releaseDate-5">							
+              <span data-hover="Yeni">Yeni</span>
+            </label>
+            </div>
+          </div>
             
         </div>
         <div class="col-lg-3 col-md-6">
-          <span class="service-icon rounded-circle mx-auto mb-3">
-            <i class="icon-mustache"></i>
+          <span class="service-icon rounded-circle mx-auto mb-3" (click)="getOriginCountry()" style="background-image: url(../../../../assets/img/origin.png); background-color: #B3D6E8;  background-repeat: no-repeat; background-size: cover; cursor: pointer;">
           </span>
-          
            <h4>
              <strong class="header-movie noselect" (click)="getOriginCountry()">Menşei</strong>
            </h4>
 
-          <div [hidden]="!originCountry" class="btn-group">
-            <button  type="button" class="btn btn-danger btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Action
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
+           <div [hidden]="!originCountry" class="section over-hide z-bigger">
+            <div class="col-xl-10 pb-5" >
+              <input class="checkbox-budget" type="radio" name="originCountry" id="originCountry-1" checked>
+              <label class="for-checkbox-budget" style="padding-right: 20px;" for="originCountry-1">
+                <span data-hover="Amerika">Amerika</span>
+              </label>
+              <input class="checkbox-budget" type="radio" name="originCountry" id="originCountry-2">
+              <label class="for-checkbox-budget" style="padding-right: 20px;" for="originCountry-2">							
+                <span data-hover="Avrupa">Avrupa</span>
+              </label>
+              <input class="checkbox-budget" type="radio" name="originCountry" id="originCountry-3">
+              <label class="for-checkbox-budget" style="padding-right: 10px;" for="originCountry-3">							
+                <span data-hover="Hint">Hint</span>
+              </label>
+              <input class="checkbox-budget" type="radio" name="originCountry" id="originCountry-4">
+              <label class="for-checkbox-budget" style="padding-right: 10px;" for="originCountry-4">							
+                <span data-hover="Kore">Kore</span>
+              </label>
+              <input class="checkbox-budget" type="radio" name="originCountry" id="originCountry-5">
+              <label class="for-checkbox-budget" style="padding-right: 8px;" for="originCountry-5">							
+                <span data-hover="Yerli">Yerli</span>
+              </label>
+              <input class="checkbox-budget" type="radio" name="originCountry" id="originCountry-6">
+              <label class="for-checkbox-budget" style="padding-right: 10px;" for="originCountry-6">							
+                <span data-hover="Diğer">Diğer</span>
+              </label>
             </div>
           </div>
+          
         </div>
+        <a  type="submit" [hidden]="!search" class="button pulse searchButton btn-block" style="margin-left: 20px;">
+          Aklındaki Filmi Ara
+        </a>
       </div>
-    </div>
+    
+    </div> 
+    
   </section>
