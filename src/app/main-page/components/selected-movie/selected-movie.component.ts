@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-selected-movie',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectedMovieComponent implements OnInit {
 
+  openTrailerBoolean = false;
+  openCardBoolean = true;
+  imdbScore = 6.7;
+  ourScore =  6.5;
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
+  trailerFunction() {
+    this.openTrailerBoolean = !this.openTrailerBoolean;
+    this.openCardBoolean = !this.openCardBoolean;
+  }
+
 
 }

@@ -1,3 +1,4 @@
+import { TitleCasePipe } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild, Input } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
 
@@ -19,6 +20,7 @@ export class SearchMovieComponent implements OnInit {
   imdbScoreData;
   releaseDateData;
   originCountryData;
+  error: string;
 
   constructor() { }
 
@@ -50,6 +52,14 @@ export class SearchMovieComponent implements OnInit {
     this.searchMovie();
   }
 
+  closeSearchTab()  {
+    this.releaseDate = false;
+    this.imdbScore = false;
+    this.originCountry = false;
+    this.movieType = false;
+    this.search = false;
+  }
+
   // tslint:disable-next-line: typedef
   searchMovie() {
     if (this.movieType || this.imdbScore || this.originCountry || this.releaseDate) {
@@ -67,7 +77,12 @@ export class SearchMovieComponent implements OnInit {
    console.log(imdb);
    console.log(release);
    console.log(origin);
+    this.closeSearchTab();
+    // this.error = 'Error';
+  }
 
+  onHandleError() {
+    this.error = null;
   }
 
 }

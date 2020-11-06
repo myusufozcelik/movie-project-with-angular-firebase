@@ -1,5 +1,4 @@
-
-
+<app-search-alert [message]="error" *ngIf="error" (close)="onHandleError()"></app-search-alert>
 <section class="content-section bg-light text-muted text-center" id="services">
     <div class="container">
       <div class="content-section-heading">
@@ -173,3 +172,4 @@
     </div> 
     
   </section>
+
