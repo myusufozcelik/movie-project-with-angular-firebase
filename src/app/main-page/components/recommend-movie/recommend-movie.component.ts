@@ -1,4 +1,7 @@
+import { MovieService } from './../../../services/movie/movie.service';
 import { Component, OnInit } from '@angular/core';
+import { Movie } from 'src/app/models/movie.model';
+import { take, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-recommend-movie',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecommendMovieComponent implements OnInit {
 
-  constructor() { }
+  trendMovies: Movie[];
+
+  constructor(private movieService: MovieService) { }
 
   ngOnInit() {
+    this.getTrendMovies();
   }
+
+  getTrendMovies() {
+   // TODO
+    }
 
 }

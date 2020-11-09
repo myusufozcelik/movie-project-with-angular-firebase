@@ -1,4 +1,7 @@
+import { Movie } from './../../../models/movie.model';
+import { MovieService } from './../../../services/movie/movie.service';
 import { Component, OnInit } from '@angular/core';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-main-page',
@@ -9,7 +12,12 @@ export class MainPageComponent implements OnInit {
 
   constructor() { }
 
+ 
+
   ngOnInit(): void {
   }
+
+
+
 
 }

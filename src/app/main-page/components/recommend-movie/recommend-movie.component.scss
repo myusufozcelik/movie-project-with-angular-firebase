@@ -18,6 +18,12 @@ a {
     text-decoration: none;
 }
 
+
+.background-style {
+   background-repeat: no-repeat; 
+   background-size: cover;
+}
+
 .card-list {
     display: flex;
     padding: 3rem;
