@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { TitleCasePipe } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild, Input } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
@@ -15,6 +16,7 @@ export class SearchMovieComponent implements OnInit {
   releaseDate = false;
   originCountry = false;
   search = false;
+  openMovie;
   @ViewChild('movieTypeForm', {static: true}) test: ElementRef;
   movieTypeData;
   imdbScoreData;
@@ -22,7 +24,7 @@ export class SearchMovieComponent implements OnInit {
   originCountryData;
   error: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
@@ -52,6 +54,7 @@ export class SearchMovieComponent implements OnInit {
     this.searchMovie();
   }
 
+  // tslint:disable-next-line: typedef
   closeSearchTab()  {
     this.releaseDate = false;
     this.imdbScore = false;
@@ -77,12 +80,21 @@ export class SearchMovieComponent implements OnInit {
    console.log(imdb);
    console.log(release);
    console.log(origin);
-    this.closeSearchTab();
+   this.closeSearchTab();
+   this.openMovie = true;
+  //  this.router.navigate(['/deneme']);
     // this.error = 'Error';
   }
 
+  // tslint:disable-next-line: typedef
   onHandleError() {
     this.error = null;
+  }
+
+  // tslint:disable-next-line: typedef
+  onButtonExit() {
+    this.openMovie = false;
+    console.log(this.openMovie);
   }
 
 }

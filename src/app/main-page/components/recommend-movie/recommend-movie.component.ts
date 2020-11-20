@@ -14,10 +14,12 @@ export class RecommendMovieComponent implements OnInit {
 
   constructor(private movieService: MovieService) { }
 
+  // tslint:disable-next-line: typedef
   ngOnInit() {
     this.getTrendMovies();
   }
 
+  // tslint:disable-next-line: typedef
   getTrendMovies() {
    // TODO
     }
