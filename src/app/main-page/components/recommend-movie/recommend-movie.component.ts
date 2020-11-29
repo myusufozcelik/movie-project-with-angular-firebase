@@ -1,7 +1,9 @@
 import { MovieService } from './../../../services/movie/movie.service';
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/movie.model';
-import { take, map } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
+import { environment } from '../../../../environments/environment';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-recommend-movie',
@@ -11,17 +13,21 @@ import { take, map } from 'rxjs/operators';
 export class RecommendMovieComponent implements OnInit {
 
   trendMovies: Movie[];
+  trendMoviePath = environment.trendMovies;
+  constructor(private movieService: MovieService) {
+   }
 
-  constructor(private movieService: MovieService) { }
-
-  // tslint:disable-next-line: typedef
   ngOnInit() {
     this.getTrendMovies();
   }
 
-  // tslint:disable-next-line: typedef
+
   getTrendMovies() {
-   // TODO
+      this.movieService.getTrend().pipe(take(7))
+      .subscribe(getTrend => {
+        this.trendMovies = getTrend.slice(0, 6);
+        console.log(this.trendMovies);
+      });
     }
 
 }
