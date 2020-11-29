@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  trendMovies: 'https://api.themoviedb.org/3/movie/popular?api_key=1809a55509c3d4f7842300e2a5529fbb&language=en-US&page=1'
+  apiKeyTmdb: '1809a55509c3d4f7842300e2a5529fbb',
+  apiKeyOmdb: '5bf6e8dc',
+  detailOmdbMovies: 'http://www.omdbapi.com/?i=',
+  trendMovies: `https://api.themoviedb.org/3/movie/popular?api_key=1809a55509c3d4f7842300e2a5529fbb&language=en-US&page=1`,
+  detailMovies: 'https://api.themoviedb.org/3/movie'
 };
 
 /*

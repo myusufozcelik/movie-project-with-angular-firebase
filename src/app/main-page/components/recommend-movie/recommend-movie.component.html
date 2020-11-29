@@ -12,11 +12,11 @@
               <div id="container">
                 <div class="card">
                   <div class="imgContainer">
-                    <img src="https://image.tmdb.org/t/p/w154/{{trendMovie.poster_path}}" alt="">
+                    <img class="give-point" (click)="getMovies(trendMovie)" src="https://image.tmdb.org/t/p/w154/{{trendMovie.poster_path}}" alt="">
                   </div>
                   <div class="content">
-                    <h2> {{trendMovie.title}} 
-                     <span *ngIf="trendMovie.original_title !== trendMovie.title">- {{trendMovie.original_title}}</span> </h2>
+                    <h2 class="give-point" (click)="getMovies(trendMovie)"> {{trendMovie.title}} 
+                     <span class="give-point" (click)="getMovies(trendMovie)" *ngIf="trendMovie.original_title !== trendMovie.title">- {{trendMovie.original_title}}</span> </h2>
                     <p>A mild-mannered chemist and an ex-con must lead...</p>
                     <ul>
                       <li><a href="#"><i class="fa fa-amazon" aria-hidden="true"></i></a></li>

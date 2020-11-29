@@ -1,3 +1,4 @@
+import { Movies } from './../../../models/movies.model';
 import { MovieService } from './../../../services/movie/movie.service';
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/movie.model';
@@ -13,7 +14,9 @@ import { ThrowStmt } from '@angular/compiler';
 export class RecommendMovieComponent implements OnInit {
 
   trendMovies: Movie[];
+  movies: Movies[];
   trendMoviePath = environment.trendMovies;
+  imdbId: number;
   constructor(private movieService: MovieService) {
    }
 
@@ -30,4 +33,20 @@ export class RecommendMovieComponent implements OnInit {
       });
     }
 
+  // tslint:disable-next-line: typedef
+  getMovies(movie: Movie) {
+    this.movieService.getMovies(movie.id)
+    .subscribe(data => {
+      this.movies = data;
+      console.log(this.movies);
+      this.getMoviesOmdb(this.movies['imdb_id']);
+    });
+  }
+
+  getMoviesOmdb(imdbId: any) {
+    return this.movieService.getMoviesOmdb(imdbId)
+    .subscribe(data => {
+      console.log(data);
+    });
+  }
 }
