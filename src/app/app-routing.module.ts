@@ -1,3 +1,4 @@
+import { MovieMainPageComponent } from './movies-page/movie-main-page/main-page.component';
 import { RegisterComponent } from './common/register/register.component';
 import { MainPageComponent } from './main-page/components/main-page/main-page.component';
 import { LoginComponent } from './common/login/login.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path: 'main', component: MainPageComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'deneme', component: SelectedMovieComponent},
+  {path: 'movies', component: MovieMainPageComponent},
   {path: '', redirectTo: 'main', pathMatch: 'full'}
 ];
 

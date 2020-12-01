@@ -1,6 +1,6 @@
 import { Movies } from './../../../models/movies.model';
 import { MovieService } from './../../../services/movie/movie.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/movie.model';
 import { take } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
@@ -13,7 +13,7 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class RecommendMovieComponent implements OnInit {
 
-  trendMovies: Movie[];
+  @Input() trendMovies: Movie[];
   movies: Movies[];
   trendMoviePath = environment.trendMovies;
   imdbId: number;
