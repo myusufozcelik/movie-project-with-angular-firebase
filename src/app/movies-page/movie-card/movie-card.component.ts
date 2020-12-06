@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/movie.model';
 import { MovieService } from 'src/app/services/movie/movie.service';
 
@@ -9,20 +9,19 @@ import { MovieService } from 'src/app/services/movie/movie.service';
 })
 export class MovieCardComponent implements OnInit {
 
-  trendMovies: Movie[];
+  @Input() getMovies: Movie[];
 
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
-    this.getTrendMovies();
   }
 
-  getTrendMovies(): any {
-    this.movieService.getTrend()
-    .subscribe(data => {
-      this.trendMovies = data;
-      console.log(this.trendMovies);
-    });
-  }
+  // getTrendMovies(): any {
+  //   this.movieService.getTrend()
+  //   .subscribe(data => {
+  //     this.trendMovies = data;
+  //     console.log(this.trendMovies);
+  //   });
+  // }
 
 }

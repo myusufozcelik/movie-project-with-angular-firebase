@@ -15,7 +15,7 @@ export class RecommendMovieComponent implements OnInit {
 
   @Input() trendMovies: Movie[];
   movies: Movies[];
-  trendMoviePath = environment.trendMovies;
+  trendMoviePath = environment.popularMovies;
   imdbId: number;
   constructor(private movieService: MovieService) {
    }

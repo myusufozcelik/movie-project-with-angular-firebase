@@ -1,75 +1,23 @@
-<!-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-4">       
-            <div class="card shadow" style="width: 20rem;">
-                <div class="inner">
-                    <img class="card-img-top" src="https://images.alphacoders.com/765/thumb-1920-765810.jpg" alt="Card image cap">
-                </div>
-                <div class="card-body text-center">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                 
-                </div>
-              </div>
-        </div>
-
-        <div class="col-md-4">       
-            <div class="card shadow" style="width: 20rem;">
-                <div class="inner">
-                    <img class="card-img-top" src="https://images.alphacoders.com/765/thumb-1920-765810.jpg" alt="Card image cap">
-                </div>
-                <div class="card-body text-center">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-        </div>
-        <div class="col-md-4">       
-            <div class="card shadow" style="width: 20rem;">
-                <div class="inner">
-                    <img class="card-img-top" src="https://images.alphacoders.com/765/thumb-1920-765810.jpg" alt="Card image cap">
-                </div>
-                <div class="card-body text-center">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-        </div>
-
-        <div class="col-md-4">       
-            <div class="card shadow" style="width: 20rem;">
-                <div class="inner">
-                    <img class="card-img-top" src="https://images.alphacoders.com/765/thumb-1920-765810.jpg" alt="Card image cap">
-                </div>
-                <div class="card-body text-center">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-        </div>
-        
-        
-    </div>
-</div> -->
 <body>
-<div class="container">
-    <div class="list-wrapper">
-        <div class="list-item" *ngFor="let trendMovie of trendMovies">
-            <div class="content">
-                <img src="https://image.tmdb.org/t/p/w154/{{trendMovie.poster_path}}">
-                <div class="text">
-                    <h3>{{trendMovie.title}}</h3>
-                    <p>{{trendMovie.popularity}}</p>
-                    <p>{{trendMovie.release_date}}</p>
+    <div class="container">
+
+        <div class="card" *ngFor="let trendMovie of getMovies">
+            <div class="face face1">
+                <div class="content">
+                    <div class="icon">
+                        <img class="fa" src="https://image.tmdb.org/t/p/w300/{{trendMovie.poster_path}}">
+                    </div>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <h3>
+                        <a target="_blank">{{trendMovie.title}}</a>
+                    </h3>
+                    <p>{{trendMovie.overview}}</p>
                 </div>
             </div>
         </div>
-
-
     </div>
-</div>
 
 </body>
