@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'now-playing-movies', component: NowPlayingMoviesComponent},
   {path: 'top-rated-movies', component: TopRatedMoviesComponent},
   {path: 'upcoming-movies', component: UpcomingMoviesComponent},
-  {path: 'movie', component: MainPageMovieComponent},
+  {path: 'movie/:id', component: MainPageMovieComponent},
   {path: '', redirectTo: 'main', pathMatch: 'full'}
 ];
 

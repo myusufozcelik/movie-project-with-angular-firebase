@@ -23,11 +23,10 @@ export class NowPlayingMoviesComponent implements OnInit {
     this.movieService.getNowPlaying()
     .subscribe(data => {
       this.movies = data;
-      console.log(this.movies);
     });
   }
-  
-  gotoTop() {
+
+  gotoTop(): any {
     window.scroll({
       top:  1000,
       left: 10,

@@ -4,7 +4,7 @@
         <div class="card" *ngFor="let trendMovie of getMovies">
             <div class="face face1">
                 <div class="content">
-                    <div class="icon">
+                    <div class="icon" routerLink="/movie/{{trendMovie.id}}">
                         <img class="fa" src="https://image.tmdb.org/t/p/w300/{{trendMovie.poster_path}}">
                     </div>
                 </div>

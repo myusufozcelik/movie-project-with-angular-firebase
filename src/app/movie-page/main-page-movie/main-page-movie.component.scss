@@ -14,7 +14,6 @@ hr {
 }
 
 .background {
-    background: url('https://i.pinimg.com/originals/57/b9/ae/57b9ae81d5d3c4d124758103c224f380.jpg') no-repeat center;
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -39,6 +38,10 @@ hr {
     text-transform: uppercase;
     font-weight: 800;
     letter-spacing: 5px;
+}
+
+.background-content h3 {
+    color: white;
 }
 
 .background-content p {
@@ -68,8 +71,10 @@ hr {
 }
 
 .popular-movie p {
-    color: white;
-    font-size: 0.8em;
+    color: rgb(245, 238, 238);
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
 }
 
 .popular-movie img {
