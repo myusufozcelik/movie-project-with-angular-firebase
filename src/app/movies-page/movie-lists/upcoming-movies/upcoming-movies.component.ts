@@ -25,4 +25,12 @@ export class UpcomingMoviesComponent implements OnInit {
     });
   }
 
+  gotoTop() {
+    window.scroll({
+      top:  1000,
+      left: 10,
+      behavior: 'smooth'
+    });
+  }
+
 }

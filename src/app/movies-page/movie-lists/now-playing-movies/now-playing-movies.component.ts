@@ -26,6 +26,13 @@ export class NowPlayingMoviesComponent implements OnInit {
       console.log(this.movies);
     });
   }
-
+  
+  gotoTop() {
+    window.scroll({
+      top:  1000,
+      left: 10,
+      behavior: 'smooth'
+    });
+  }
 
 }

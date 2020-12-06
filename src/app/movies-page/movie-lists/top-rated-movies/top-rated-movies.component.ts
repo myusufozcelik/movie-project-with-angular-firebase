@@ -25,5 +25,13 @@ export class TopRatedMoviesComponent implements OnInit {
     });
   }
 
+  gotoTop() {
+    window.scroll({
+      top:  1000,
+      left: 10,
+      behavior: 'smooth'
+    });
+  }
+
 
 }
