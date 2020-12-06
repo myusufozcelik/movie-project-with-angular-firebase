@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SelectedMovieComponent } from './main-page/components/selected-movie/selected-movie.component';
 import { NowPlayingMoviesComponent } from './movies-page/movie-lists/now-playing-movies/now-playing-movies.component';
+import { MainPageMovieComponent } from './movie-page/main-page-movie/main-page-movie.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'now-playing-movies', component: NowPlayingMoviesComponent},
   {path: 'top-rated-movies', component: TopRatedMoviesComponent},
   {path: 'upcoming-movies', component: UpcomingMoviesComponent},
+  {path: 'movie', component: MainPageMovieComponent},
   {path: '', redirectTo: 'main', pathMatch: 'full'}
 ];
 
