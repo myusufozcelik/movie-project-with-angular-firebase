@@ -82,7 +82,7 @@
                     </div>
                     <h6>
                         {{movieDetail?.release_date}} |
-                        {{movieDetail?.genres[0]?.name}}
+                        <!-- {{movieDetail?.genres[0]?.name}}
                         <span *ngIf="movieDetail?.genres[1]?.name">
                             | {{movieDetail?.genres[1]?.name}}
                         </span>
@@ -91,7 +91,12 @@
                         </span>
                         <span *ngIf="movieDetail?.genres[3]?.name">
                             | {{movieDetail?.genres[3]?.name}}
-                        </span>
+                        </span> -->
+                        <span *ngFor="let genres of movieDetail?.genres">
+                        <button type="button" class="btn btn-info ml-1" style="opacity: .9;" >
+                            {{genres.name}}
+                        </button>
+                    </span>
                     </h6>
 
                     <button class="btn">
