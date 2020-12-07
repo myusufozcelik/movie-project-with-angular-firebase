@@ -91,3 +91,60 @@ hr {
     margin-bottom: 20px;
 }
 
+.star {
+    position: relative;
+    
+    display: inline-block;
+    width: 0;
+    height: 0;
+    
+    margin-left: .9em;
+    margin-right: .9em;
+    margin-bottom: 1.2em;
+    
+    border-right:  .3em solid transparent;
+    border-bottom: .7em  solid #fff3b2;
+    border-left:   .3em solid transparent;
+  
+    /* Controlls the size of the stars. */
+    font-size: 2.5rem;
+    
+    &:before, &:after {
+      content: '';
+      
+      display: block;
+      width: 0;
+      height: 0;
+      
+      position: absolute;
+      top: .6em;
+      left: -1em;
+    
+      border-right:  1em solid transparent;
+      border-bottom: .7em  solid #fff3b2;
+      border-left:   1em solid transparent;
+    
+      transform: rotate(-35deg);
+    }
+    
+    &:after {  
+      transform: rotate(35deg);
+    }
+  }
+
+  .star-content {
+      position: absolute;
+      top: 37%;
+      left: 37% ;
+      z-index: 999999;
+      text-align: center ;
+  }
+
+  .star-content span {
+      color: #41584b;
+      font-size: 1.45rem;
+      margin: -22px;
+      font-family: sans-serif;
+      
+      
+    }
