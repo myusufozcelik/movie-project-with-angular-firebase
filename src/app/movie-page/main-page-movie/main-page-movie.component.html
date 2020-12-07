@@ -50,13 +50,15 @@
             <div class="background"
                 style="background: url('https://image.tmdb.org/t/p/original/{{movieDetail?.backdrop_path}}') no-repeat center;">
                 <div class="background-content">
+               
                     <h1 class="display-3"> {{movieDetail?.original_title}}  
-                        <!--position:relative-->
-                        <i class="star">
+                       
+                         <i class="star">
                             <div class="star-content mt-1 ">
                                 <span>4.3</span>
                             </div>
-                        </i>
+                        </i> 
+
                     </h1>
                     <div class="float-right row mb-5 column">
                         <div *ngFor="let cast of movieCast">
@@ -79,12 +81,16 @@
                             <i class="fa fa-star text-dark"></i> -->
                     </div>
                     <h6>
+                        {{movieDetail?.release_date}} |
                         {{movieDetail?.genres[0]?.name}}
                         <span *ngIf="movieDetail?.genres[1]?.name">
                             | {{movieDetail?.genres[1]?.name}}
                         </span>
                         <span *ngIf="movieDetail?.genres[2]?.name">
                             | {{movieDetail?.genres[2]?.name}}
+                        </span>
+                        <span *ngIf="movieDetail?.genres[3]?.name">
+                            | {{movieDetail?.genres[3]?.name}}
                         </span>
                     </h6>
 

@@ -44,7 +44,7 @@ export class MainPageMovieComponent implements OnInit {
       .subscribe(data => {
         this.movieDetail = data;
         this.movieId = data.id;
-        //  console.log(this.movieDetail);
+          console.log(this.movieDetail);
       });
 
     this.movieService.getSimilar(movieId)

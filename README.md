@@ -19,3 +19,7 @@ Yapılacaklar:
 18) Film ekranında ki oyuncuların ismine göre kayma sorunu giderilecek ***
 19) Film ekranında açıklamanın önerilen filmler kısmına kayma sorunu giderilecek ***
 20) Film ekranına Menşei/Ödülleri gibi alanlar eklenecek. ***
+21) Film ekranında Genres kısmına buton eklenecek. Butona tıklayınca kategorideki filmleri gösterecek ***
+22) Film arama seçeneği eklenecek ****
+23) Film Sıralama seçeneği eklenecek ****
+24) Giriş yapan kullanıcının beğendiği filmler bir sayfada gösterilecek.
