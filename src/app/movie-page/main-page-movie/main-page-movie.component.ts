@@ -1,3 +1,4 @@
+import { Cast } from './../../models/cast.model';
 import { TranslateObject } from './../../models/translate-object.model';
 import { Movies } from './../../models/movies.model';
 import { Movie } from 'src/app/models/movie.model';
@@ -19,6 +20,7 @@ export class MainPageMovieComponent implements OnInit {
   movieDetail: Movies;
   movieId: number;
   translate?: TranslateObject;
+  movieCast: Cast[];
 
   constructor(private movieService: MovieService, private router: ActivatedRoute, private route: Router) {
     this.getMovieDetails();
@@ -60,7 +62,17 @@ export class MainPageMovieComponent implements OnInit {
           this.translate = data.filter(data => data.name === 'English')[0].data;
         }
       });
+
+    this.movieService.getMovieCast(movieId)
+      .subscribe(data => {
+        // tslint:disable-next-line: no-shadowed-variable
+         this.movieCast = data.filter(data => data.popularity >= 2);
+          // this.movieCast = this.movieCast.slice().sort((a,b) => b.popularity - a.popularity)
+         this.movieCast.splice(5, this.movieCast.length - 1);
+         console.log(this.movieCast);
+      });
   }
+
 
   loadProduct(id): any {
       this.route.navigate([`/movie/${id}`], {relativeTo: this.router});
@@ -68,7 +80,5 @@ export class MainPageMovieComponent implements OnInit {
         window.location.reload();
       }, 10);
   }
-
-
 
 }

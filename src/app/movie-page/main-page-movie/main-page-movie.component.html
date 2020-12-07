@@ -1,104 +1,117 @@
 <div id="page-top">
 
-   
-        <div class="row no-gutters">
-            <div class="col-xl-1">
-                <div class="menu">
-                    <h6 class="bg-warning text-dark">
-                        MOVIE
-                    </h6>
-                    <p class="mt-5">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        <br>
-                        Account
-                    </p>
+
+    <div class="row no-gutters">
+        <div class="col-xl-1">
+            <div class="menu">
+                <h6 class="bg-warning text-dark">
+                    MOVIE
+                </h6>
+                <p class="mt-5">
+                    <i class="fa fa-user" aria-hidden="true"></i>
                     <br>
-                    <p class="mt-5">
-                        <i class="fa fa-home text-warning"></i>
-                        <br>
-                        <a style="text-decoration: none; color: white;" routerLink="/">
+                    Account
+                </p>
+                <br>
+                <p class="mt-5">
+                    <i class="fa fa-home text-warning"></i>
+                    <br>
+                    <a style="text-decoration: none; color: white;" routerLink="/">
                         Home
                     </a>
-                    </p>
+                </p>
+                <br>
+                <p class="mt-5">
+                    <i class="fa fa-user text-video"></i>
                     <br>
-                    <p class="mt-5">
-                        <i class="fa fa-user text-video"></i>
-                        <br>
-                        Video
-                    </p>
+                    Video
+                </p>
+                <br>
+                <p class="mt-5">
+                    <i class="fa fa-user text-warning"></i>
                     <br>
-                    <p class="mt-5">
-                        <i class="fa fa-user text-warning"></i>
-                        <br>
-                        Account
-                    </p>
+                    Account
+                </p>
+                <br>
+                <p class="mt-5">
+                    <i class="fa fa-user text-warning"></i>
                     <br>
-                    <p class="mt-5">
-                        <i class="fa fa-user text-warning"></i>
-                        <br>
-                        Account
-                    </p>
-                    <br>
-                    <div class="row no-gutters justify-content-center icon-social">
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-facebook m-2"></i>
-                        <i class="fab fa-twitter ml-2"></i>
-                    </div>
+                    Account
+                </p>
+                <br>
+                <div class="row no-gutters justify-content-center icon-social">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-facebook m-2"></i>
+                    <i class="fab fa-twitter ml-2"></i>
                 </div>
             </div>
-            <div class="col-xl-11">
-                <div class="background" style="background: url('https://image.tmdb.org/t/p/original/{{movieDetail?.backdrop_path}}') no-repeat center;">
-                    <div class="background-content">
-                        <h1 class="display-3"> {{movieDetail?.original_title}}  
-                        </h1>
-                        <h3 class="display-4">
-                            {{translate?.title}}  
-                        </h3>
+        </div>
+        <div class="col-xl-11">
+            <div class="background"
+                style="background: url('https://image.tmdb.org/t/p/original/{{movieDetail?.backdrop_path}}') no-repeat center;">
+                <div class="background-content">
+                    <h1 class="display-3"> {{movieDetail?.original_title}}  
+                        <img style="position: relative;" src="../../../assets/img/star.png" style="margin-bottom: 20px;" alt="">
+                    </h1>
+                    <div class="float-right row mb-5 column">
+                        <div *ngFor="let cast of movieCast">
+                            <img src="https://image.tmdb.org/t/p/w45/{{cast?.profile_path}}" alt="">
+                            <p class="text-font-italic" style=" font-size: .8rem; padding-right: 10px;">{{cast?.name}}
+                            </p>
+                        </div>
+                    </div>
+                    <h3 class="display-4">
+                        {{translate?.title}}
+                    </h3>
 
-                        <div class="star">
-                            <!-- <i class="fa fa-star text-warning"></i>
+
+
+                    <div class="star">
+                        <!-- <i class="fa fa-star text-warning"></i>
                             <i class="fa fa-star text-warning"></i>
                             <i class="fa fa-star text-warning"></i>
                             <i class="fa fa-star text-warning"></i>
                             <i class="fa fa-star text-dark"></i> -->
-                        </div>
-                        <h6>
-                            {{movieDetail?.genres[0]?.name}}
-                            <span *ngIf="movieDetail?.genres[1]?.name">
-                                | {{movieDetail?.genres[1]?.name}}
-                            </span>
-                            <span *ngIf="movieDetail?.genres[2]?.name">
-                                | {{movieDetail?.genres[2]?.name}}
-                            </span>
-                        </h6>
-                             
-                        <button class="btn">
-                            <i class="fa fa-play"></i>
-                        </button>
-                        <button class="btn">
-                            <i class="fa fa-plus"></i>
-                        </button>
-                        <div class="row no-gutters mt-3">
-                            <!-- <img src="https://image.tmdb.org/t/p/w154/{{movieDetail?.poster_path}}" alt="">
-                            <img src="https://image.tmdb.org/t/p/w154/{{movieDetail?.poster_path}}"  alt=""> -->
-                            
-                        </div>
-                        <p *ngIf="translate?.overview.length < 700" class="w-20 font-weight-bold text-muted h2 row row-pading mt-3 " style="line-height: 2.2vw; margin-top: 5rem; float: right; ">
-                            {{translate?.overview}}
-                            </p>
-                            <p *ngIf="translate?.overview.length >= 700"  class="w-20 font-weight-bold h4 row row-pading mt-3" style="line-height: 2.1vw; ">
-                                {{translate?.overview}}
-                            </p>
                     </div>
-                    <div class="row no-gutters popular-movie">
-                        <div class="col-xl-1 mr-5 ml-4 " *ngFor="let recommend of movieRecommend" >
-                            <img src="https://image.tmdb.org/t/p/w300/{{recommend?.poster_path}}" style="cursor: pointer;" (click)="loadProduct(recommend.id)" routerLinkActive="active" class="img-fluid" alt="">
-                            <p>{{recommend?.title}}</p>
-                        </div>
+                    <h6>
+                        {{movieDetail?.genres[0]?.name}}
+                        <span *ngIf="movieDetail?.genres[1]?.name">
+                            | {{movieDetail?.genres[1]?.name}}
+                        </span>
+                        <span *ngIf="movieDetail?.genres[2]?.name">
+                            | {{movieDetail?.genres[2]?.name}}
+                        </span>
+                    </h6>
+
+                    <button class="btn">
+                        <i class="fa fa-play"></i>
+                    </button>
+                    <button class="btn">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                    <div class="row no-gutters mt-3">
+                        <!-- <img src="https://image.tmdb.org/t/p/w154/{{movieDetail?.poster_path}}" alt="">
+                            <img src="https://image.tmdb.org/t/p/w154/{{movieDetail?.poster_path}}"  alt=""> -->
+
+                    </div>
+                    <p *ngIf="translate?.overview.length < 700"
+                        class="w-20 font-weight-bold text-muted h2 row row-pading mt-3 "
+                        style="line-height: 2.2vw; margin-top: 5rem; float: right; ">
+                        {{translate?.overview}}
+                    </p>
+                    <p *ngIf="translate?.overview.length >= 700" class="w-20 font-weight-bold h4 row row-pading mt-3"
+                        style="line-height: 2.1vw; ">
+                        {{translate?.overview}}
+                    </p>
+                </div>
+                <div class="row no-gutters popular-movie">
+                    <div class="col-xl-1 mr-5 ml-4 " *ngFor="let recommend of movieRecommend">
+                        <img src="https://image.tmdb.org/t/p/w300/{{recommend?.poster_path}}" style="cursor: pointer;"
+                            (click)="loadProduct(recommend.id)" routerLinkActive="active" class="img-fluid" alt="">
+                        <p>{{recommend?.title}}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
+</div>

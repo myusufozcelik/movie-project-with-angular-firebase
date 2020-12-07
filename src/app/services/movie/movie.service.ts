@@ -1,3 +1,4 @@
+import { Cast } from './../../models/cast.model';
 import { Translate } from './../../models/translate.model';
 import { MoviesOmdb } from './../../models/movies.omdb.model';
 import { Movies } from './../../models/movies.model';
@@ -61,8 +62,14 @@ export class MovieService {
 
   getTranslate(movieId: number): Observable<Translate[]> {
     return this.httpClient.get<Translate[]>(`https://api.themoviedb.org/3/movie/${movieId}/translations?api_key=${this.apiKey}`)
-    .pipe(map(result => result['translations']))
-    
+    // tslint:disable-next-line: no-string-literal
+    .pipe(map(result => result['translations']));
+  }
+
+  getMovieCast(movieId: number): Observable<Cast[]> {
+    return this.httpClient.get<Cast[]>(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${this.apiKey}&language=en-US`)
+    // tslint:disable-next-line: no-string-literal
+    .pipe(map(result => result['cast']));
   }
 
   getMovies(movieId: number): Observable<Movies[]> {
