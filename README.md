@@ -1,27 +1,21 @@
-# MovieProject
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.6.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Yapılacaklar: 
+1) Ana sayfadaki filtrele bölümü düzenlenecek
+2) Responsive Tasarım Yapılacak
+3) Ana sayfadaki kategoriler düzenlenecek
+4) Oyuncu sayfası eklenecek
+5) Uygulama açıldığında film öneri robotu çalışacak
+6) Filtreleme kısmına moduna göre, filme göre gibi alanlar eklenecek
+7) Ana sayfadaki trend, vizyondakiler, vizyona girecekler gibi alanlar tekrar yapılacak
+8) Ana sayfanın en altına footer alanı eklenecek
+9) Ana sayfadaki header kısmındaki butonlar düzenlenecek
+10) Menü düzenlenecek ve bazı alanlar tekrar yapılacak
+11) Aksiyon, Dram gibi alanlar için sayfa yapılacak. 
+12) Aksiyon, Dram gibi kategoriler için api bulunacak
+13) Film önerme robotu yapılacak
+14) Kayıt ol ve giriş ekranları düzenlenecek ve jwt eklenecek
+15) Film listeleme kartlarında ki alanlar düzenlenecek. 
+16) IMDB puanı eklenecek 
+17) Fragmanlar eklenecek
+18) Film ekranında ki oyuncuların ismine göre kayma sorunu giderilecek
+19) Film ekranında açıklamanın önerilen filmler kısmına kayma sorunu giderilecek
+20) Film ekranına Menşei/Ödülleri gibi alanlar eklenecek.
