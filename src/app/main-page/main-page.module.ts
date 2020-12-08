@@ -16,6 +16,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { SelectedMovieComponent } from './components/selected-movie/selected-movie.component';
 import { SearchAlertComponent } from './components/search-movie/search-alert/search-alert.component';
+import { RecommendCardComponent } from './components/recommend-movie/recommend-card/recommend-card.component';
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import { SearchAlertComponent } from './components/search-movie/search-alert/sea
         RecommendMovieComponent,
         MoreDetailComponent,
         SelectedMovieComponent,
-        SearchAlertComponent
+        SearchAlertComponent,
+        RecommendCardComponent
     ],
     imports: [
         CommonModule,
