@@ -53,9 +53,9 @@
                
                     <h1 class="display-3"> {{movieDetail?.original_title}}  
                        
-                         <i class="star">
+                         <i class="star" >
                             <div class="star-content mt-1 ">
-                                <span>4.3</span>
+                                <span >4,3</span>
                             </div>
                         </i> 
 
@@ -99,12 +99,11 @@
                     </span>
                     </h6>
 
-                    <button class="btn">
-                        <i class="fa fa-play"></i>
-                    </button>
-                    <button class="btn">
+                    <button type="button" class="btn btn-secondary btn-lg ">Fragmanı İzle</button>
+
+                    <!-- <button class="btn">
                         <i class="fa fa-plus"></i>
-                    </button>
+                    </button> -->
                     <div class="row no-gutters mt-3">
                         <!-- <img src="https://image.tmdb.org/t/p/w154/{{movieDetail?.poster_path}}" alt="">
                             <img src="https://image.tmdb.org/t/p/w154/{{movieDetail?.poster_path}}"  alt=""> -->
@@ -124,7 +123,7 @@
                     <div class="col-xl-1 mr-5 ml-4 " *ngFor="let recommend of movieRecommend">
                         <img src="https://image.tmdb.org/t/p/w300/{{recommend?.poster_path}}" style="cursor: pointer;"
                             (click)="loadProduct(recommend.id)" routerLinkActive="active" class="img-fluid" alt="">
-                        <p>{{recommend?.title}}</p>
+                        <p *ngIf="recommend?.poster_path">{{recommend?.title}}</p>
                     </div>
                 </div>
             </div>

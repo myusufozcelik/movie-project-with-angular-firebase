@@ -20,25 +20,31 @@
     </div>
     <div class="content">
       <section>
-      
+        <app-recommend-card [movies]="trendMovies"></app-recommend-card>
+        <div class="bottom-right">
+          <button class="btn btn-outline-secondary" (click)="goToMoreMovies('top-rated-movies')">Daha fazla...</button>
+          </div>
       </section>
       <section>
-        <h2>Delivery Contents</h2>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem quas adipisci a accusantium eius ut voluptatibus
-        ad impedit nulla, ipsa qui. Quasi temporibus eos commodi aliquid impedit amet, similique nulla.
+        <app-recommend-card [movies]="popularMovies"></app-recommend-card>
+        <div class="bottom-right">
+          <button class="btn btn-outline-secondary" (click)="goToMoreMovies('popular-movies')">Daha fazla...</button>
+          </div>
       </section>
       <section>
-        <h2>Shipping</h2>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam nemo ducimus eius, magnam error quisquam sunt
-        voluptate labore, excepturi numquam! Alias libero optio sed harum debitis! Veniam, quia in eum.
+        <app-recommend-card [movies]="nowPlaying"></app-recommend-card>
+        <div class="bottom-right">
+          <button class="btn btn-outline-secondary" (click)="goToMoreMovies('now-playing-movies')">Daha fazla...</button>
+          </div>
       </section>
       <section>
-        <h2>Returns</h2>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dicta vero rerum? Eaque repudiandae architecto
-        libero reprehenderit aliquam magnam ratione quidem? Nobis doloribus molestiae enim deserunt necessitatibus eaque
-        quidem incidunt.
+        <app-recommend-card [movies]="upcoming"></app-recommend-card>
+        <div class="bottom-right">
+          <button class="btn btn-outline-secondary" (click)="goToMoreMovies('upcoming-movies')">Daha fazla...</button>
+          </div>
       </section>
     </div>
+    
   </div>
 
 

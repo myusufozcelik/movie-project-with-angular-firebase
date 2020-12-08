@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MovieService } from 'src/app/services/movie/movie.service';
+import { Movie } from 'src/app/models/movie.model';
+import { Component, Input, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-recommend-card',
@@ -7,11 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecommendCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() movies: Movie[];
+  // @Input() popularMovies: Movie[];
+  // @Input() nowPlaying: Movie[];
+  // @Input() upcoming: Movie[];
+
+  constructor(private movieService: MovieService, private route: Router) {
+   }
 
   ngOnInit(): void {
   }
 
-  
+  loadMovie(id): any {
+      this.route.navigate([`/movie/${id}`]);
+  }
 
 }
