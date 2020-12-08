@@ -5,7 +5,7 @@ Yapılacaklar:
 4) Oyuncu sayfası eklenecek ****
 5) Uygulama açıldığında film öneri robotu çalışacak ****
 6) Filtreleme kısmına moduna göre, filme göre gibi alanlar eklenecek ****
-7) Ana sayfadaki trend, vizyondakiler, vizyona girecekler gibi alanlar tekrar yapılacak ****
+7) Başka bir sayfaya tıklayınca sayfanın ortasında açılma sorunu düzeltilecek ****
 8) Ana sayfanın en altına footer alanı eklenecek **
 9) Ana sayfadaki header kısmındaki butonlar düzenlenecek **
 10) Menü düzenlenecek ve bazı alanlar tekrar yapılacak ***
