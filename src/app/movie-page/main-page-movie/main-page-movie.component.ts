@@ -77,20 +77,20 @@ export class MainPageMovieComponent implements OnInit {
          console.log(this.movieCast);
       });
 
-      this.movieService.getVideos(movieId)
+    this.movieService.getVideos(movieId)
       .subscribe(data => {
         this.movieFragman = data[0];
         this.videoUrl = `https://www.youtube.com/embed/${this.movieFragman.key}`;
+        this.videoUrl = this._sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl);
         console.log(this.movieFragman)
         console.log(`https://www.youtube.com/watch?v=${this.movieFragman.key}`)
-      })
+      });
   }
 
   openTrailer() {
-    console.log(this.videoUrl)
+    
     this.isOpenFragman = !this.isOpenFragman;
  
-    this.videoUrl = this._sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl);    
   }
 
   loadProduct(id): any {

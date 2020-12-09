@@ -110,8 +110,8 @@
                     <div class="row no-gutters mt-3">
                         <!-- <img src="https://image.tmdb.org/t/p/w154/{{movieDetail?.poster_path}}" alt="">
                             <img src="https://image.tmdb.org/t/p/w154/{{movieDetail?.poster_path}}"  alt=""> -->
-                        <button type="button" class="btn btn-secondary btn-lg"
-                            style="background-color: rgb(196, 86, 86);" (click)="openTrailer()">
+                        <button  type="button" class="btn btn-secondary btn-lg" data-toggle="modal"
+                            data-target="#exampleModalCenter" style="background-color: rgb(196, 86, 86);" (click)="openTrailer()">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-collection-play"
                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -126,16 +126,34 @@
                         </button>
 
                     </div>
-                    <div class="h-100 d-inline-block video">
-                        <button *ngIf="isOpenFragman" type="" class="close" (click)="openTrailer()"
-                            style="background-color: rgb(196, 86, 86);" aria-label="Close">
+                     <div class="modal fade video" id="exampleModalCenter" index="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                         <div class="modal-dialog modal-dialog-centered" role="document">
+                             <div class="modal-content">
+                        <button  type="button" class="close" (click)="openTrailer()"
+                            style="background-color:  rgb(196, 86, 86);" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <iframe *ngIf="isOpenFragman" width="560" id="video" height="315" [src]="videoUrl"
+                        <iframe [src]="videoUrl" *ngIf="isOpenFragman"
                             frameborder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                     </div>
+                </div>
+            </div>
+                    <!-- <div class="modal fade" id="mymodal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <button type="button" class="close" (click)="openTrailer()"
+                                style="background-color: rgb(196, 86, 86);" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                                    <iframe id="video" [src]="videoUrl" frameborder="0"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+
+                            </div>
+                        </div>
+                    </div> -->
                     <p *ngIf="translate?.overview.length < 700"
                         class="w-20 font-weight-bold text-muted h2 row row-pading mt-3 "
                         style="line-height: 2.2vw; margin-top: 5rem; float: right; ">
