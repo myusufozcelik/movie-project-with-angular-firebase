@@ -23,3 +23,4 @@ Yapılacaklar:
 22) Film arama seçeneği eklenecek ****
 23) Film Sıralama seçeneği eklenecek ****
 24) Giriş yapan kullanıcının beğendiği filmler bir sayfada gösterilecek.
+https://codepen.io/JacobLett/pen/xqpEYE
