@@ -7,13 +7,15 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { CastCardComponent } from './cast-card/cast-card.component';
 
 
 @NgModule({
     declarations: [
         MainPageMovieComponent,
         MoviePageCardComponent,
-        MoviePageRecommentComponent
+        MoviePageRecommentComponent,
+        CastCardComponent
     ],
     imports: [
         CommonModule,
