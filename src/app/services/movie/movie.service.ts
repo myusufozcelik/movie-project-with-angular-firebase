@@ -1,3 +1,4 @@
+import { Video } from './../../models/video.model';
 import { Cast } from './../../models/cast.model';
 import { Translate } from './../../models/translate.model';
 import { MoviesOmdb } from './../../models/movies.omdb.model';
@@ -70,6 +71,11 @@ export class MovieService {
     return this.httpClient.get<Cast[]>(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${this.apiKey}&language=en-US`)
     // tslint:disable-next-line: no-string-literal
     .pipe(map(result => result['cast']));
+  }
+
+  getVideos(movieId: number): Observable<Video> {
+    return this.httpClient.get<Video>(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${this.apiKey}&language=en-US`)
+    .pipe(map(result => result['results']))
   }
 
   getMovies(movieId: number): Observable<Movies[]> {

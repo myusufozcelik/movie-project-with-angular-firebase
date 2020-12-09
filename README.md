@@ -16,7 +16,7 @@ Yapılacaklar:
 15) Film listeleme kartlarında ki alanlar düzenlenecek.  ***
 16) IMDB puanı eklenecek ***
 17) Fragmanlar eklenecek ***
-18) Film ekranında ki oyuncuların ismine göre kayma sorunu giderilecek ***
+18) Film ekranında ki oyuncuların ismine göre kayma sorunu giderilecek (Yapıldı, daha sonra düzenlenebilir) ***
 19) Film ekranında açıklamanın önerilen filmler kısmına kayma sorunu giderilecek ***
 20) Film ekranına Menşei/Ödülleri gibi alanlar eklenecek. ***
 21) Film ekranında Genres kısmına buton eklenecek. Butona tıklayınca kategorideki filmleri gösterecek ***

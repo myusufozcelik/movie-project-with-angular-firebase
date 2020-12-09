@@ -50,21 +50,21 @@
             <div class="background"
                 style="background: url('https://image.tmdb.org/t/p/original/{{movieDetail?.backdrop_path}}') no-repeat center;">
                 <div class="background-content">
-               
-                    <h1 class="display-3"> {{movieDetail?.original_title}}  
-                       
-                         <i class="star" >
+
+                    <h1 class="display-3"> {{movieDetail?.original_title}}
+
+                        <i class="star">
                             <div class="star-content mt-1 ">
-                                <span >4,3</span>
+                                <span>4,3</span>
                             </div>
-                        </i> 
+                        </i>
 
                     </h1>
 
                     <div class="float-right row mb-5 column">
 
-                    <app-cast-card [castDetails]="movieCast"></app-cast-card>
-                </div>
+                        <app-cast-card [castDetails]="movieCast"></app-cast-card>
+                    </div>
                     <!-- <div class="float-right row mb-5 column">
                         <div *ngFor="let cast of movieCast">
                             <img src="https://image.tmdb.org/t/p/w45/{{cast?.profile_path}}" alt="">
@@ -78,7 +78,7 @@
 
 
 
-                    <div >
+                    <div>
                         <!-- <i class="fa fa-star text-warning"></i>
                             <i class="fa fa-star text-warning"></i>
                             <i class="fa fa-star text-warning"></i>
@@ -98,10 +98,10 @@
                             | {{movieDetail?.genres[3]?.name}}
                         </span> -->
                         <span *ngFor="let genres of movieDetail?.genres">
-                        <button type="button" class="btn btn-info ml-1" style="opacity: .9;" >
-                            {{genres.name}}
-                        </button>
-                    </span>
+                            <button type="button" class="btn btn-info ml-1" style="opacity: .9;">
+                                {{genres.name}}
+                            </button>
+                        </span>
                     </h6>
 
                     <!-- <button class="btn">
@@ -110,16 +110,31 @@
                     <div class="row no-gutters mt-3">
                         <!-- <img src="https://image.tmdb.org/t/p/w154/{{movieDetail?.poster_path}}" alt="">
                             <img src="https://image.tmdb.org/t/p/w154/{{movieDetail?.poster_path}}"  alt=""> -->
-                            <button type="button" class="btn btn-secondary btn-lg" style="background-color: rgb(196, 86, 86);">
-                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-collection-play" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M14.5 13.5h-13A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5zm-13 1A1.5 1.5 0 0 1 0 13V6a1.5 1.5 0 0 1 1.5-1.5h13A1.5 1.5 0 0 1 16 6v7a1.5 1.5 0 0 1-1.5 1.5h-13zM2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1z"/>
-                                    <path fill-rule="evenodd" d="M6.258 6.563a.5.5 0 0 1 .507.013l4 2.5a.5.5 0 0 1 0 .848l-4 2.5A.5.5 0 0 1 6 12V7a.5.5 0 0 1 .258-.437z"/>
-                                  </svg>
-                                <span style="text-align: center;">
-                                    Fragmanı İzle
-                                </span>
-                                
-                                </button>  
+                        <button type="button" class="btn btn-secondary btn-lg"
+                            style="background-color: rgb(196, 86, 86);" (click)="openTrailer()">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-collection-play"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M14.5 13.5h-13A.5.5 0 0 1 1 13V6a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5zm-13 1A1.5 1.5 0 0 1 0 13V6a1.5 1.5 0 0 1 1.5-1.5h13A1.5 1.5 0 0 1 16 6v7a1.5 1.5 0 0 1-1.5 1.5h-13zM2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1z" />
+                                <path fill-rule="evenodd"
+                                    d="M6.258 6.563a.5.5 0 0 1 .507.013l4 2.5a.5.5 0 0 1 0 .848l-4 2.5A.5.5 0 0 1 6 12V7a.5.5 0 0 1 .258-.437z" />
+                            </svg>
+                            <span style="text-align: center;">
+                                Fragmanı İzle
+                            </span>
+
+                        </button>
+
+                    </div>
+                    <div class="h-100 d-inline-block video">
+                        <button *ngIf="isOpenFragman" type="" class="close" (click)="openTrailer()"
+                            style="background-color: rgb(196, 86, 86);" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <iframe *ngIf="isOpenFragman" width="560" id="video" height="315" [src]="videoUrl"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                     </div>
                     <p *ngIf="translate?.overview.length < 700"
                         class="w-20 font-weight-bold text-muted h2 row row-pading mt-3 "
@@ -141,4 +156,5 @@
             </div>
         </div>
     </div>
+
 </div>

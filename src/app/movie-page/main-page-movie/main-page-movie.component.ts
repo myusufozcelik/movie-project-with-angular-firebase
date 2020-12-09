@@ -1,11 +1,12 @@
+import { Video } from './../../models/video.model';
 import { Cast } from './../../models/cast.model';
 import { TranslateObject } from './../../models/translate-object.model';
 import { Movies } from './../../models/movies.model';
 import { Movie } from 'src/app/models/movie.model';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { Component, HostListener, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationCancel, NavigationError, NavigationStart, Router } from '@angular/router';
-import { Location, PlatformLocation } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-main-page-movie',
@@ -21,8 +22,12 @@ export class MainPageMovieComponent implements OnInit {
   movieId: number;
   translate?: TranslateObject;
   movieCast: Cast[];
+  movieFragman: Video;
+  isOpenFragman = false;
+  videoUrl;
 
-  constructor(private movieService: MovieService, private router: ActivatedRoute, private route: Router) {
+  constructor(private movieService: MovieService, private router: ActivatedRoute, private route: Router,
+    private _sanitizer: DomSanitizer) {
     this.getMovieDetails();
   }
 
@@ -71,8 +76,22 @@ export class MainPageMovieComponent implements OnInit {
          this.movieCast.splice(5, this.movieCast.length - 1);
          console.log(this.movieCast);
       });
+
+      this.movieService.getVideos(movieId)
+      .subscribe(data => {
+        this.movieFragman = data[0];
+        this.videoUrl = `https://www.youtube.com/embed/${this.movieFragman.key}`;
+        console.log(this.movieFragman)
+        console.log(`https://www.youtube.com/watch?v=${this.movieFragman.key}`)
+      })
   }
 
+  openTrailer() {
+    console.log(this.videoUrl)
+    this.isOpenFragman = !this.isOpenFragman;
+ 
+    this.videoUrl = this._sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl);    
+  }
 
   loadProduct(id): any {
       this.route.navigate([`/movie/${id}`], {relativeTo: this.router});

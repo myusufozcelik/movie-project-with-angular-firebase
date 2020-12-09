@@ -152,3 +152,20 @@ hr {
       
     }
 
+
+.video {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.video iframe {
+    width: 100%;
+    height: 300px;
+    display: block;
+    background: #000;
+    border: none;
+    height: 100vh;
+    width: 100vw;
+    
+}
