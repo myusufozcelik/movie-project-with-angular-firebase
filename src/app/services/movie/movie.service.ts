@@ -82,8 +82,8 @@ export class MovieService {
     return this.httpClient.get<Movies[]>(`${this.movieDetails}/${movieId}?api_key=${this.apiKey}`);
   }
 
-  getMoviesOmdb(imdbId: number): Observable<MoviesOmdb[]> {
-    return this.httpClient.get<MoviesOmdb[]>(`${this.movieDetailsOmdb}${imdbId}&apikey=${this.apiKeyOmdb}`);
+  getMoviesOmdb(imdbId: number): Observable<MoviesOmdb> {
+    return this.httpClient.get<MoviesOmdb>(`${this.movieDetailsOmdb}${imdbId}&apikey=${this.apiKeyOmdb}`);
   }
 
 }

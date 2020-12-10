@@ -14,7 +14,7 @@ Yapılacaklar:
 13) Film önerme robotu yapılacak ****
 14) Kayıt ol ve giriş ekranları düzenlenecek ve jwt eklenecek ****
 15) Film listeleme kartlarında ki alanlar düzenlenecek.  ***
-16) IMDB puanı eklenecek ***
+16) Film ekranında score kartları yerine icon eklenecek **
 17) Fragmanlar eklenecek ***
 18) Film ekranında ki oyuncuların ismine göre kayma sorunu giderilecek (Yapıldı, daha sonra düzenlenebilir) ***
 19) Film ekranında açıklamanın önerilen filmler kısmına kayma sorunu giderilecek ***
@@ -23,4 +23,3 @@ Yapılacaklar:
 22) Film arama seçeneği eklenecek ****
 23) Film Sıralama seçeneği eklenecek ****
 24) Giriş yapan kullanıcının beğendiği filmler bir sayfada gösterilecek.
-https://codepen.io/JacobLett/pen/xqpEYE

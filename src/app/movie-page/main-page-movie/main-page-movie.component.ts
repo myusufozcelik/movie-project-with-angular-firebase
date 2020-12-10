@@ -1,3 +1,4 @@
+import { MoviesOmdb } from './../../models/movies.omdb.model';
 import { Video } from './../../models/video.model';
 import { Cast } from './../../models/cast.model';
 import { TranslateObject } from './../../models/translate-object.model';
@@ -16,7 +17,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class MainPageMovieComponent implements OnInit {
 
   tmdbData: any;
-  omdbData: any;
   movieRecommend: Movie[];
   movieDetail: Movies;
   movieId: number;
@@ -25,6 +25,7 @@ export class MainPageMovieComponent implements OnInit {
   movieFragman: Video;
   isOpenFragman = false;
   videoUrl;
+  omdbData: MoviesOmdb;
 
   constructor(private movieService: MovieService, private router: ActivatedRoute, private route: Router,
     private _sanitizer: DomSanitizer) {
@@ -50,6 +51,10 @@ export class MainPageMovieComponent implements OnInit {
         this.movieDetail = data;
         this.movieId = data.id;
           console.log(this.movieDetail);
+          this.movieService.getMoviesOmdb(this.movieDetail.imdb_id)
+          .subscribe(data => {
+            this.omdbData = data;
+          });
       });
 
     this.movieService.getSimilar(movieId)
@@ -89,8 +94,8 @@ export class MainPageMovieComponent implements OnInit {
 
   openTrailer() {
     
-    this.isOpenFragman = !this.isOpenFragman;
- 
+    this.isOpenFragman = !this.isOpenFragman; 
+    console.log(this.omdbData)
   }
 
   loadProduct(id): any {

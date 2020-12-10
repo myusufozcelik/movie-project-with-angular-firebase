@@ -15,7 +15,7 @@ export class MoviesOmdb {
     awards: string;
     postere: string;
     ratings: Ratings[];
-    metascore: string;
+    Metascore: string;
     imdbRating: string;
     imdbVotes: string;
     imdbId: string;

@@ -50,17 +50,10 @@
             <div class="background"
                 style="background: url('https://image.tmdb.org/t/p/original/{{movieDetail?.backdrop_path}}') no-repeat center;">
                 <div class="background-content">
-
+                    
                     <h1 class="display-3"> {{movieDetail?.original_title}}
-
-                        <i class="star">
-                            <div class="star-content mt-1 ">
-                                <span>4,3</span>
-                            </div>
-                        </i>
-
                     </h1>
-
+                    
                     <div class="float-right row mb-5 column">
 
                         <app-cast-card [castDetails]="movieCast"></app-cast-card>
@@ -71,13 +64,10 @@
                             <p *ngIf="cast?.profile_path" class="text-font-italic" style=" font-size: .8rem; padding-right: 10px;">{{cast?.name}}
                             </p>
                         </div>
-                    </div> -->
+                    </div> --><span  style="float: right; "> <app-score-card [imdbScore]="omdbData?.imdbRating" [metacriticScore]="omdbData?.Metascore" [weScore]="movieDetail?.vote_average" ></app-score-card> </span>
                     <h3 class="display-4">
-                        {{translate?.title}}
+                        {{translate?.title}} 
                     </h3>
-
-
-
                     <div>
                         <!-- <i class="fa fa-star text-warning"></i>
                             <i class="fa fa-star text-warning"></i>
@@ -104,14 +94,9 @@
                         </span>
                     </h6>
 
-                    <!-- <button class="btn">
-                        <i class="fa fa-plus"></i>
-                    </button> -->
                     <div class="row no-gutters mt-3">
-                        <!-- <img src="https://image.tmdb.org/t/p/w154/{{movieDetail?.poster_path}}" alt="">
-                            <img src="https://image.tmdb.org/t/p/w154/{{movieDetail?.poster_path}}"  alt=""> -->
                         <button  type="button" class="btn btn-secondary btn-lg" data-toggle="modal"
-                            data-target="#exampleModalCenter" style="background-color: rgb(196, 86, 86);" (click)="openTrailer()">
+                            data-target="#myModal" data-src=videoUrl style="background-color: rgb(196, 86, 86);" (click)="openTrailer()">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-collection-play"
                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -126,34 +111,27 @@
                         </button>
 
                     </div>
-                     <div class="modal fade video" id="exampleModalCenter" index="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                         <div class="modal-dialog modal-dialog-centered" role="document">
-                             <div class="modal-content">
-                        <button  type="button" class="close" (click)="openTrailer()"
-                            style="background-color:  rgb(196, 86, 86);" data-dismiss="modal" aria-label="Close">
+
+                    
+                    <div class="modal fade" data-backdrop="static" data-keyboard="false" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                <button type="button" class="close" (click)="openTrailer()"
+                            data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <iframe [src]="videoUrl" *ngIf="isOpenFragman"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" [src]="videoUrl" *ngIf="isOpenFragman"
+                            frameborder="0" allowscriptaccess="always"
+                            allow="autoplay"
                             allowfullscreen></iframe>
+                        </div>
                     </div>
-                </div>
-            </div>
-                    <!-- <div class="modal fade" id="mymodal">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <button type="button" class="close" (click)="openTrailer()"
-                                style="background-color: rgb(196, 86, 86);" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                                    <iframe id="video" [src]="videoUrl" frameborder="0"
-                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen></iframe>
-
                             </div>
                         </div>
-                    </div> -->
+                    </div>
+
                     <p *ngIf="translate?.overview.length < 700"
                         class="w-20 font-weight-bold text-muted h2 row row-pading mt-3 "
                         style="line-height: 2.2vw; margin-top: 5rem; float: right; ">

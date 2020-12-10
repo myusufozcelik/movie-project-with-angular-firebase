@@ -1,3 +1,4 @@
+import { ScoreCardComponent } from './score-card/score-card.component';
 import { RouterModule } from '@angular/router';
 import { MoviePageRecommentComponent } from './movie-page-recomment/movie-page-recomment.component';
 import { MoviePageCardComponent } from './movie-page-card/movie-page-card.component';
@@ -15,7 +16,8 @@ import { CastCardComponent } from './cast-card/cast-card.component';
         MainPageMovieComponent,
         MoviePageCardComponent,
         MoviePageRecommentComponent,
-        CastCardComponent
+        CastCardComponent,
+        ScoreCardComponent
     ],
     imports: [
         CommonModule,
