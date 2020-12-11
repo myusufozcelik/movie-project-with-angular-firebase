@@ -9,6 +9,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SelectedMovieComponent } from './main-page/components/selected-movie/selected-movie.component';
 import { NowPlayingMoviesComponent } from './movies-page/movie-lists/now-playing-movies/now-playing-movies.component';
 import { MainPageMovieComponent } from './movie-page/main-page-movie/main-page-movie.component';
+import { PersonMainPageComponent } from './person-page/person-main-page/person-main-page.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'top-rated-movies', component: TopRatedMoviesComponent},
   {path: 'upcoming-movies', component: UpcomingMoviesComponent},
   {path: 'movie/:id', component: MainPageMovieComponent},
+  {path: 'person/:id', component: PersonMainPageComponent},
   {path: '', redirectTo: 'main', pathMatch: 'full'}
 ];
 

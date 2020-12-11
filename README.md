@@ -23,3 +23,6 @@ Yapılacaklar:
 22) Film arama seçeneği eklenecek ****
 23) Film Sıralama seçeneği eklenecek ****
 24) Giriş yapan kullanıcının beğendiği filmler bir sayfada gösterilecek.
+25) Film sayfasında ödüller gösterilecek
+26) Recommend sayfası yapılacak. Kullanıcının daha önce girdiği filmlere göre filmler önerilecek
+27) Pagination işlemleri yapılacak (Her api için page parametresini gözden geçir) 

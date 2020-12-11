@@ -1,3 +1,4 @@
+import { Person } from './../../models/person.model';
 import { Video } from './../../models/video.model';
 import { Cast } from './../../models/cast.model';
 import { Translate } from './../../models/translate.model';
@@ -75,6 +76,15 @@ export class MovieService {
 
   getVideos(movieId: number): Observable<Video> {
     return this.httpClient.get<Video>(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${this.apiKey}&language=en-US`)
+    .pipe(map(result => result['results']))
+  }
+
+  getPeopleDetails(personId: number): Observable<Person> {
+      return this.httpClient.get<Person>(`https://api.themoviedb.org/3/person/${personId}?api_key=1809a55509c3d4f7842300e2a5529fbb&language=en-US`)
+  }
+
+  getPeopleMovies(peopleName: string, peopleSurname: string): Observable<Movie[]> {
+    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/search/person?api_key=${this.apiKey}&language=en-US&query=${peopleName}%20${peopleSurname}&include_adult=false`)
     .pipe(map(result => result['results']))
   }
 

@@ -3,7 +3,7 @@
       <div class="ml-2" *ngFor="let cast of castDetails">
         <div class="our-team">
           <div class="picture">
-            <img  class="img-fluid" src="https://image.tmdb.org/t/p/w45/{{cast?.profile_path}}" alt="">
+            <img  class="img-fluid" src="https://image.tmdb.org/t/p/w45/{{cast?.profile_path}}" (click)="goToPersonPage(cast?.id)" alt="">
           </div>
           <div class="team-content">
             <h3 style="color: rgba(245, 245, 245, 0.849); font-size: 1.1rem; cursor: pointer;" class="name">{{cast.name}}</h3>
