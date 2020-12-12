@@ -1,3 +1,4 @@
+import { PersonMovieAllComponent } from './person-page/person-movie-all/person-movie-all.component';
 import { UpcomingMoviesComponent } from './movies-page/movie-lists/upcoming-movies/upcoming-movies.component';
 import { TopRatedMoviesComponent } from './movies-page/movie-lists/top-rated-movies/top-rated-movies.component';
 import { PopularMoviesComponent } from './movies-page/movie-lists/popular-movies/popular-movies.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'upcoming-movies', component: UpcomingMoviesComponent},
   {path: 'movie/:id', component: MainPageMovieComponent},
   {path: 'person/:id', component: PersonMainPageComponent},
+  {path: 'person/movies/:id', component: PersonMovieAllComponent},
   {path: '', redirectTo: 'main', pathMatch: 'full'}
 ];
 

@@ -54,6 +54,7 @@ export class MainPageMovieComponent implements OnInit {
           this.movieService.getMoviesOmdb(this.movieDetail.imdb_id)
           .subscribe(data => {
             this.omdbData = data;
+            console.log(this.omdbData)
           });
       });
 

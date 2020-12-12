@@ -1,0 +1,83 @@
+<div id="page-top">
+
+
+    <div class="row no-gutters">
+        <div class="col-xl-2">
+            <div class="menu">
+                <h6 class="bg-warning text-dark h2" style="font-family: Arial, Helvetica, sans-serif;" >
+                    <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                      </svg>
+                    {{person?.popularity}}
+                </h6>
+                <p class="mt-4">
+                   
+                    <br>
+                    <img src="https://image.tmdb.org/t/p/w300/{{person?.profile_path}}">
+                </p>
+                <br>
+                <p class="mt-4">
+                   <span class="h3 text-light"> 
+                  {{person?.birthday}}
+                </span>
+                </p>
+                <br>
+                <p class="mt-4">
+                    <span class="h4 text-light"> 
+                        {{person?.place_of_birth}}
+                      </span>
+                </p>
+                <br>
+
+               
+                <p class="mt-4">
+                
+                    <span>
+                        
+                           <a target="_" href="{{person?.homepage}}">
+                               <h3 class="text-link h4">Web Sitesi</h3>
+                           </a>
+  
+                    </span>
+                    
+                </p>
+                <br>
+               
+            
+               
+            </div>
+        </div>
+        <div class="col-xl-10">
+            <div class="background">
+                <div class="background-content">
+
+                   <span  style="float: right; ">  </span>
+                    <h3 class="display-3 text-center text-uppercase font-weight-bold">
+                        {{person?.name}}
+                    </h3>
+                   <div>
+                       <p class="w-20 font-weight-bold text-muted h2 row row-pading mt-3 "
+                        style="line-height: 2.2vw; margin-top: 5rem; float: right; ">
+                        {{person?.biography}}
+                       </p>
+                       
+                   </div>
+                   
+                </div>
+                <div class="row no-gutters popular-movie">
+                    <div class="col-xl-1 mr-5 ml-3" *ngFor="let recommend of personMovies">
+                        <img src="https://image.tmdb.org/t/p/w300/{{recommend?.poster_path}}" style="cursor: pointer;"
+                            routerLinkActive="active" (click)="moviePage(recommend.id)" class="img-fluid" alt="">
+                        <p *ngIf="recommend?.poster_path">{{recommend?.title || recommend?.original_name}}</p>
+                    </div>
+                    <button *ngIf="personMovies.length > 7" class="btn btn-outline-secondary" (click)="goToMoreMovies()" style="position:absolute; bottom: 0; right: 0; margin-right: 1rem; margin-top: 1rem;">Daha fazla...</button>
+                </div>
+               
+            </div>
+           
+        </div>
+        
+    </div>
+    
+
+</div>

@@ -1,26 +1,22 @@
 .menu {
-    
     background: black;
     text-align: center;
-    height: 100vh;
+    height: auto;
+    min-height: 150vh;
+    position: fixed;
 }
-
-hr {
-    background: #33cc33;
-}
-
 
 .background {
-    
     width: 100%;
-    height: 100%;
-    position: relative;
+    height: auto;
+    min-height: 150vh;
+
 }
 
 .background::before {
     content: '';
     position: absolute;
-    background: linear-gradient(to top, black, 90%, transparent);
+    background: linear-gradient(to top, black, 92%, transparent);
     width: 100%;
     height: 100%;
 }

@@ -84,8 +84,14 @@ export class MovieService {
   }
 
   getPeopleMovies(peopleName: string, peopleSurname: string): Observable<Movie[]> {
+
     return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/search/person?api_key=${this.apiKey}&language=en-US&query=${peopleName}%20${peopleSurname}&include_adult=false`)
     .pipe(map(result => result['results']))
+  }
+
+  getPeopleMoviesWithId(peopleId: number): Observable<Movie[]> {
+    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/person/${peopleId}/movie_credits?api_key=${this.apiKey}&language=en-US`)
+    .pipe(map(result => result['cast']))
   }
 
   getMovies(movieId: number): Observable<Movies[]> {
