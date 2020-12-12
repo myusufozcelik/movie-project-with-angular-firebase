@@ -2,15 +2,17 @@
     background: black;
     text-align: center;
     height: auto;
-    min-height: 150vh;
+    min-height: 100vh;
     position: fixed;
+  
 }
 
 .background {
+    margin-top: 1rem;
     width: 100%;
     height: auto;
-    min-height: 150vh;
-
+    min-height: 100vh;
+    
 }
 
 .background::before {
@@ -20,6 +22,7 @@
     width: 100%;
     height: 100%;
 }
+
 
 .background-content {
     position: relative;
@@ -60,7 +63,7 @@
 }
 
 .popular-movie {
-    position: absolute;
+    position: sticky;
     bottom: 4.5em;
 }
 

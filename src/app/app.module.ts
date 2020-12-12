@@ -1,3 +1,4 @@
+import { GenresModule } from './genres-page/genres.module';
 import { PersonModule } from './person-page/person.module';
 import { CommonModules } from './common/common.module';
 import { NgModule } from '@angular/core';
@@ -16,6 +17,7 @@ import { MoviePageModule } from 'src/app/movie-page/movie-page.module';
     MoviesPageModule,
     MoviePageModule,
     PersonModule,
+    GenresModule,
     CommonModules
   ],
   providers: [],

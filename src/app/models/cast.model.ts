@@ -5,6 +5,7 @@ export class Cast {
     // tslint:disable-next-line: variable-name
     known_for_department: string;
     name: string;
+    job?: string;
     // tslint:disable-next-line: variable-name
     original_name: string;
     popularity: number;

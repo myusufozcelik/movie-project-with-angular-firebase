@@ -41,9 +41,7 @@ export class PersonMainPageComponent implements OnInit {
   getMovieDetail() {
     this.movieService.getPeopleMoviesWithId(this.id)
     .subscribe(data => {
-      console.log(data);
       this.personMovies = data.filter(data => data.poster_path !== null).sort((a,b) => b.popularity - a.popularity).slice(0,8)
-      console.log(this.personMovies)
      });
   }
 

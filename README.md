@@ -26,3 +26,5 @@ Yapılacaklar:
 25) Film sayfasında ödüller gösterilecek
 26) Recommend sayfası yapılacak. Kullanıcının daha önce girdiği filmlere göre filmler önerilecek
 27) Pagination işlemleri yapılacak (Her api için page parametresini gözden geçir) 
+28) Loading ekranı eklenecek.
+29) 404 ekranı eklenecek.
