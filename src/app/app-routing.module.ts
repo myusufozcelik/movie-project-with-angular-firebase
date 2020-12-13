@@ -25,7 +25,7 @@ const routes: Routes = [
   {path: 'movie/:id', component: MainPageMovieComponent},
   {path: 'person/:id', component: PersonMainPageComponent},
   {path: 'person/movies/:id', component: PersonMovieAllComponent},
-  {path: 'genres/:genresType', component: GenresMainPageComponent},
+  {path: 'genres/:genresId', component: GenresMainPageComponent},
   {path: '', redirectTo: 'main', pathMatch: 'full'}
 ];
 

@@ -88,7 +88,7 @@
                             | {{movieDetail?.genres[3]?.name}}
                         </span> -->
                         <span *ngFor="let genres of movieDetail?.genres">
-                            <button type="button" class="btn btn-info ml-1" style="opacity: .9;">
+                            <button type="button" class="btn btn-info ml-1" (click)="goToGenres(genres.id)" style="opacity: .9;">
                                 {{genres.name}}
                             </button>
                         </span>

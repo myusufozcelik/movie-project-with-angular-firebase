@@ -1,20 +1,35 @@
 <div id="page-top">
+    <header class="masthead d-flex">
+        <div class="container text-center my-auto">
+            <h1 class="mb-2">{{genres}} Filmleri</h1>
+            <button class="btn btn-info btn-xl js-scroll-trigger" (click)="gotoTop()">Daha Fazla Seçenek</button>
+          </div>
+          <div class="overlay"></div>
+        </header>
+
+
+<body>
     <div class="container">
-        <div class="row">
-            <div class="col-6 col-md-3">
-                    asdsad
+
+        <div class="card" *ngFor="let movie of movies">
+            <div class="face face1">
+                <div class="content">
+                    <div class="icon">
+                        <img class="fa" (click)="goToMovie(movie?.id)" src="https://image.tmdb.org/t/p/w300/{{movie?.poster_path}}">
+                    </div>
+                </div>
             </div>
-            <div class="col-6 col-md-3">
-                asdsad
+            <div class="face face2">
+                <div class="content">
+                    <h3>
+                        <a target="_blank">{{movie.title}}</a>
+                    </h3>
+                    <p>{{movie?.popularity}}</p>
+                </div>
+            </div>
         </div>
-        <div class="col-6 col-md-3">
-            asdsad
     </div>
-    <div class="col-6 col-md-3">
-        asdsad
+
+</body>
 </div>
-<div class="col-6 col-md-3">
-    asdsad
-</div>
-    </div>
-</div>
+

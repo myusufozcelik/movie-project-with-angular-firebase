@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+import { Genres } from 'src/app/models/genres.model';
 
 
 @Injectable({
@@ -101,6 +102,29 @@ export class MovieService {
 
   getMovies(movieId: number): Observable<Movies[]> {
     return this.httpClient.get<Movies[]>(`${this.movieDetails}/${movieId}?api_key=${this.apiKey}`);
+  }
+
+  getGenres(): Observable<Genres[]>{
+    return this.httpClient.get<Genres[]>(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.apiKey}&language=tr`)
+    // tslint:disable-next-line: no-string-literal
+    .pipe(map(result => result['genres']));
+  }
+
+  getMoviesWithFilter(sortBy?: any, page = 1, genres?: string, languages?: string ): Observable<Movie[]> {
+    let api = `https://api.themoviedb.org/3/discover/movie?api_key=${this.apiKey}&page=${page}`;
+    if (sortBy) {
+      // tslint:disable-next-line: no-unused-expression
+      api =  api.concat(`&sort_by=${sortBy}`);
+    }
+    if (genres) {
+      api = api.concat(`&with_genres=${genres}`);
+    }
+    if (languages) {
+      api = api.concat(`&with_original_language=${languages}`);
+    }
+    return this.httpClient.get<Movie[]>(api)
+    // tslint:disable-next-line: no-string-literal
+    .pipe(map(result => result['results']));
   }
 
   getMoviesOmdb(imdbId: number): Observable<MoviesOmdb> {

@@ -1,3 +1,4 @@
+import { Genres } from './../../models/genres.model';
 import { MoviesOmdb } from './../../models/movies.omdb.model';
 import { Video } from './../../models/video.model';
 import { Cast } from './../../models/cast.model';
@@ -30,7 +31,7 @@ export class MainPageMovieComponent implements OnInit {
 
 
   constructor(private movieService: MovieService, private router: ActivatedRoute, private route: Router,
-    private _sanitizer: DomSanitizer) {
+              private sanitizer: DomSanitizer) {
     this.getMovieDetails();
   }
 
@@ -52,12 +53,12 @@ export class MainPageMovieComponent implements OnInit {
       .subscribe(data => {
         this.movieDetail = data;
         this.movieId = data.id;
-          console.log(this.movieDetail);
-          this.movieService.getMoviesOmdb(this.movieDetail.imdb_id)
+        this.movieService.getMoviesOmdb(this.movieDetail.imdb_id)
+          // tslint:disable-next-line: no-shadowed-variable
           .subscribe(data => {
             this.omdbData = data;
             // this.originFlag = `../../../assets/img/flags/${this.omdbData.Country}.png`;
-            console.log(this.omdbData)
+            console.log(this.omdbData);
           });
       });
 
@@ -79,7 +80,6 @@ export class MainPageMovieComponent implements OnInit {
 
     this.movieService.getMovieCast(movieId)
       .subscribe(data => {
-        console.log(data);
         // tslint:disable-next-line: no-shadowed-variable
          this.movieCast = data.filter(data => data.popularity >= 2);
           // this.movieCast = this.movieCast.slice().sort((a,b) => b.popularity - a.popularity)
@@ -87,26 +87,28 @@ export class MainPageMovieComponent implements OnInit {
          console.log(this.movieCast);
       });
 
-      this.movieService.getMovieDirector(movieId)
+    this.movieService.getMovieDirector(movieId)
       .subscribe(data => {
         console.log(data);
-        this.director = data.filter(data => data.job === 'Director')
+        // tslint:disable-next-line: no-shadowed-variable
+        this.director = data.filter(data => data.job === 'Director');
         console.log(this.director);
-      })
+      });
 
     this.movieService.getVideos(movieId)
       .subscribe(data => {
         this.movieFragman = data[0];
         this.videoUrl = `https://www.youtube.com/embed/${this.movieFragman.key}`;
-        this.videoUrl = this._sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl);
-        console.log(this.movieFragman)
-        console.log(`https://www.youtube.com/watch?v=${this.movieFragman.key}`)
+        this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl);
       });
   }
 
-  openTrailer() {
-    
-    this.isOpenFragman = !this.isOpenFragman; 
+  openTrailer(): any {
+    this.isOpenFragman = !this.isOpenFragman;
+  }
+
+  goToGenres(genresId): any {
+    this.route.navigate([`/genres/${genresId}`]);
   }
 
   loadProduct(id): any {
