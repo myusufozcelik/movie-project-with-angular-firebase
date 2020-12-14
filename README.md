@@ -28,3 +28,5 @@ Yapılacaklar:
 27) Pagination işlemleri yapılacak (Her api için page parametresini gözden geçir) 
 28) Loading ekranı eklenecek.
 29) 404 ekranı eklenecek.
+30) Moduna göre ara gibi bir seçenek eklenecek
+31) Yolculuk Temalı, Aşk temalı gibi temalar ile ilgili kategoriler eklenecek.
