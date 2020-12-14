@@ -53,7 +53,7 @@ export class MovieService {
   }
 
   getMovieDetail(movieId: number): Observable<Movies> {
-    return this.httpClient.get<Movies>(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.apiKey}&language=en-US&page=1`);
+    return this.httpClient.get<Movies>(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.apiKey}&language=tr&page=1`);
   }
 
   getSimilar(movieId: number): Observable<Movie[]> {
@@ -63,11 +63,11 @@ export class MovieService {
     .pipe(map(result => result['results']));
   }
 
-  getTranslate(movieId: number): Observable<Translate[]> {
-    return this.httpClient.get<Translate[]>(`https://api.themoviedb.org/3/movie/${movieId}/translations?api_key=${this.apiKey}`)
-    // tslint:disable-next-line: no-string-literal
-    .pipe(map(result => result['translations']));
-  }
+  // getTranslate(movieId: number): Observable<Translate[]> {
+  //   return this.httpClient.get<Translate[]>(`https://api.themoviedb.org/3/movie/${movieId}/translations?api_key=${this.apiKey}`)
+  //   // tslint:disable-next-line: no-string-literal
+  //   .pipe(map(result => result['translations']));
+  // }
 
   getMovieCast(movieId: number): Observable<Cast[]> {
     return this.httpClient.get<Cast[]>(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${this.apiKey}&language=en-US`)

@@ -52,6 +52,7 @@ export class MainPageMovieComponent implements OnInit {
     this.movieService.getMovieDetail(movieId)
       .subscribe(data => {
         this.movieDetail = data;
+        console.log(this.movieDetail)
         this.movieId = data.id;
         this.movieService.getMoviesOmdb(this.movieDetail.imdb_id)
           // tslint:disable-next-line: no-shadowed-variable
@@ -68,15 +69,15 @@ export class MainPageMovieComponent implements OnInit {
         console.log(this.movieRecommend);
       });
 
-    this.movieService.getTranslate(movieId)
-      .subscribe(data => {
-        // tslint:disable-next-line: no-shadowed-variable
-        this.translate = data.filter(data => data?.name === 'Türkçe')[0]?.data;
-        if (this.translate === undefined) {
-          // tslint:disable-next-line: no-shadowed-variable
-          this.translate = data.filter(data => data.name === 'English')[0]?.data;
-        }
-      });
+    // this.movieService.getTranslate(movieId)
+    //   .subscribe(data => {
+    //     // tslint:disable-next-line: no-shadowed-variable
+    //     this.translate = data.filter(data => data?.name === 'Türkçe')[0]?.data;
+    //     if (this.translate === undefined) {
+    //       // tslint:disable-next-line: no-shadowed-variable
+    //       this.translate = data.filter(data => data.name === 'English')[0]?.data;
+    //     }
+    //   });
 
     this.movieService.getMovieCast(movieId)
       .subscribe(data => {

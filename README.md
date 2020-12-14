@@ -1,4 +1,5 @@
 Yapılacaklar: 
+0) Gelmeyen film açıklamaları için dili en olarak tekrar bir api yazılacak overview boş ise o gösterilecek.
 1) Ana sayfadaki filtrele bölümü düzenlenecek ***
 2) Responsive Tasarım Yapılacak *****
 3) Ana sayfadaki kategoriler düzenlenecek ***
@@ -29,4 +30,4 @@ Yapılacaklar:
 28) Loading ekranı eklenecek.
 29) 404 ekranı eklenecek.
 30) Gösterilen film kartlarında imdb puanını da sağ üst ya da sol üst köşede göster!
-31) Translate apisini sil, onun yerine dili tr yap.
+31) Arama işlemi yanında bir seçenek olacak (movie,).

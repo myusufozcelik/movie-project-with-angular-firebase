@@ -66,7 +66,7 @@
                         </div>
                     </div> --><span  style="float: right; "> <app-score-card [imdbScore]="omdbData?.imdbRating" [metacriticScore]="omdbData?.Metascore" [weScore]="movieDetail?.vote_average" ></app-score-card> </span>
                     <h3 class="display-4">
-                        {{translate?.title}}
+                        {{movieDetail?.title}}
                     </h3>
                     <div>
                         <!-- <i class="fa fa-star text-warning"></i>
@@ -130,15 +130,15 @@
                             </div>
                         </div>
                     </div>
-                    <p *ngIf="translate?.overview.length < 700"
+                    <p *ngIf="movieDetail?.overview.length"
                         class="w-20 font-weight-bold text-muted h2 row row-pading mt-3 "
                         style="line-height: 2.2vw; margin-top: 5rem; float: right; ">
-                        {{translate?.overview}}
+                        {{movieDetail?.overview}}
                     </p>
-                    <p *ngIf="translate?.overview.length >= 700" class="w-20 font-weight-bold h4 row row-pading mt-3"
+                    <!-- <p *ngIf="translate?.overview.length >= 700" class="w-20 font-weight-bold h4 row row-pading mt-3"
                         style="line-height: 2.1vw; ">
                         {{translate?.overview}}
-                    </p>
+                    </p> -->
                 </div>
                 <div class="row no-gutters popular-movie">
                     <div class="col-xl-1 mr-5 ml-4 " *ngFor="let recommend of movieRecommend">
