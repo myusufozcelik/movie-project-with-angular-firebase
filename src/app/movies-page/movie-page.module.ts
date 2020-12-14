@@ -11,6 +11,7 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { MovieMainPageComponent } from './movie-main-page/main-page.component';
 import { MoviePageHeaderComponent } from './movie-page-header/movie-page-header.component';
 import { NowPlayingMoviesComponent } from './movie-lists/now-playing-movies/now-playing-movies.component';
+import { CommonModules } from '../common/common.module';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { NowPlayingMoviesComponent } from './movie-lists/now-playing-movies/now-
     imports: [
         CommonModule,
         AppRoutingModule,
+        CommonModules,
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,

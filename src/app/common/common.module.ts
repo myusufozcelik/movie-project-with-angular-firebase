@@ -11,6 +11,7 @@ import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
     imports: [CommonModule, AppRoutingModule, BrowserModule, FormsModule, ReactiveFormsModule],
+    exports: [ComboboxComponent, LoadingComponent],
     declarations: [
         LoginComponent,
         RegisterComponent,
