@@ -28,3 +28,5 @@ Yapılacaklar:
 27) Pagination işlemleri yapılacak (Her api için page parametresini gözden geçir) 
 28) Loading ekranı eklenecek.
 29) 404 ekranı eklenecek.
+30) Gösterilen film kartlarında imdb puanını da sağ üst ya da sol üst köşede göster!
+31) Translate apisini sil, onun yerine dili tr yap.
