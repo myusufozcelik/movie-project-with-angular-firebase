@@ -32,3 +32,4 @@ Yapılacaklar:
 30) Gösterilen film kartlarında imdb puanını da sağ üst ya da sol üst köşede göster!
 31) Arama işlemi yanında bir seçenek olacak (movie,).
 32) Filmleri ya da butonları yeni sekmede açabilmek için düzenleme yap. 
+33) http://localhost:4200/movie/403300 gibi filmlerde recommend movies gelmiyor. Bunun yerine başka bir şey getir.

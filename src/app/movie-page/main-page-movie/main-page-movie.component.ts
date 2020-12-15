@@ -57,6 +57,9 @@ export class MainPageMovieComponent implements OnInit {
         this.movieService.getMoviesOmdb(this.movieDetail.imdb_id)
           // tslint:disable-next-line: no-shadowed-variable
           .subscribe(data => {
+            if (this.movieDetail.overview === '') {
+              this.movieDetail.overview = data.Plot
+            }
             this.omdbData = data;
             // this.originFlag = `../../../assets/img/flags/${this.omdbData.Country}.png`;
             console.log(this.omdbData);
