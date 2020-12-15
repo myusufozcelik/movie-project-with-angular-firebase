@@ -1,7 +1,8 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { Movie } from 'src/app/models/movie.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { timeoutWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-genres-main-page',
@@ -17,19 +18,21 @@ export class GenresMainPageComponent implements OnInit {
   isLoading = false;
   totalPages: number;
   page: any;
+  activePage: number = 1;
   constructor(private movieService: MovieService, private router: Router, private activatedRoute: ActivatedRoute) { }
  
-
+  
   ngOnInit(): void {
    // tslint:disable-next-line: no-string-literal
 
    this.id = this.activatedRoute.snapshot.paramMap.get('genresId');
-   this.getMovies();
+   this.getMovies(this.activePage);
   }
 
-  getMovies(): any {
+
+  getMovies(page: number): any {
     this.isLoading = true;
-    this.movieService.getMoviesWithFilter(undefined, 1, this.id, null)
+    this.movieService.getMoviesWithFilter(undefined, page, this.id, null)
     .subscribe(data => {
       this.totalPages = data['total_pages']
       console.log(data);
@@ -46,17 +49,18 @@ export class GenresMainPageComponent implements OnInit {
     });
   }
 
-  goToMovie(movieId: number):any {
-    this.router.navigate([`/movie/${movieId}`]);
+  displayActivePage(activePageNumber: number) {
+    this.activePage = activePageNumber;
+    this.getMovies(this.activePage);
+    window.scrollTo(0,950) // tekrar bak!!!
+
   }
 
-  getImages(pageno: number) {
-    this.page = this.movieService.getMoviesWithFilter(undefined, pageno, this.id, null);
-  }
+  // goToMovie(movieId: number):any { 
+  //   this.router.navigate([`/movie/${movieId}`]);
+  // }
 
-  onPageChange(pageno: number) {
-    this.getImages(pageno);
-  }
+
 
   gotoTop(): any {
     window.scroll({

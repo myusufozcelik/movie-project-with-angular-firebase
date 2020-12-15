@@ -15,7 +15,7 @@
             <div class="face face1">
                 <div class="content">
                     <div class="icon">
-                        <img class="fa" (click)="goToMovie(movie?.id)" src="https://image.tmdb.org/t/p/w300/{{movie?.poster_path}}">
+                        <img class="fa" [routerLink]="['/movie/', movie.id]" src="https://image.tmdb.org/t/p/w300/{{movie?.poster_path}}">
                     </div>
                 </div>
             </div>
@@ -32,6 +32,6 @@
 
 </body>
 
-<app-pagination></app-pagination>
+<app-pagination [totalRecords]="totalPages*20" [recordsPerPage]="20" (onPageChange)="displayActivePage($event)"></app-pagination>
 </div>
 

@@ -26,8 +26,9 @@ Yapılacaklar:
 24) Giriş yapan kullanıcının beğendiği filmler bir sayfada gösterilecek.
 25) Film sayfasında ödüller gösterilecek
 26) Recommend sayfası yapılacak. Kullanıcının daha önce girdiği filmlere göre filmler önerilecek
-27) Pagination işlemleri yapılacak (Her api için page parametresini gözden geçir) 
+27) Pagination işlemleri yapılacak (Her api için page parametresini gözden geçir) & Sayfa sayısını ayarla!!! 
 28) Loading ekranı eklenecek.
 29) 404 ekranı eklenecek.
 30) Gösterilen film kartlarında imdb puanını da sağ üst ya da sol üst köşede göster!
 31) Arama işlemi yanında bir seçenek olacak (movie,).
+32) Filmleri ya da butonları yeni sekmede açabilmek için düzenleme yap. 
