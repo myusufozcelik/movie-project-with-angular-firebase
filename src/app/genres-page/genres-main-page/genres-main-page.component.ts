@@ -34,6 +34,7 @@ export class GenresMainPageComponent implements OnInit {
     this.isLoading = true;
     this.movieService.getMoviesWithFilter(undefined, page, this.id, null)
     .subscribe(data => {
+      this.isLoading = true;
       this.totalPages = data['total_pages']
       console.log(data);
       this.movies = data['results'];
@@ -45,7 +46,10 @@ export class GenresMainPageComponent implements OnInit {
         this.genres = data.filter(genres => genres.id === +this.id)[0].name;
         console.log(this.genres);
       });
+      setTimeout(()=> {
         this.isLoading = false;
+      },2000)
+        
     });
   }
 

@@ -2,7 +2,7 @@ $white: #fff !default;
 
 
 .masthead {
-    min-height: 30rem;
+    
     position: relative;
     display: table;
     width: 100%;
@@ -33,7 +33,7 @@ $white: #fff !default;
     }
 
     @media (min-width: 992px) {
-      height: 100vh;
+      height: 47vh;
       h1 {
         font-size: 5.5rem;
       }
@@ -43,10 +43,13 @@ $white: #fff !default;
 }  
 .star  {
     position: absolute;
-    top: 5px;
-    left: 16px;
-    border:1px solid yellow;
-    
+    text-align: center;
+    top: .3rem;
+    left: .3rem;
+    z-index: 1;
+    background-color: rgb(67, 104, 105);
+    color: cornsilk;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
 .box-shadow:hover {
