@@ -113,6 +113,10 @@ export class MovieService {
     .pipe(map(result => result['genres']));
   }
 
+  getSearchMovies(keyword: string, page = 1): Observable<Movie[]> {
+    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${keyword}&page=${page}`)
+  }
+
   getMoviesWithFilter(sortBy?: any, page = 1, genres?: string, languages?: string ): Observable<Movie[]> {
     let api = `https://api.themoviedb.org/3/discover/movie?api_key=${this.apiKey}&page=${page}`;
     if (sortBy) {

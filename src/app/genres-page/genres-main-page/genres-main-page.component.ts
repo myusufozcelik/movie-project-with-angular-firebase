@@ -2,7 +2,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { Movie } from 'src/app/models/movie.model';
 import { Component, HostListener, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { timeoutWith } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-genres-main-page',
@@ -18,10 +18,10 @@ export class GenresMainPageComponent implements OnInit {
   isLoading = false;
   totalPages: number;
   page: any;
-  activePage: number = 1;
+  activePage = 1;
+  getSearchResults: Movie[];
   constructor(private movieService: MovieService, private router: Router, private activatedRoute: ActivatedRoute) { }
- 
-  
+
   ngOnInit(): void {
    // tslint:disable-next-line: no-string-literal
 
@@ -46,25 +46,31 @@ export class GenresMainPageComponent implements OnInit {
         this.genres = data.filter(genres => genres.id === +this.id)[0].name;
         console.log(this.genres);
       });
-      setTimeout(()=> {
-        this.isLoading = false;
-      },2000)
-        
+      this.isLoading = false;
     });
   }
 
   displayActivePage(activePageNumber: number) {
     this.activePage = activePageNumber;
     this.getMovies(this.activePage);
-    window.scrollTo(0,950) // tekrar bak!!!
+    window.scrollTo(0, 950);   // tekrar bak!!s!
 
   }
 
-  // goToMovie(movieId: number):any { 
+  // goToMovie(movieId: number):any {
   //   this.router.navigate([`/movie/${movieId}`]);
   // }
 
-
+  getSearchMovies(event: any): any {
+    console.log(event);
+    if (event !== undefined) {
+      this.movies = [];
+      this.movies = event.results.filter(data => data.poster_path !== null);
+      const totalPages = event.total_pages;
+      const totalResults = event.total_results;
+      console.log(this.movies);
+    }
+  }
 
   gotoTop(): any {
     window.scroll({

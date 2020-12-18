@@ -2,12 +2,12 @@
     <header class="masthead d-flex">
         <div class="container text-center my-auto">
             <h1 class="mb-2">{{genres}} Filmleri</h1>
-            <button class="btn btn-info btn-xl js-scroll-trigger" (click)="gotoTop()">Daha Fazla Seçenek</button>
+            <button class="btn btn-info btn-xl js-scroll-trigger" (click)="getMovies(1)">Daha Fazla Seçenek</button>
           </div>
           <div class="overlay"></div>
         </header> 
         <div style="float: right;">
-<app-search></app-search>
+<app-search (searchMovie)="getSearchMovies($event)"></app-search>
 </div>
 <br>
 <br>
