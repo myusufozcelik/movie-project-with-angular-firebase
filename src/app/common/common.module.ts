@@ -8,15 +8,17 @@ import { LoginComponent } from './login/login.component';
 
 import { NgModule } from '@angular/core';
 import { LoadingComponent } from './loading/loading.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
     imports: [CommonModule, AppRoutingModule, BrowserModule, FormsModule, ReactiveFormsModule],
-    exports: [ComboboxComponent, LoadingComponent],
+    exports: [ComboboxComponent, LoadingComponent, SearchComponent],
     declarations: [
         LoginComponent,
         RegisterComponent,
         LoadingComponent,
-        ComboboxComponent
+        ComboboxComponent,
+        SearchComponent
     ],
 })
 export class CommonModules { }
