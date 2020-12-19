@@ -29,35 +29,6 @@ export class PaginationComponent implements OnInit, OnChanges {
     this.onPageChange.emit(1);
   }
 
-  // getPager(totalItems: number, currentPage: number, pageSize: number) {
-  //   currentPage = 1;
-  //   pageSize = 10;
-  //   let totalPages = Math.ceil(totalItems / pageSize);
-
-  //   let startPage: number, endPage: number;
-
-  //   if (totalPages <= 10) {
-  //     startPage = 1;
-  //     endPage = totalPages;
-  //   }
-  //   else {
-  //     if (currentPage <= 7) {
-  //       startPage = 1;
-  //       endPage = 5;
-  //     }
-  //     else if (currentPage + 1 >= totalPages) {
-  //       startPage = totalPages - 8;
-  //       endPage = totalPages;
-  //     }
-  //     else {
-  //       startPage = currentPage - 2;
-  //       endPage = currentPage + 2;
-  //     }
-  //   }
-  //   let startIndex = (currentPage - 1) * pageSize;
-  //   let endIndex = Math.min(startIndex + pageSize -1, totalItems -1);
-  // }
-
    getPageCount(): any {
     let totalPage = 0;
 

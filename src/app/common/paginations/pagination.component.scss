@@ -36,6 +36,7 @@
   
   a {
     text-decoration: none;
+    overflow: hidden;
   }
   
   //----------  pagination
@@ -46,7 +47,7 @@
   }
   
   .pagination {
-      display: inline-block;
+      // display: inline-block;
       height: 70px;
       margin-top: 70px;
       padding: 0 25px;
