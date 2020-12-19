@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-loading',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoadingComponent implements OnInit {
 
+  @Input() isOpen = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+   open(): any {
+     this.isOpen = true;
+   }
+
+   close(): any {
+     this.isOpen = false;
+   }
 
 }

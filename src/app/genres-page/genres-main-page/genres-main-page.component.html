@@ -1,13 +1,16 @@
 
     <header class="masthead d-flex">
         <div class="container text-center my-auto">
-            <h1 class="mb-2">{{genres}} Filmleri</h1>
+            <h1 class="mb-2">{{genres?.name}} Filmleri</h1>
             <button class="btn btn-info btn-xl js-scroll-trigger" (click)="getMovies(1)">Daha Fazla Seçenek</button>
           </div>
           <div class="overlay"></div>
         </header> 
         <div style="float: right;">
 <app-search (searchMovie)="getSearchMovies($event)"></app-search>
+</div>
+<div style="float: left !important;">
+  <app-filter-movie [genresId]="genres?.id" (filterMovie)="getFilterMovies($event)"></app-filter-movie>
 </div>
 <br>
 <br>
@@ -51,7 +54,7 @@
             <div class="card mb-3 box-shadow" >
                 
                 <img class="card-img-top" style="cursor: pointer;" src="https://image.tmdb.org/t/p/w300/{{movie?.poster_path}}" [routerLink]="['/movie/', movie.id]">
-                <span class="star">
+                <span class="star" *ngIf="movie?.vote_average !==0">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" style="color: #f3ce13;" viewBox="0 0 16 16">
                   <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                 </svg>
@@ -72,9 +75,8 @@
         </div>
       </div>
     </div>
-  <app-pagination [totalRecords]="totalPages*20" [recordsPerPage]="20" (onPageChange)="displayActivePage($event)"></app-pagination>
-
-
+  <!-- <app-pagination [totalRecords]="totalPages*20" [recordsPerPage]="20" (onPageChange)="displayActivePage($event)"></app-pagination> -->
+<app-paginations></app-paginations>
 <!-- <div *ngIf="isLoading"> 
   <app-loading></app-loading>
 </div> -->

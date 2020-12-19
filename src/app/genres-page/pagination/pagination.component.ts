@@ -27,7 +27,6 @@ export class PaginationComponent implements OnInit, OnChanges {
     this.pages = this.getArrayOfPage(pageCount);
     this.activePage = 1;
     this.onPageChange.emit(1);
-    
   }
 
   // getPager(totalItems: number, currentPage: number, pageSize: number) {

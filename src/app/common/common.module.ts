@@ -9,16 +9,20 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { LoadingComponent } from './loading/loading.component';
 import { SearchComponent } from './search/search.component';
+import { FilterMovieComponent } from './filter-movie/filter-movie.component';
+import { PaginationsComponent } from './paginations/pagination.component';
 
 @NgModule({
     imports: [CommonModule, AppRoutingModule, BrowserModule, FormsModule, ReactiveFormsModule],
-    exports: [ComboboxComponent, LoadingComponent, SearchComponent],
+    exports: [ComboboxComponent, LoadingComponent, SearchComponent, FilterMovieComponent, PaginationsComponent],
     declarations: [
         LoginComponent,
         RegisterComponent,
         LoadingComponent,
         ComboboxComponent,
-        SearchComponent
+        SearchComponent,
+        FilterMovieComponent,
+        PaginationsComponent
     ],
 })
 export class CommonModules { }

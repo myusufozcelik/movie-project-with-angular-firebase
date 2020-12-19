@@ -9,6 +9,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { CastCardComponent } from './cast-card/cast-card.component';
+import { CommonModules } from '../common/common.module';
 
 
 @NgModule({
@@ -18,13 +19,14 @@ import { CastCardComponent } from './cast-card/cast-card.component';
         MoviePageRecommentComponent,
         CastCardComponent,
         ScoreCardComponent
-    ],
+     ],
     imports: [
         CommonModule,
         RouterModule,
         AppRoutingModule,
         BrowserModule,
-        HttpClientModule
+        HttpClientModule,
+        CommonModules
     ]
 })
 export class MoviePageModule { }

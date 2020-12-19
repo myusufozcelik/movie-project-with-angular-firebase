@@ -1,0 +1,11 @@
+<div class="dropdown mt-4 ml-3">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Filtrele
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <button class="dropdown-item" #filterValue (click)= "getFilterValue(filterValue)" type="button" *ngFor="let filterLists of filterList">{{filterLists}}</button>
+    </div>
+  </div>
+
+
+  
