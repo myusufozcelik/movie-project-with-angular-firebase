@@ -4,12 +4,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CommonModules } from '../common/common.module';
 import { MoviePaginationDirective } from './movie-pagination.directive';
-import { PaginationComponent } from './pagination/pagination.component';
 
 
 
 @NgModule({
-  declarations: [GenresMainPageComponent, MoviePaginationDirective, PaginationComponent],
+  declarations: [GenresMainPageComponent, MoviePaginationDirective],
   imports: [
     CommonModule,
     CommonModules,

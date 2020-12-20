@@ -1,8 +1,10 @@
 <div class="pagination-wrapper">
     <div class="pagination">
-      <a class="prev page-numbers" (click)="onClickPage(activePage -1)" href="javascript:;">Önceki </a>
+      <a *ngIf="arrays[0] !== 1" class="prev page-numbers" (click)="onClickPage(1)" href="javascript:;">
+       İlk Sayfa
+      </a>
       <!--Active için class page-numbers current olmalı-->
       <a class="page-numbers" [ngClass]="{'current': activePage === a}" (click)="onClickPage(a)" href="javascript:;" *ngFor="let a of arrays">{{a}}</a>
-      <a class="next page-numbers" (click)="onClickPage(activePage +1)" href="javascript:;">Sonraki </a>
+      <a *ngIf="!arrays.includes(500)" class="next page-numbers" (click)="onClickPage(totalPage)" href="javascript:;">Son Sayfa </a>
     </div>
   </div>

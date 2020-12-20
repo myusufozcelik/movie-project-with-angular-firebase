@@ -11,7 +11,7 @@ Yapılacaklar:
 9) Ana sayfadaki header kısmındaki butonlar düzenlenecek **
 10) Menü düzenlenecek ve bazı alanlar tekrar yapılacak ***
 11) Aksiyon, Dram gibi alanlar için yapılan  sayfa düzenlenecek. ****
-12) Arama ekranı yapılacak.
+12) Genres sayfasındaki Arama ekranı tüm sayfalarda gözükecek şekilde yapılacak.
 13) Film önerme robotu yapılacak ****
 14) Kayıt ol ve giriş ekranları düzenlenecek ve jwt eklenecek ****
 15) Film listeleme kartlarında ki alanlar düzenlenecek.  ***
@@ -34,3 +34,4 @@ Yapılacaklar:
 32) Filmleri ya da butonları yeni sekmede açabilmek için düzenleme yap. 
 33) http://localhost:4200/movie/403300 gibi filmlerde recommend movies gelmiyor. Bunun yerine başka bir şey getir.
 34) app-routing işlemleri düzenlenecek. Örn; Search işleminde movie/?search gibi adrese yansıyacak.
+35) Imdb puanı genres bölümüne eklenecek

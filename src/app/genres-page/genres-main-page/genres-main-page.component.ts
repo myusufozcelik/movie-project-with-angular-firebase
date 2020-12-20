@@ -25,7 +25,6 @@ export class GenresMainPageComponent implements OnInit {
 
   ngOnInit(): void {
    // tslint:disable-next-line: no-string-literal
-
    this.id = this.activatedRoute.snapshot.paramMap.get('genresId');
    this.getMovies(this.activePage);
   }

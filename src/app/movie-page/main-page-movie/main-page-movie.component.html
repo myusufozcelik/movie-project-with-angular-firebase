@@ -145,7 +145,7 @@
                     <div class="col-xl-1 mr-5 ml-4 " *ngFor="let recommend of movieRecommend">
                         <img src="https://image.tmdb.org/t/p/w300/{{recommend?.poster_path}}" style="cursor: pointer;"
                             (click)="loadProduct(recommend.id)" routerLinkActive="active" class="img-fluid" alt="">
-                        <p *ngIf="recommend?.poster_path">{{recommend?.title}}</p>
+                        <p>{{recommend?.title}}</p>
                     </div>
                 </div>
             </div>

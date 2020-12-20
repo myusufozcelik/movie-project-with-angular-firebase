@@ -65,12 +65,11 @@ export class MainPageMovieComponent implements OnInit {
             // this.originFlag = `../../../assets/img/flags/${this.omdbData.Country}.png`;
             console.log(this.omdbData);
           });
-        
       });
 
     this.movieService.getSimilar(movieId)
       .subscribe(data => {
-        this.movieRecommend = data.slice(0, 8);
+        this.movieRecommend = data.filter(recommend => recommend.poster_path !== null).slice(0, 8);
         console.log(this.movieRecommend);
       });
 

@@ -22,25 +22,28 @@ export class PaginationsComponent implements OnInit {
     console.log(this.totalPage); // 560
   }
 
-  restartArrays():void {
+  restartArrays(page: number, start: number = 1): void {
     this.arrays = [];
-    for (let i=0; i<this.totalPage; i++) {
+    for (let i = start; i < page; i++) {
       this.arrays.push(i);
     }
   }
 
   pageLimit() {
-
+    this.restartArrays(10, 1);
     if (this.totalPage < 10) {
-     this.restartArrays();
+     this.restartArrays(this.totalPage);
     }
-    else {
-      for (let i=this.activePage; i<this.activePage+10; i++) {
-          this.arrays.shift();
-          this.arrays.push(i);
-          console.log(this.arrays)
-      }
+
+    else if ( this.activePage === this.totalPage) {
+      this.restartArrays(this.totalPage, this.activePage - 9);
     }
+    else if ( this.activePage >= 5 ) {
+      this.restartArrays(this.activePage + 5 , this.activePage - 4);
+    }
+
+   
+
   }
 
   onClickPage(pageNumber: number): void {
