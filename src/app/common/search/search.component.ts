@@ -10,7 +10,7 @@ import { Component, Input, OnInit, Output, EventEmitter, ViewChild } from '@angu
 export class SearchComponent implements OnInit {
 
   @Output() searchMovie = new EventEmitter();
-
+  @Input() activePage;
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
@@ -18,8 +18,8 @@ export class SearchComponent implements OnInit {
 
   getSearchMovie(searchInput): any {
     console.log(searchInput.value);
-
-    this.movieService.getSearchMovies(searchInput.value, 1)
+    console.log(this.activePage)
+    this.movieService.getSearchMovies(searchInput.value, this.activePage)
       .subscribe(movie => {
         // tslint:disable-next-line: no-string-literal
         console.log(movie);

@@ -8,28 +8,36 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 export class PaginationsComponent implements OnInit {
 
   @Input() totalPage: number;
+  // tslint:disable-next-line: no-output-on-prefix
   @Output() onPageChange: EventEmitter<number> = new EventEmitter();
-  activePage : number;
-  arrays = [1,2,3,4,5,6,7,8,9,10];
-  constructor() { }
+  activePage: number;
+  arrays = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  constructor() {
+    if (this.totalPage < 10) {
+      this.arrays = [];
+      for (let i = 0; i < this.totalPage; i++) {
+        this.arrays.push(i);
+      }
+    }
+
+   }
 
   ngOnInit(): void {
-    
   }
-  
 
-  pageDivide() {
+  pageDivide(): void {
     console.log(this.totalPage); // 560
   }
 
-  restartArrays(page: number, start: number = 1): void {
+  restartArrays(page: number, start: number = 1): any {
     this.arrays = [];
     for (let i = start; i < page; i++) {
+
       this.arrays.push(i);
     }
   }
 
-  pageLimit() {
+  pageLimit(): any {
     this.restartArrays(10, 1);
     if (this.totalPage < 10) {
      this.restartArrays(this.totalPage);
@@ -41,8 +49,6 @@ export class PaginationsComponent implements OnInit {
     else if ( this.activePage >= 5 ) {
       this.restartArrays(this.activePage + 5 , this.activePage - 4);
     }
-
-   
 
   }
 

@@ -20,6 +20,7 @@ export class GenresMainPageComponent implements OnInit {
   totalPages: number;
   page: any;
   activePage = 1;
+  totalPagesSearch: number;
   getSearchResults: Movie[];
   constructor(private movieService: MovieService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -28,7 +29,6 @@ export class GenresMainPageComponent implements OnInit {
    this.id = this.activatedRoute.snapshot.paramMap.get('genresId');
    this.getMovies(this.activePage);
   }
-
 
   getMovies(page: number): any {
     this.isLoading = true;
@@ -76,6 +76,7 @@ export class GenresMainPageComponent implements OnInit {
       this.movies = [];
       this.movies = event.results.filter(data => data.poster_path !== null);
       const totalPages = event.total_pages;
+      console.log(this.totalPages);
       const totalResults = event.total_results;
       console.log(this.movies);
     }

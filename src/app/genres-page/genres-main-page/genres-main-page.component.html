@@ -7,7 +7,7 @@
           <div class="overlay"></div>
         </header> 
         <div style="float: right;">
-<app-search (searchMovie)="getSearchMovies($event)"></app-search>
+<app-search [activePage]="activePage" (searchMovie)="getSearchMovies($event)"></app-search>
 </div>
 <div style="float: left !important;">
   <app-filter-movie [genresId]="genres?.id" (filterMovie)="getFilterMovies($event)"></app-filter-movie>
