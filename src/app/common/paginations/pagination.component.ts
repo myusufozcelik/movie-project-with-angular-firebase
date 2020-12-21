@@ -46,8 +46,13 @@ export class PaginationsComponent implements OnInit {
     else if ( this.activePage === this.totalPage) {
       this.restartArrays(this.totalPage, this.activePage - 9);
     }
-    else if ( this.activePage >= 5 ) {
+    else if ( this.activePage >= 5  && this.activePage <= this.totalPage - 4) {
       this.restartArrays(this.activePage + 5 , this.activePage - 4);
+    }
+
+    else if (this.activePage >= 5 && this.activePage >= this.totalPage - 4) {
+      this.restartArrays(this.activePage, this.activePage - 4 );
+
     }
 
   }
