@@ -57,14 +57,7 @@ export class GenresMainPageComponent implements OnInit {
     console.log(activePageNumber);
     this.activePage = activePageNumber;
     this.getMovies(this.activePage);
-    window.scrollTo(0,460);
-  }
-
-  displayActivePage(activePageNumber: number) {
-    this.activePage = activePageNumber;
-    this.getMovies(this.activePage);
-    window.scrollTo(0, 950);   // tekrar bak!!s!
-
+    window.scrollTo(0, 460);
   }
 
   // goToMovie(movieId: number):any {
