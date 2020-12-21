@@ -7,19 +7,12 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class PaginationsComponent implements OnInit {
 
-  @Input() totalPage: number;
+  @Input() totalPage;
   // tslint:disable-next-line: no-output-on-prefix
   @Output() onPageChange: EventEmitter<number> = new EventEmitter();
   activePage: number;
   arrays = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   constructor() {
-    if (this.totalPage < 10) {
-      this.arrays = [];
-      for (let i = 0; i < this.totalPage; i++) {
-        this.arrays.push(i);
-      }
-    }
-
    }
 
   ngOnInit(): void {
