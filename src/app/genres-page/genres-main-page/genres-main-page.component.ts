@@ -23,12 +23,13 @@ export class GenresMainPageComponent implements OnInit {
   totalPagesSearch: number;
   getSearchResults: Movie[];
   constructor(private movieService: MovieService, private router: Router, private activatedRoute: ActivatedRoute) {
-    this.getMovies(this.activePage);
+
    }
 
   ngOnInit(): void {
    // tslint:disable-next-line: no-string-literal
    this.id = this.activatedRoute.snapshot.paramMap.get('genresId');
+   this.getMovies(this.activePage);
   }
 
   getMovies(page: number): any {
