@@ -3,12 +3,11 @@ import { GenresMainPageComponent } from './genres-main-page/genres-main-page.com
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CommonModules } from '../common/common.module';
-import { MoviePaginationDirective } from './movie-pagination.directive';
 
 
 
 @NgModule({
-  declarations: [GenresMainPageComponent, MoviePaginationDirective],
+  declarations: [GenresMainPageComponent],
   imports: [
     CommonModule,
     CommonModules,

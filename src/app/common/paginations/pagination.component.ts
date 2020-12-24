@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-paginations',
@@ -13,6 +13,23 @@ export class PaginationsComponent implements OnInit {
   activePage: number;
   arrays = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   constructor() {
+
+   }
+
+   // tslint:disable-next-line: use-lifecycle-interface
+   ngOnChanges(changes: SimpleChanges): void {
+    if (changes.totalPage && changes.totalPage.currentValue) {
+      const totalP = changes.totalPage.currentValue;
+      if (this.arrays.length > this.totalPage) {
+        this.arrays = [];
+        for (let i = 1; i <= totalP; i++) {
+          this.arrays.push(i);
+        }
+    }
+    else {
+      this.pageLimit();
+    }
+    }
    }
 
   ngOnInit(): void {
