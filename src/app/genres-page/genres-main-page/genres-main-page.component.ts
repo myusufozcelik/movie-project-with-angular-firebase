@@ -2,7 +2,7 @@ import { Genres } from './../../models/genres.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { Movie } from 'src/app/models/movie.model';
-import { Component, HostListener, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, HostListener, Input, OnChanges, OnInit, SimpleChanges, AfterViewInit } from '@angular/core';
 
 
 @Component({
@@ -17,11 +17,14 @@ export class GenresMainPageComponent implements OnInit {
   sortBy = ['popularity', 'release_date', 'revenue', 'primary_release_date', 'original_title', 'vote_average', 'vote_count'];
   genres: Genres;
   isLoading = false;
+  searchValue: string;
   totalPages: number;
   page: any;
+  isSearch: boolean;
   activePage = 1;
   totalPagesSearch: number;
   getSearchResults: Movie[];
+  startOne: boolean;
   constructor(private movieService: MovieService, private router: Router, private activatedRoute: ActivatedRoute) {
 
    }
@@ -32,7 +35,10 @@ export class GenresMainPageComponent implements OnInit {
    this.getMovies(this.activePage);
   }
 
+
+
   getMovies(page: number): any {
+    this.isSearch = false;
     this.isLoading = true;
     this.movieService.getMoviesWithFilter(undefined, page, this.id, null)
     .subscribe(data => {
@@ -57,7 +63,13 @@ export class GenresMainPageComponent implements OnInit {
   getPageInfo(activePageNumber: number) {
     console.log(activePageNumber);
     this.activePage = activePageNumber;
-    this.getMovies(this.activePage);
+    if (!this.isSearch) {
+      this.getMovies(this.activePage);
+    }
+    else {
+      console.log(this.searchValue);
+      this.getSearchMovies(this.searchValue);
+    }
     window.scrollTo(0, 460);
   }
 
@@ -66,16 +78,21 @@ export class GenresMainPageComponent implements OnInit {
   // }
 
   getSearchMovies(event: any): any {
-    console.log(event);
-    if (event !== undefined) {
-      this.movies = [];
-      this.movies = event.results.filter(data => data.poster_path !== null);
-      this.totalPages = event.total_pages;
-      console.log(this.totalPages);
-      const totalResults = event.total_results;
-      console.log(this.movies);
+    this.isSearch = true;
+
+    this.movies = [];
+    this.searchValue = event;
+    console.log(this.searchValue , this.activePage);
+    this.movieService.getSearchMovies(this.searchValue, this.activePage)
+    .subscribe(movie => {
+      console.log(movie);
+      // tslint:disable-next-line: no-string-literal
+      this.movies = movie['results'].filter(data => data.poster_path !== null);
+        // tslint:disable-next-line: no-string-literal
+      this.totalPages = movie['total_pages'];
+    });
     }
-  }
+
 
   getFilterMovies(event: any): any {
     console.log(event);

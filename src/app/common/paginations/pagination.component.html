@@ -5,6 +5,6 @@
       </a>
       <!--Active için class page-numbers current olmalı-->
       <a class="page-numbers" [ngClass]="{'current': activePage === a}"  (click)="onClickPage(a)" href="javascript:;" *ngFor="let a of arrays">{{a}}</a>
-      <a *ngIf="!(arrays.includes(totalPage)) && totalPage >  9" class="next page-numbers" (click)="onClickPage(totalPage)" href="javascript:;">Son Sayfa </a>  
+      <a *ngIf="!(arrays.includes(totalPage))" class="next page-numbers" (click)="onClickPage(totalPage)" href="javascript:;">Son Sayfa </a>  
     </div>
   </div>

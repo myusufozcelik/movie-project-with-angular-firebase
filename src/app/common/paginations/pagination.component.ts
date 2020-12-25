@@ -1,11 +1,11 @@
-import { Component, Input, OnInit, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, SimpleChanges, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-paginations',
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })
-export class PaginationsComponent implements OnInit {
+export class PaginationsComponent implements OnInit, OnChanges {
 
   @Input() totalPage;
   // tslint:disable-next-line: no-output-on-prefix
