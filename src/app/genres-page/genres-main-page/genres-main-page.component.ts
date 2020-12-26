@@ -1,3 +1,4 @@
+import { filter } from 'rxjs/operators';
 import { Genres } from './../../models/genres.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MovieService } from 'src/app/services/movie/movie.service';
@@ -21,9 +22,11 @@ export class GenresMainPageComponent implements OnInit {
   totalPages: number;
   page: any;
   isSearch: boolean;
+  isFilter: boolean;
   activePage = 1;
   totalPagesSearch: number;
   getSearchResults: Movie[];
+  filterType: string;
   startOne: boolean;
   constructor(private movieService: MovieService, private router: Router, private activatedRoute: ActivatedRoute) {
 
@@ -63,12 +66,15 @@ export class GenresMainPageComponent implements OnInit {
   getPageInfo(activePageNumber: number) {
     console.log(activePageNumber);
     this.activePage = activePageNumber;
-    if (!this.isSearch) {
+    if (!this.isSearch && !this.isFilter) {
       this.getMovies(this.activePage);
     }
-    else {
+    else if (this.isSearch && !this.isFilter){
       console.log(this.searchValue);
       this.getSearchMovies(this.searchValue);
+    }
+    else {
+      this.getFilterMovies(this.filterType);
     }
     window.scrollTo(0, 460);
   }
@@ -79,8 +85,6 @@ export class GenresMainPageComponent implements OnInit {
 
   getSearchMovies(event: any): any {
     this.isSearch = true;
-
-    this.movies = [];
     this.searchValue = event;
     console.log(this.searchValue , this.activePage);
     this.movieService.getSearchMovies(this.searchValue, this.activePage)
@@ -93,24 +97,43 @@ export class GenresMainPageComponent implements OnInit {
     });
     }
 
+//   this.movieService.getMoviesWithFilter(genreFilter, this.activePage, this.genresId)
+    //   .subscribe(movie => {
+    //       console.log(movie);
+    //       this.filterMovie.emit(genreFilter);
+    //   });
+    // }
+    // else {
+    //   this.movieService.getMoviesWithFilter(genreFilter, 1, null)
+    //   .subscribe(movie => {
+    //       console.log(movie);
+    //       this.filterMovie.emit(movie);
+    //   });
+
 
   getFilterMovies(event: any): any {
-    console.log(event);
-    if (event !== undefined) {
-      this.movies = [];
-      this.movies = event.results.filter(data => data.poster_path !== null);
-      const totalPages = event.total_pages;
-      const totalResults = event.total_results;
+    this.isFilter = true;
+    this.filterType = event;
+    console.log(this.activePage);
+    console.log(String(this.genres.id))
+    if (this.filterType !== null) {
+      this.movieService.getMoviesWithFilter(this.filterType, this.activePage, String(this.genres.id))
+      .subscribe(movieFilter => {
+        console.log(movieFilter);
+        this.movies = movieFilter['results'].filter(data => data.poster_path !== null);
+        this.totalPages = movieFilter['total_pages'];
+      });
+      // this.movies = this.filterValue.filter(data => data.poster_path !== null);
       console.log(this.movies);
     }
   }
 
-  gotoTop(): any {
-    window.scroll({
-      top:  1000,
-      left: 10,
-      behavior: 'smooth'
-    });
-  }
+  // gotoTop(): any {
+  //   window.scroll({
+  //     top:  1000,
+  //     left: 10,
+  //     behavior: 'smooth'
+  //   });
+  // }
 
 }

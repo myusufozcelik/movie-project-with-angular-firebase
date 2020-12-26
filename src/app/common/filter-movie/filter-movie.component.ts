@@ -9,8 +9,9 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class FilterMovieComponent implements OnInit {
 
-  filterList = ['Popülerliğe Göre', 'Çıkış Tarihine Göre', 'Puana Göre'];
+  filterList = ['Popülerliğe Göre', 'Çıkış Tarihine Göre', 'Puana Göre', 'Varsayılan'];
   @Input() genresId;
+  @Input() activePage;
   @Output() filterMovie = new EventEmitter();
 
   constructor(private movieService: MovieService) { }
@@ -21,9 +22,10 @@ export class FilterMovieComponent implements OnInit {
   getFilterValue(filterValue: HTMLInputElement): any {
     console.log(filterValue.innerText);
     console.log(this.genresId);
+    console.log(this.activePage);
     let genreFilter;
     if (this.genresId !== undefined || this.genresId !== null ) {
-      if (filterValue.innerText === this.filterList[0]) {
+      if (filterValue.innerText === this.filterList[0] || filterValue.innerText === this.filterList[3]) {
         genreFilter = 'popularity.desc';
       }
       if (filterValue.innerText === this.filterList[1]) {
@@ -32,18 +34,7 @@ export class FilterMovieComponent implements OnInit {
       if (filterValue.innerText === this.filterList[2]) {
         genreFilter = 'vote_average.desc';
       }
-      this.movieService.getMoviesWithFilter(genreFilter, 1, this.genresId)
-      .subscribe(movie => {
-          console.log(movie);
-          this.filterMovie.emit(movie);
-      });
-    }
-    else {
-      this.movieService.getMoviesWithFilter(genreFilter, 1, null)
-      .subscribe(movie => {
-          console.log(movie);
-          this.filterMovie.emit(movie);
-      });
+      this.filterMovie.emit(genreFilter);
     }
   }
 }

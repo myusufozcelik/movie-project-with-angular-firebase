@@ -10,7 +10,7 @@
 <app-search [activePage]="activePage"  (searchMovie)="getSearchMovies($event.value)"></app-search>
 </div>
 <div style="float: left !important;">
-  <app-filter-movie [genresId]="genres?.id" (filterMovie)="getFilterMovies($event)"></app-filter-movie>
+  <app-filter-movie [genresId]="genres?.id" [activePage]="activePage" (filterMovie)="getFilterMovies($event)"></app-filter-movie>
 </div>
 <br>
 <br>
