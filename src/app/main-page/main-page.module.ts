@@ -1,3 +1,4 @@
+import { CommonModules } from './../common/common.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './../app-routing.module';
 import { CommonModule } from '@angular/common';
@@ -38,6 +39,7 @@ import { RecommendCardComponent } from './components/recommend-movie/recommend-c
         CommonModule,
         AppRoutingModule,
         BrowserModule,
+        CommonModules,
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule

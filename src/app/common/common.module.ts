@@ -11,10 +11,11 @@ import { LoadingComponent } from './loading/loading.component';
 import { SearchComponent } from './search/search.component';
 import { FilterMovieComponent } from './filter-movie/filter-movie.component';
 import { PaginationsComponent } from './paginations/pagination.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
     imports: [CommonModule, AppRoutingModule, BrowserModule, FormsModule, ReactiveFormsModule],
-    exports: [ComboboxComponent, LoadingComponent, SearchComponent, FilterMovieComponent, PaginationsComponent],
+    exports: [ComboboxComponent, LoadingComponent, SearchComponent, FilterMovieComponent, PaginationsComponent, MenuComponent],
     declarations: [
         LoginComponent,
         RegisterComponent,
@@ -22,7 +23,8 @@ import { PaginationsComponent } from './paginations/pagination.component';
         ComboboxComponent,
         SearchComponent,
         FilterMovieComponent,
-        PaginationsComponent
+        PaginationsComponent,
+        MenuComponent
     ],
 })
 export class CommonModules { }

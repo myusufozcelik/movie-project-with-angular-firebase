@@ -42,6 +42,7 @@ export class GenresMainPageComponent implements OnInit {
 
   getMovies(page: number): any {
     this.isSearch = false;
+    this.isFilter = false;
     this.isLoading = true;
     this.movieService.getMoviesWithFilter(undefined, page, this.id, null)
     .subscribe(data => {
