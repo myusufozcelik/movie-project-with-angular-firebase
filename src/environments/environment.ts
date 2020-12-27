@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  picturePath: '../../../assets/img/menu',
   apiKeyTmdb: '1809a55509c3d4f7842300e2a5529fbb',
   apiKeyOmdb: '5bf6e8dc',
   detailOmdbMovies: 'http://www.omdbapi.com/?i=',

@@ -12,15 +12,15 @@
           <!-- horizontal -->
 
 <!-- <h4>Horizontal Flip</h4> -->
-<div class="flip" #action (click)="goToGenres(action)">
-  <div class="front" value="28" style="background-image: url('../../../assets/img/menu/action_1.jpg')">
-     <h1 class="text-shadow">AKSIYON</h1>
+<div class="flip" *ngFor="let categories of movieCategories; let i = index;"  (click)="goToGenres(categories.id)">
+  <div  class="front" style="background-image: url('{{ imagePaths[i].firstImage}}')">
+     <h1 class="text-shadow">{{categories.name}}</h1>
   </div>
-  <div class="back" style="background-image: url('../../../assets/img/menu/action_2.jpg')">
-    <h1 class="text-shadow">ACTION</h1>
+  <div class="back" style="background-image: url('{{imagePaths[i].secondImage}}')">
+    <h1 class="text-shadow">{{categories.name}}</h1>
   </div>
 </div>
-<div class="flip" value="35">
+<!-- <div class="flip" value="35">
 <div class="front" style="background-image: url('../../../assets/img/menu/comedy_1.jpg')">
    <h1 class="text-shadow">KOMEDI</h1>
 </div>
@@ -82,11 +82,11 @@
 <div class="back" style="background-image: url('../../../assets/img/menu/other_2.jpg')">
   <h1 class="text-shadow">OTHERS</h1>
 </div>
-</div>
+</div> -->
 
 <!-- vertical -->
 
-
+<!-- 
 <div class="flip flip-vertical">
 <div class="front" style="background-image: url(https://cutewallpaper.org/21/wallpaper-ai/Alarming-Artificial-Intelligence-The-AI-Documentary-Cool-.jpg)">
   <h1 class="text-shadow">İLETİŞİM</h1>
@@ -120,7 +120,7 @@
 <div class="back" style="background-image: url(https://cdn.hipwallpaper.com/i/12/41/t70b5K.jpg)">
  <h1 class="text-shadow">OTHERS</h1>
 </div>
-</div>
+</div> -->
         </span>
       </a>
     </li>
