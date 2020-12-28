@@ -28,7 +28,7 @@ export class MainPageMovieComponent implements OnInit {
   videoUrl;
   omdbData: MoviesOmdb;
   director: Cast[];
-
+  isLoading =  false;
 
   constructor(private movieService: MovieService, private router: ActivatedRoute, private route: Router,
               private sanitizer: DomSanitizer) {
@@ -51,6 +51,7 @@ export class MainPageMovieComponent implements OnInit {
 
     this.movieService.getMovieDetail(movieId)
       .subscribe(data => {
+        this.isLoading = true;
         this.movieDetail = data;
         console.log(this.movieDetail);
         this.movieId = data.id;
@@ -64,13 +65,16 @@ export class MainPageMovieComponent implements OnInit {
             this.omdbData = data;
             // this.originFlag = `../../../assets/img/flags/${this.omdbData.Country}.png`;
             console.log(this.omdbData);
+            this.isLoading = false;
           });
       });
 
     this.movieService.getSimilar(movieId)
       .subscribe(data => {
+        this.isLoading = true;
         this.movieRecommend = data.filter(recommend => recommend.poster_path !== null).slice(0, 8);
         console.log(this.movieRecommend);
+        this.isLoading = false;
       });
 
     // this.movieService.getTranslate(movieId)
@@ -85,19 +89,23 @@ export class MainPageMovieComponent implements OnInit {
 
     this.movieService.getMovieCast(movieId)
       .subscribe(data => {
+        this.isLoading = true;
         // tslint:disable-next-line: no-shadowed-variable
          this.movieCast = data.filter(data => data.popularity >= 2);
           // this.movieCast = this.movieCast.slice().sort((a,b) => b.popularity - a.popularity)
          this.movieCast.splice(5, this.movieCast.length - 1);
          console.log(this.movieCast);
+         this.isLoading = false;
       });
 
     this.movieService.getMovieDirector(movieId)
       .subscribe(data => {
+        this.isLoading = true;
         console.log(data);
         // tslint:disable-next-line: no-shadowed-variable
         this.director = data.filter(data => data.job === 'Director');
         console.log(this.director);
+        this.isLoading = false;
       });
 
     this.movieService.getVideos(movieId)

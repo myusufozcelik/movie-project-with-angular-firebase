@@ -2,6 +2,8 @@
 
     <!-- <app-loading></app-loading> -->
 
+   
+
     <div class="row no-gutters">
         <div class="col-xl-1">
             <div class="menu">
@@ -48,6 +50,7 @@
             </div>
         </div>
         <div class="col-xl-11">
+            
             <div class="background"
                 style="background: url('https://image.tmdb.org/t/p/original/{{movieDetail?.backdrop_path}}') no-repeat center;">
                 <div class="background-content">
@@ -76,6 +79,7 @@
                             <i class="fa fa-star text-warning"></i>
                             <i class="fa fa-star text-dark"></i> -->
                     </div>
+                    
                     <h5>
                         {{movieDetail?.release_date | date: ['yyyy']}} | {{movieDetail?.runtime }} dakika
                         <!-- {{movieDetail?.genres[0]?.name}}
@@ -111,7 +115,7 @@
                         </button>
 
                     </div>
-
+                    
                     
                     <div class="modal fade" data-backdrop="static" data-keyboard="false" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -142,14 +146,15 @@
                     </p> -->
                 </div>
                 <div class="row no-gutters popular-movie">
-                    <div class="col-xl-1 mr-5 ml-4 " *ngFor="let recommend of movieRecommend">
-                        <img src="https://image.tmdb.org/t/p/w300/{{recommend?.poster_path}}" style="cursor: pointer;"
-                            (click)="loadProduct(recommend.id)" routerLinkActive="active" class="img-fluid" alt="">
-                        <p>{{recommend?.title}}</p>
-                    </div>
+                <div class="col-xl-1 mr-5 ml-4 " *ngFor="let recommend of movieRecommend">
+                    <img src="https://image.tmdb.org/t/p/w300/{{recommend?.poster_path}}" style="cursor: pointer;"
+                        (click)="loadProduct(recommend.id)" routerLinkActive="active" class="img-fluid" alt="">
+                    <p>{{recommend?.title}}</p>
                 </div>
             </div>
+            </div>
         </div>
+        
     </div>
-
 </div>
+

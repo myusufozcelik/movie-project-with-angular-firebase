@@ -15,7 +15,7 @@ import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
     imports: [CommonModule, AppRoutingModule, BrowserModule, FormsModule, ReactiveFormsModule],
-    exports: [ComboboxComponent, LoadingComponent, SearchComponent, FilterMovieComponent, PaginationsComponent, MenuComponent],
+    exports: [ComboboxComponent, LoadingComponent, SearchComponent, FilterMovieComponent, PaginationsComponent, MenuComponent, LoadingComponent],
     declarations: [
         LoginComponent,
         RegisterComponent,

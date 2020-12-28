@@ -16,7 +16,7 @@ export class MenuComponent implements OnInit {
   // tslint:disable-next-line: max-line-length
   imagePaths = [
     {firstImage: `${this.path}/action_1.jpg`, secondImage: `${this.path}/action_2.jpg`},
-    {firstImage: `${this.path}/adventure_1.jpg`, secondImage: `${this.path}/adventure_2.jpg`},
+    {firstImage: `${this.path}/adventure_2.jpg`, secondImage: `${this.path}/adventure_1.jpg`},
     {firstImage: `${this.path}/animation_1.jpg`, secondImage: `${this.path}/animation_2.jpg`},
     {firstImage: `${this.path}/comedy_2.jpg`, secondImage: `${this.path}/comedy_1.jpg`},
     {firstImage: `${this.path}/documentary_1.jpg`, secondImage: `${this.path}/documentary_2.jpg`},
@@ -29,16 +29,13 @@ export class MenuComponent implements OnInit {
     {firstImage: `${this.path}/western_1.jpg`, secondImage: `${this.path}/western_2.jpg`}
 ];
 
-  imagePath = {
-    backgroundImage: `url${this.imagePaths}`
-  };
+
   constructor(private movieService: MovieService, private router: Router) { }
 
   ngOnInit(): void { // LAZYLOADING EKLE
     this.movieService.getGenres().subscribe(genres => {
       // tslint:disable-next-line: max-line-length
       this.movieCategories = genres.filter(data => data.id !== 80 && data.id !== 10751 && data.id !== 36 && data.id !== 10402 && data.id !== 9648 && data.id !== 10770 && data.id !== 53);
-      this.movieCategories['image'] = this.imagePath;
       console.log(this.movieCategories);
     });
   }
