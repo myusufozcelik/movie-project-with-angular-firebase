@@ -113,7 +113,7 @@ $secondary: #ecb807 !default;
     background: linear-gradient(90deg, fade-out(white, 0.9) 0%, fade-out(white, 0.9) 100%),   url('../../../assets/img/menu-wallpaper.jpg');
     font-size: 4rem;
     padding: 40px;
-    transform: translate(100vw) rotate(45deg);
+    transform: translate(100vw) rotate(0);
     transition: 0.2s $bezier;
   }
   &__item {
@@ -172,6 +172,8 @@ main {
     margin-top: 1.5rem;
   }
 }
+
+//CARDS
 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 
@@ -255,7 +257,7 @@ h1 {
       background-size: cover!important;
       background-position: center!important;
       height: 220px;
-      padding: 1em 2em;
+      padding: .3em .3em;
       background: #313131;
       border-radius: 10px;
       p {
