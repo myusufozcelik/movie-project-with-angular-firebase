@@ -1,7 +1,10 @@
+import { Movie } from './../../../models/movie.model';
+import { MovieService } from 'src/app/services/movie/movie.service';
 import { Router } from '@angular/router';
 import { TitleCasePipe } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild, Input } from '@angular/core';
 import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Component({
   selector: 'app-search-movie',
@@ -23,8 +26,9 @@ export class SearchMovieComponent implements OnInit {
   releaseDateData;
   originCountryData;
   error: string;
+  movies: Movie[];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private movieService: MovieService) { }
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
@@ -74,7 +78,15 @@ export class SearchMovieComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
-  saveMovieSearch(type= 'action', imdb= '7-8', release= 'Yeni', origin= 'Amerika') {
+  saveMovieSearch(type= '28', imdb= '7-8', release= '2020', origin= 'Amerika') {
+    const page = 1;
+    const scores = imdb.split('-', 2);
+   console.log('popularity.desc', page, type, origin, Number(scores[0]), Number(scores[1]), Number(release))
+    this.movieService.getMoviesWithFilter('popularity.desc', page, type, origin, Number(scores[0]), Number(scores[1]), Number(release))
+    .subscribe(data => {
+      this.movies = data;
+      console.log(this.movies);
+    });
 
    console.log(type);
    console.log(imdb);

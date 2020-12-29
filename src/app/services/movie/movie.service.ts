@@ -34,9 +34,9 @@ export class MovieService {
   }
 
   getMovieList(movieListType: string, page: number): Observable<Movie[]>{
-    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/movie/${movieListType}?api_key=${this.apiKey}&language=tr&page=${page}`)
+    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/movie/${movieListType}?api_key=${this.apiKey}&language=tr&page=${page}`);
   }
-  
+
   getNowPlaying(): Observable<Movie[]> {
     return this.httpClient.get<Movie[]>(this.nowPlayingMoviePath)
       // tslint:disable-next-line: no-string-literal
@@ -80,27 +80,31 @@ export class MovieService {
 
   getMovieDirector(movieId: number): Observable<Cast[]> {
     return this.httpClient.get<Cast[]>(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${this.apiKey}&language=en-US`)
+    // tslint:disable-next-line: no-string-literal
     .pipe(map(result => result['crew']));
   }
 
   getVideos(movieId: number): Observable<Video> {
     return this.httpClient.get<Video>(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${this.apiKey}&language=en-US`)
-    .pipe(map(result => result['results']))
+    // tslint:disable-next-line: no-string-literal
+    .pipe(map(result => result['results']));
   }
 
   getPeopleDetails(personId: number): Observable<Person> {
-      return this.httpClient.get<Person>(`https://api.themoviedb.org/3/person/${personId}?api_key=1809a55509c3d4f7842300e2a5529fbb&language=en-US`)
+      return this.httpClient.get<Person>(`https://api.themoviedb.org/3/person/${personId}?api_key=1809a55509c3d4f7842300e2a5529fbb&language=en-US`);
   }
 
   getPeopleMovies(peopleName: string, peopleSurname: string): Observable<Movie[]> {
 
     return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/search/person?api_key=${this.apiKey}&language=en-US&query=${peopleName}%20${peopleSurname}&include_adult=false`)
-    .pipe(map(result => result['results']))
+    // tslint:disable-next-line: no-string-literal
+    .pipe(map(result => result['results']));
   }
 
   getPeopleMoviesWithId(peopleId: number): Observable<Movie[]> {
     return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/person/${peopleId}/movie_credits?api_key=${this.apiKey}&language=en-US`)
-    .pipe(map(result => result['cast']))
+    // tslint:disable-next-line: no-string-literal
+    .pipe(map(result => result['cast']));
   }
 
   getMovies(movieId: number): Observable<Movies[]> {
@@ -114,10 +118,11 @@ export class MovieService {
   }
 
   getSearchMovies(keyword: string, page = 1): Observable<Movie[]> {
-    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${keyword}&page=${page}`)
+    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${keyword}&page=${page}`);
   }
 
-  getMoviesWithFilter(sortBy?: any, page = 1, genres?: string, languages?: string ): Observable<Movie[]> {
+  // tslint:disable-next-line: max-line-length
+  getMoviesWithFilter(sortBy?: any, page = 1, genres?: string, languages?: string, lteScore?: number, gteScore?: number, releaseDate?: number): Observable<Movie[]> {
     let api = `https://api.themoviedb.org/3/discover/movie?api_key=${this.apiKey}&page=${page}`;
     if (sortBy) {
       // tslint:disable-next-line: no-unused-expression
@@ -129,7 +134,24 @@ export class MovieService {
     if (languages) {
       api = api.concat(`&with_original_language=${languages}`);
     }
-    return this.httpClient.get<Movie[]>(api)
+    if (lteScore) {
+      api = api.concat(`&vote_average.gte=${lteScore}`);
+    }
+    if (gteScore) {
+      api = api.concat(`&vote_average.lte=${gteScore}`);
+    }
+    if (releaseDate) {
+      if (releaseDate <= 1979) {
+        api = api.concat(`&release_date.lte=${releaseDate}-12-31`);
+      }
+      else if (releaseDate >= 2020) {
+        api = api.concat(`&release_date.gte=${releaseDate}-01-01`);
+      }
+      else {
+        api = api.concat(`&release_date.gte=${releaseDate}-01-01&release_date.lte=${releaseDate + 9}-12-31`);
+      }
+    }
+    return this.httpClient.get<Movie[]>(api);
     // tslint:disable-next-line: no-string-literal
 
   }

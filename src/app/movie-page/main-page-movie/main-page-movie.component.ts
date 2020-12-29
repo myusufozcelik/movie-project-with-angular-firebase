@@ -40,7 +40,7 @@ export class MainPageMovieComponent implements OnInit {
 
 
   @HostListener('window:popstate', ['$event'])
-  onPopState(event) {
+  onPopState(event): any {
     const movieId: number = +this.router.snapshot.paramMap.get('id');
     this.loadProduct(movieId);
   }
@@ -91,11 +91,10 @@ export class MainPageMovieComponent implements OnInit {
       .subscribe(data => {
         this.isLoading = true;
         // tslint:disable-next-line: no-shadowed-variable
-         this.movieCast = data.filter(data => data.popularity >= 2);
+        this.movieCast = data.filter(data => data.popularity >= 2);
           // this.movieCast = this.movieCast.slice().sort((a,b) => b.popularity - a.popularity)
-         this.movieCast.splice(5, this.movieCast.length - 1);
-         console.log(this.movieCast);
-         this.isLoading = false;
+        this.movieCast.splice(5, this.movieCast.length - 1);
+        this.isLoading = false;
       });
 
     this.movieService.getMovieDirector(movieId)
