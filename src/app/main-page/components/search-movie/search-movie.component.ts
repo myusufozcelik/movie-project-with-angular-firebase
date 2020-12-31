@@ -1,10 +1,7 @@
 import { Movie } from './../../../models/movie.model';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { Router } from '@angular/router';
-import { TitleCasePipe } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild, Input } from '@angular/core';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Component({
   selector: 'app-search-movie',

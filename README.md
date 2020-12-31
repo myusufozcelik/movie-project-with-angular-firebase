@@ -35,3 +35,4 @@ Yapılacaklar:
 33) http://localhost:4200/movie/403300 gibi filmlerde recommend movies gelmiyor. Bunun yerine başka bir şey getir.
 34) app-routing işlemleri düzenlenecek. Örn; Search işleminde movie/?search gibi adrese yansıyacak.
 35) Imdb puanı genres bölümüne eklenecek
+36) Home logosu eklenip tıklayınca ana sayfaya yönlendirecek
