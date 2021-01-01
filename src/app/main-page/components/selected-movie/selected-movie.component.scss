@@ -37,7 +37,7 @@ html, body{
     border-radius: 10px;
     .movie_header{
       position: relative;
-      padding: 25px;
+      padding: 10px;
       cursor: pointer;
       height: 40%;
       h1{
@@ -62,7 +62,7 @@ html, body{
       }
     }
     .movie_desc{
-      padding: 25px;
+      padding: 10px;
       height: 50%;
       .text{
         color: #cfd6e1;
@@ -109,7 +109,7 @@ html, body{
   }
   
   .movie_desc{
-    width: 50%;
+    width: 60%;
   }
   
   .info_section{

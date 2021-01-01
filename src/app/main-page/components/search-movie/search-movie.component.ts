@@ -81,7 +81,7 @@ export class SearchMovieComponent implements OnInit {
    console.log('popularity.desc', page, type, origin, Number(scores[0]), Number(scores[1]), Number(release))
     this.movieService.getMoviesWithFilter('popularity.desc', page, type, origin, Number(scores[0]), Number(scores[1]), Number(release))
     .subscribe(data => {
-      this.movies = data;
+      this.movies = data['results'];
       console.log(this.movies);
     });
 

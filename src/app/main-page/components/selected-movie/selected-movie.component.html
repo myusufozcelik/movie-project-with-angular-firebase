@@ -25,29 +25,30 @@
 
 <div class="movie_card background" id="shadow">
 
-    <div class="openTrailer">
-        <iframe *ngIf="openTrailerBoolean" width="800" height="350" src="https://www.youtube.com/embed/6EZCBSsBxko" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div >
+        <iframe *ngIf="openTrailerBoolean" width="1100" height="350" [src]="videoUrl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
      
     <div class="info_section">
       <div class="movie_header">
-        <img class="locandina" src="https://image.tmdb.org/t/p/w300/{{currentMovie?.poster_path}}" style="cursor: pointer;"/>
-        <h1>{{currentMovie?.original_title}}</h1>
-  
-        <h4>{{currentMovie?.release_date | date: ['yyyy']}}
-          <span *ngIf="currentMovie?.original_title !== currentMovie?.title"> , {{currentMovie?.title}}</span>
+        <span (click)="goToMoviePage(movieDetail.id)">
+        <img class="locandina" src="https://image.tmdb.org/t/p/w300/{{movieDetail?.poster_path}}" style="cursor: pointer;"/>
+        <h1>{{movieDetail?.original_title}}</h1>
+      </span>
+        <h4>{{movieDetail?.release_date | date: ['yyyy']}}
+          <span *ngIf="movieDetail?.original_title !== movieDetail?.title"> , {{movieDetail?.title}}</span>
         </h4>
         <p class="type">
-          <span *ngFor="let genres of currentMovie?.genre_ids">
-            <button type="button" class="btn btn-info ml-1" style="opacity: .9;">
-              {{genres}}
+          <span *ngFor="let genres of movieDetail?.genres">
+            <button type="button" class="btn btn-info ml-1" (click)="goToGenres(genres.id)" style="opacity: .9;">
+              {{genres?.name}}
             </button>
           </span>
         </p>
       </div>
       <div class="movie_desc">
         <p class="text">
-          {{currentMovie?.overview}} 
+          {{movieDetail?.overview}} 
         </p>
       </div>
       <div class="movie_social">
@@ -75,7 +76,7 @@
         </ul>
       </div>
     </div>
-    <div *ngIf="openCardBoolean" class="blur_back movie_back" style="background: url('https://image.tmdb.org/t/p/original/{{currentMovie?.backdrop_path}}')">
+    <div *ngIf="openCardBoolean" class="blur_back movie_back" style="background: url('https://image.tmdb.org/t/p/original/{{movieDetail?.backdrop_path}}')">
     </div>
   </div>
 <div class="alert-box-actions">

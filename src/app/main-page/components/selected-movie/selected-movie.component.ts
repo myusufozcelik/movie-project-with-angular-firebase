@@ -1,3 +1,7 @@
+import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MovieService } from 'src/app/services/movie/movie.service';
+import { Movies } from './../../../models/movies.model';
 import { Movie } from 'src/app/models/movie.model';
 import { Component,  EventEmitter,  Input,  OnChanges,  OnInit, Output, SimpleChanges } from '@angular/core';
 
@@ -16,30 +20,47 @@ export class SelectedMovieComponent implements OnInit, OnChanges {
   ourScore =  6.5;
   currentMovie: Movie;
   movieNumber = 0;
+  videoUrl;
   // tslint:disable-next-line: no-output-native
   @Input() openMovie: boolean;
   @Input() movie: Movie[];
+  movieDetail: Movies;
   // tslint:disable-next-line: no-output-native
   @Output() close = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private movieService: MovieService, private sanitizer: DomSanitizer, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.currentMovie = this.movie['results'][0];
+    this.currentMovie = this.movie[0];
+    this.getMovieDetail(this.currentMovie?.id);
   }
 
   changeMovie(type: any) {
     console.log(type);
     if (type==='next') {
-      this.currentMovie = this.movie['results'][++this.movieNumber];
+      this.currentMovie = this.movie[++this.movieNumber];
     }
     else if (type=== 'previous') {
-      this.currentMovie = this.movie['results'][--this.movieNumber];
+      this.currentMovie = this.movie[--this.movieNumber];
     }
-    console.log(this.currentMovie);
+    this.getMovieDetail(this.currentMovie?.id);
+    
+  }
+
+  getMovieDetail(movieId) {
+    this.movieService.getMovieDetail(movieId)
+    .subscribe(movie => {
+      this.movieDetail = movie;
+      this.movieService.getVideos(movieId)
+      .subscribe(data => {
+        this.videoUrl = data[0];
+        this.videoUrl = `https://www.youtube.com/embed/${this.videoUrl.key}`; 
+        this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl);
+      });
+    })
   }
   
   // tslint:disable-next-line: typedef
@@ -51,6 +72,14 @@ export class SelectedMovieComponent implements OnInit, OnChanges {
   // tslint:disable-next-line: typedef
   onClose() {
     this.close.emit();
+  }
+
+  goToMoviePage(id): any {
+    this.router.navigate([`/movie/${id}`]);
+  }
+
+  goToGenres(id): any {
+    this.router.navigate([`/genres/${id}`]);
   }
 
 }
