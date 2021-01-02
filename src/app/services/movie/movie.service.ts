@@ -37,6 +37,10 @@ export class MovieService {
     return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/movie/${movieListType}?api_key=${this.apiKey}&language=tr&page=${page}`);
   }
 
+  getMovieListsWithType(type ?: string, page?: number): Observable<Movie[]> {
+    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/movie/${type}?api_key=${this.apiKey}&language=tr&page=${page}`)
+  }
+
   getNowPlaying(): Observable<Movie[]> {
     return this.httpClient.get<Movie[]>(this.nowPlayingMoviePath)
       // tslint:disable-next-line: no-string-literal

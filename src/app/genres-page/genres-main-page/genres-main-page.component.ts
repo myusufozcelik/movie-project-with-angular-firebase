@@ -64,7 +64,7 @@ export class GenresMainPageComponent implements OnInit {
   }
 
 
-  getPageInfo(activePageNumber: number) {
+  getPageInfo(activePageNumber: number): any {
     console.log(activePageNumber);
     this.activePage = activePageNumber;
     if (!this.isSearch && !this.isFilter) {
@@ -115,20 +115,16 @@ export class GenresMainPageComponent implements OnInit {
   getFilterMovies(event: any): any {
     this.isFilter = true;
     this.filterType = event;
-    console.log(this.activePage);
-    console.log(String(this.genres.id))
     if (this.filterType !== null) {
       this.movieService.getMoviesWithFilter(this.filterType, this.activePage, String(this.genres.id))
       .subscribe(movieFilter => {
-        console.log(movieFilter);
+        // tslint:disable-next-line: no-string-literal
         this.movies = movieFilter['results'].filter(data => data.poster_path !== null);
+        // tslint:disable-next-line: no-string-literal
         this.totalPages = movieFilter['total_pages'];
       });
-      // this.movies = this.filterValue.filter(data => data.poster_path !== null);
-      console.log(this.movies);
     }
   }
-
   // gotoTop(): any {
   //   window.scroll({
   //     top:  1000,

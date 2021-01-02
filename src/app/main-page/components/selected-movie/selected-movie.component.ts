@@ -38,31 +38,29 @@ export class SelectedMovieComponent implements OnInit, OnChanges {
     this.getMovieDetail(this.currentMovie?.id);
   }
 
+  // tslint:disable-next-line: typedef
   changeMovie(type: any) {
-    console.log(type);
-    if (type==='next') {
+    if (type === 'next') {
       this.currentMovie = this.movie[++this.movieNumber];
     }
-    else if (type=== 'previous') {
+    else if (type === 'previous') {
       this.currentMovie = this.movie[--this.movieNumber];
     }
     this.getMovieDetail(this.currentMovie?.id);
-    
   }
 
-  getMovieDetail(movieId) {
+  getMovieDetail(movieId): any {
     this.movieService.getMovieDetail(movieId)
     .subscribe(movie => {
       this.movieDetail = movie;
       this.movieService.getVideos(movieId)
       .subscribe(data => {
         this.videoUrl = data[0];
-        this.videoUrl = `https://www.youtube.com/embed/${this.videoUrl.key}`; 
+        this.videoUrl = `https://www.youtube.com/embed/${this.videoUrl?.key}`;
         this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoUrl);
       });
-    })
+    });
   }
-  
   // tslint:disable-next-line: typedef
   trailerFunction() {
     this.openTrailerBoolean = !this.openTrailerBoolean;
@@ -75,7 +73,12 @@ export class SelectedMovieComponent implements OnInit, OnChanges {
   }
 
   goToMoviePage(id): any {
-    this.router.navigate([`/movie/${id}`]);
+    if (this.openTrailerBoolean) {
+      this.trailerFunction();
+    }
+    else {
+      this.router.navigate([`/movie/${id}`]);
+    }
   }
 
   goToGenres(id): any {

@@ -2,12 +2,12 @@
 
 
 
-  <div class="tabs">
+  <div class="tabs" (click)="getMoviesLists($event.target.value)">
 
-    <input type="radio" id="tab1" name="tab-control" checked>
-    <input type="radio" id="tab2" name="tab-control">
-    <input type="radio" id="tab3" name="tab-control">
-    <input type="radio" id="tab4" name="tab-control">
+    <input type="radio" id="tab1" value="top_rated" name="tab-control" checked>
+    <input type="radio" id="tab2" value="popular" name="tab-control">
+    <input type="radio" id="tab3" value="now_playing" name="tab-control">
+    <input type="radio" id="tab4" value="upcoming" name="tab-control">
     <ul>
       <li title="Features"><label for="tab1" role="button"><br><span>Trend Filmler</span></label></li>
       <li title="Delivery Contents"><label for="tab2" role="button"><br><span>Popüler Filmler</span></label></li>
@@ -19,34 +19,15 @@
       <div class="indicator"></div>
     </div>
     <div class="content">
-      <section>
-        <app-recommend-card [movies]="trendMovies"></app-recommend-card>
+      <section *ngFor="let typeMovie of typeList">
+        <app-recommend-card [movies]="movies"></app-recommend-card>
         <div class="bottom-right">
-          <button class="btn btn-outline-secondary" (click)="goToMoreMovies('top-rated-movies')">Daha fazla...</button>
-          </div>
-      </section>
-      <section>
-        <app-recommend-card [movies]="popularMovies"></app-recommend-card>
-        <div class="bottom-right">
-          <button class="btn btn-outline-secondary" (click)="goToMoreMovies('popular-movies')">Daha fazla...</button>
-          </div>
-      </section>
-      <section>
-        <app-recommend-card [movies]="nowPlaying"></app-recommend-card>
-        <div class="bottom-right">
-          <button class="btn btn-outline-secondary" (click)="goToMoreMovies('now-playing-movies')">Daha fazla...</button>
-          </div>
-      </section>
-      <section>
-        <app-recommend-card [movies]="upcoming"></app-recommend-card>
-        <div class="bottom-right">
-          <button class="btn btn-outline-secondary" (click)="goToMoreMovies('upcoming-movies')">Daha fazla...</button>
+          <button class="btn btn-outline-secondary" (click)="goToMoreMovies(typeMovie)">Daha fazla...</button>
           </div>
       </section>
     </div>
     
   </div>
-
 
 
 </div>

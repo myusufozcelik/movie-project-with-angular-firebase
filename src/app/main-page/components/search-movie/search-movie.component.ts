@@ -78,19 +78,14 @@ export class SearchMovieComponent implements OnInit {
   saveMovieSearch(type= '28', imdb= '7-8', release= '2020', origin= 'Amerika') {
     const page = 1;
     const scores = imdb.split('-', 2);
-   console.log('popularity.desc', page, type, origin, Number(scores[0]), Number(scores[1]), Number(release))
     this.movieService.getMoviesWithFilter('popularity.desc', page, type, origin, Number(scores[0]), Number(scores[1]), Number(release))
     .subscribe(data => {
+      // tslint:disable-next-line: no-string-literal
       this.movies = data['results'];
       console.log(this.movies);
     });
-
-   console.log(type);
-   console.log(imdb);
-   console.log(release);
-   console.log(origin);
-   this.closeSearchTab();
-   this.openMovie = true;
+    this.closeSearchTab();
+    this.openMovie = true;
   //  this.router.navigate(['/deneme']);
     // this.error = 'Error';
   }
