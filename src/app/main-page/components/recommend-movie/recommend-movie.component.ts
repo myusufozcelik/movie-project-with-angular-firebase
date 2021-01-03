@@ -1,3 +1,4 @@
+import { InterceptorService } from './../../../services/interceptor/interceptor.service';
 import { filter } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { MovieService } from './../../../services/movie/movie.service';
@@ -15,12 +16,13 @@ export class RecommendMovieComponent implements OnInit, OnChanges {
   movies: Movie[];
   type = 'top_rated';
   // tslint:disable-next-line: object-literal-key-quotes
-  typeList = ['top-rated-movies', 'popular-movies', 'now-playing-movies', 'upcoming-movies'];
+  typeList = ['top_rated', 'popular', 'now_playing', 'upcoming'];
   constructor(private movieService: MovieService, private router: Router) {
     this.getMoviesLists(this.type);
    }
 
   ngOnInit(): void {
+    console.log(this.type);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -39,7 +41,7 @@ getMoviesLists(type: string): any {
 
 goToMoreMovies(movieType): any {
   console.log(movieType);
-  this.router.navigate([`/${movieType}`]);
+  this.router.navigate([`/movies/${movieType}`]);
 }
 
 }

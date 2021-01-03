@@ -1,6 +1,3 @@
-import { UpcomingMoviesComponent } from './movie-lists/upcoming-movies/upcoming-movies.component';
-import { TopRatedMoviesComponent } from './movie-lists/top-rated-movies/top-rated-movies.component';
-import { PopularMoviesComponent } from './movie-lists/popular-movies/popular-movies.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { CommonModule } from '@angular/common';
@@ -10,18 +7,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { MovieMainPageComponent } from './movie-main-page/main-page.component';
 import { MoviePageHeaderComponent } from './movie-page-header/movie-page-header.component';
-import { NowPlayingMoviesComponent } from './movie-lists/now-playing-movies/now-playing-movies.component';
 import { CommonModules } from '../common/common.module';
+import { MovieListsPageComponent } from './movie-lists-page/movie-lists-page.component';
 
 @NgModule({
     declarations: [
         MovieCardComponent,
         MovieMainPageComponent,
         MoviePageHeaderComponent,
-        NowPlayingMoviesComponent,
-        PopularMoviesComponent,
-        TopRatedMoviesComponent,
-        UpcomingMoviesComponent
+        MovieListsPageComponent
     ],
     imports: [
         CommonModule,

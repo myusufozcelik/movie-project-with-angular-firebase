@@ -7,7 +7,7 @@ import { MovieService } from 'src/app/services/movie/movie.service';
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss']
 })
-export class MovieCardComponent implements OnInit, OnChanges {
+export class MovieCardComponent implements OnInit {
 
   @Input() movies: Movie[];
   totalPages: number;
@@ -22,10 +22,6 @@ export class MovieCardComponent implements OnInit, OnChanges {
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    throw new Error('Method not implemented.');
   }
 
 

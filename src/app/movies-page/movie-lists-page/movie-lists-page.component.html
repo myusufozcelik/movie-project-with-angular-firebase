@@ -1,0 +1,20 @@
+    <header class="masthead d-flex">
+        <div class="container text-center my-auto">
+          <h1 class="mb-1 ">
+            {{movieListHeader}}
+          </h1>
+          <button class="btn btn-info btn-xl js-scroll-trigger" (click)="gotoTop()">Daha Fazla Seçenek</button>
+        </div>
+        <div class="overlay"></div>
+      </header>
+      <div style="float: right;">
+        <app-search [activePage]="activePage" (searchMovie)="getSearchMovies($event.value)"></app-search>
+      </div>
+
+      <br>
+      <br>
+      
+      <app-movie-card [movies]="movies"></app-movie-card>
+    
+      <app-paginations [totalPage]="totalPages" (onPageChange)="getPageInfo($event)"></app-paginations>
+
