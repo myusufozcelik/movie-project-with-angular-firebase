@@ -38,7 +38,7 @@ export class MovieService {
   }
 
   getMovieListsWithType(type ?: string, page?: number): Observable<Movie[]> {
-    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/movie/${type}?api_key=${this.apiKey}&page=${page}`)
+    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/movie/${type}?api_key=${this.apiKey}&page=${page}&language=tr`)
   }
 
   getNowPlaying(): Observable<Movie[]> {
