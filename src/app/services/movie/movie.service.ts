@@ -65,7 +65,7 @@ export class MovieService {
 
   getSimilar(movieId: number): Observable<Movie[]> {
     // tslint:disable-next-line: max-line-length
-    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${this.apiKey}&language=en-US&page=1`)
+    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${this.apiKey}&language=tr&page=1`)
     // tslint:disable-next-line: no-string-literal
     .pipe(map(result => result['results']));
   }

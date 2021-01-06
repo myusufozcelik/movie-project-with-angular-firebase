@@ -1,6 +1,6 @@
 .menu {
     
-    background: black;
+    background: #262f30;
     text-align: center;
     height: 100%;
 }
@@ -67,7 +67,7 @@ hr {
 
 .popular-movie {
     position: absolute;
-    bottom: 4.5em;
+    bottom: 2.5em;
 }
 
 .popular-movie p {
@@ -82,7 +82,7 @@ hr {
 }
 
 .popular-movie img:hover {
-    box-shadow: 0 0px 10px rgba(96, 45, 191, 0.5);
+    box-shadow: 0 0px 10px rgba(159, 150, 175, 0.5);
     transform: translateY(-10px);
 }
 

@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ScoreCardComponent implements OnInit {
 
-  @Input() imdbScore: number;
+  @Input() imdbScore: string;
   @Input() metacriticScore: string;
   @Input() weScore: number;
 
