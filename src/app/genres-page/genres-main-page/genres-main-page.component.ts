@@ -44,7 +44,7 @@ export class GenresMainPageComponent implements OnInit {
     this.isSearch = false;
     this.isFilter = false;
     this.isLoading = true;
-    this.movieService.getMoviesWithFilter(undefined, page, this.id, null)
+    this.movieService.getMoviesWithFilter(undefined, page, this.id)
     .subscribe(data => {
       this.isLoading = true;
       // tslint:disable-next-line: no-string-literal
@@ -57,6 +57,7 @@ export class GenresMainPageComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.genres = data.filter(genres => genres.id === +this.id)[0];
+        
         console.log(this.genres);
       });
       this.isLoading = false;

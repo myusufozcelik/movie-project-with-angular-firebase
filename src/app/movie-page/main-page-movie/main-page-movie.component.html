@@ -83,16 +83,7 @@
                     
                     <h5>
                         {{movieDetail?.release_date | date: ['yyyy']}} | {{movieDetail?.runtime }} dakika
-                        <!-- {{movieDetail?.genres[0]?.name}}
-                        <span *ngIf="movieDetail?.genres[1]?.name">
-                            | {{movieDetail?.genres[1]?.name}}
-                        </span>
-                        <span *ngIf="movieDetail?.genres[2]?.name">
-                            | {{movieDetail?.genres[2]?.name}}
-                        </span>
-                        <span *ngIf="movieDetail?.genres[3]?.name">
-                            | {{movieDetail?.genres[3]?.name}}
-                        </span> -->
+                        
                         <span *ngFor="let genres of movieDetail?.genres">
                             <button type="button" class="btn btn-info ml-1" (click)="goToGenres(genres.id)" style="opacity: .9;">
                                 {{genres.name}}
@@ -136,20 +127,23 @@
                             </div>
                         </div>
                     </div>
-                    <p 
-                        class="w-20 font-weight-bold text-muted h2 row row-pading mt-2 "
-                        style="line-height: 2.2vw; margin-top: 5rem; float: right;">
-                        {{movieDetail?.overview}}
-                    </p>
-                    <!-- <p *ngIf="translate?.overview.length >= 700" class="w-20 font-weight-bold h4 row row-pading mt-3"
-                        style="line-height: 2.1vw; ">
-                        {{translate?.overview}}
-                    </p> -->
+                   
+                     <p 
+                    class="w-20 font-weight-bold text-muted h2 row row-pading mt-2 "
+                    style="line-height: 2.2vw; margin-top: 5rem; float: right;">
+                    {{movieDetail?.overview}}
+                </p> 
                 </div>
                 <div class="row no-gutters popular-movie">
-                <div class="col-xl-1 mr-5 ml-4 " *ngFor="let recommend of movieRecommend">
+                    <!-- <p 
+                    class="w-20 font-weight-bold text-muted h2 row no-gutters row-pading mt-2 "
+                    style="line-height: 2.2vw; margin-top: 5rem; float: right;">
+                    {{movieDetail?.overview}}
+                </p> -->
+                 
+                <div class="col-xl-1 mr-5 ml-4" *ngFor="let recommend of movieRecommend">
                     <img src="https://image.tmdb.org/t/p/w300/{{recommend?.poster_path}}" style="cursor: pointer;"
-                        (click)="loadProduct(recommend.id)" routerLinkActive="active" class="img-fluid" alt="">
+                        (click)="loadProduct(recommend.id)" routerLinkActive="active" class="img-fluid " alt="">
                     <p>{{recommend?.title}}</p>
                 </div>
             </div>

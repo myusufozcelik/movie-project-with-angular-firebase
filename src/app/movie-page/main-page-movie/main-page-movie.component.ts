@@ -77,16 +77,6 @@ export class MainPageMovieComponent implements OnInit {
         this.isLoading = false;
       });
 
-    // this.movieService.getTranslate(movieId)
-    //   .subscribe(data => {
-    //     // tslint:disable-next-line: no-shadowed-variable
-    //     this.translate = data.filter(data => data?.name === 'Türkçe')[0]?.data;
-    //     if (this.translate === undefined) {
-    //       // tslint:disable-next-line: no-shadowed-variable
-    //       this.translate = data.filter(data => data.name === 'English')[0]?.data;
-    //     }
-    //   });
-
     this.movieService.getMovieCast(movieId)
       .subscribe(data => {
         this.isLoading = true;

@@ -127,7 +127,7 @@ export class MovieService {
 
   // tslint:disable-next-line: max-line-length
   getMoviesWithFilter(sortBy?: any, page = 1, genres?: string, languages?: string, lteScore?: number, gteScore?: number, releaseDate?: number): Observable<Movie[]> {
-    let api = `https://api.themoviedb.org/3/discover/movie?api_key=${this.apiKey}&page=${page}`;
+    let api = `https://api.themoviedb.org/3/discover/movie?api_key=${this.apiKey}&page=${page}&language=tr`;
     if (sortBy) {
       // tslint:disable-next-line: no-unused-expression
       api =  api.concat(`&sort_by=${sortBy}`);
