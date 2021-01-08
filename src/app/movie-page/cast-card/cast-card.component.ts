@@ -10,13 +10,13 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CastCardComponent implements OnInit {
 
   @Input() castDetails: Cast[];
-  @Input() director: Cast[];
-  
+
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-  
+
   goToPersonPage(personId: number) {
     this.router.navigate([`/person/${personId}`])
   }

@@ -10,7 +10,7 @@
       </div> -->
       <div class="ml-2" *ngFor="let cast of castDetails">
         <div class="our-team">
-          <div class="picture">
+          <div *ngIf="cast?.profile_path !==null" class="picture">
             <img  class="img-fluid" src="https://image.tmdb.org/t/p/w45/{{cast?.profile_path}}" (click)="goToPersonPage(cast?.id)" alt="">
           </div>
           <div class="team-content">

@@ -1,22 +1,28 @@
 <div  class="container">
   <div  class="card-group  mr-5 " >
     <div *ngIf="metacriticScore !== 'N/A' && metacriticScore" class="card-body text-center">
-      <img style="width: 60px;" src="../../../assets/img/flags/metacritic.png">
-      <p class="card-text">{{metacriticScore}}/100</p>
+      <img style="width: 50px;" src="../../../assets/img/flags/metacritic.png">
+      <span class="card-text">
+        {{metacriticScore}}/100
+      </span>
     </div>
    
           <!-- <p style="color: white;" class="card-text">{{metacriticScore}}/100</p> -->
    
 
       <div *ngIf="imdbScore !== 'N/A' && imdbScore" class="card-body text-center">
-        <img style="width: 60px;" src="../../../assets/img/flags/imdb.png">
-        <p class="card-text">{{imdbScore}}/10</p>
+        <img style="width: 50px;" src="../../../assets/img/flags/imdb.png">
+        <span class="card-text">
+          {{imdbScore}}/10
+        </span>
       </div>
     
     
       <div *ngIf="weScore !== 0" class="card-body text-center">
-        <img style="width: 60px;" src="../../../assets/img/flags/filmbul.png">
-        <p class="card-text">{{weScore}}/10</p>
+        <img style="width: 50px;" src="../../../assets/img/flags/filmbul.png">
+        <span class="card-text">
+          {{weScore}}/10
+        </span>
       </div>
   </div>
 </div>
