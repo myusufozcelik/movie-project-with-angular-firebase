@@ -100,7 +100,7 @@ export class MovieService {
 
   getPeopleMovies(peopleName: string, peopleSurname: string): Observable<Movie[]> {
 
-    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/search/person?api_key=${this.apiKey}&language=en-US&query=${peopleName}%20${peopleSurname}&include_adult=false`)
+    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/search/person?api_key=${this.apiKey}&language=en-US&query=${peopleName}%20${peopleSurname}&adult=false`)
     // tslint:disable-next-line: no-string-literal
     .pipe(map(result => result['results']));
   }
