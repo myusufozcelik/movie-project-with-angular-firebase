@@ -27,12 +27,15 @@
                         {{person?.place_of_birth}}
                       </span>
                 </p>
+                <p *ngIf="person?.deathday !== null" class="mt-4">
+                    - {{person?.deathday}}
+                </p>
                 <br>
 
                
                 <p class="mt-4">
                 
-                    <span>
+                    <span *ngIf="person?.homepage !== null">
                         
                            <a target="_" href="{{person?.homepage}}">
                                <h3 class="text-link h4">Web Sitesi</h3>

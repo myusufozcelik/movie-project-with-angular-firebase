@@ -2,7 +2,7 @@
     <header class="masthead d-flex">
         <div class="container text-center my-auto">
             <h1 class="mb-2">{{genres?.name}} Filmleri</h1>
-            <button class="btn btn-info btn-xl js-scroll-trigger" (click)="getMovies(1)">Daha Fazla Seçenek</button>
+            <!-- <button class="btn btn-info btn-xl js-scroll-trigger" (click)="getMovies(1)">Daha Fazla Seçenek</button> -->
           </div>
           <div class="overlay"></div>
         </header> 
@@ -12,8 +12,7 @@
 <div style="float: left !important;">
   <app-filter-movie [genresId]="genres?.id" [activePage]="activePage" (filterMovie)="getFilterMovies($event)"></app-filter-movie>
 </div>
-<br>
-<br>
+
 <!-- 
 <body>
     <div class="container ">
@@ -44,10 +43,8 @@
 
 </body>
  -->
-
-
     <div class="album py-5 bg-light">
-      <div class="container">
+      <div class="container mt-5">
 
         <div class="row">
           <div class="col-md-3" *ngFor="let movie of movies">
