@@ -13,6 +13,9 @@
           <div *ngIf="cast?.profile_path !==null" class="picture">
             <img  class="img-fluid" src="https://image.tmdb.org/t/p/w45/{{cast?.profile_path}}" (click)="goToPersonPage(cast?.id)" alt="">
           </div>
+          <div *ngIf="cast?.profile_path == null">
+              <br>
+          </div>
           <div class="team-content">
             <h3 style="color: rgba(245, 245, 245, 0.849); font-size: 1.1rem; cursor: pointer;" class="name">{{cast.name}}</h3>
             <h4 class="title">{{cast.character}}</h4>
