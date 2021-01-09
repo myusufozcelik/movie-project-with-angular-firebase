@@ -5,8 +5,12 @@
       <span class="card-text">
         {{metacriticScore}}/100
       </span>
+      <div *ngIf="metacriticScore === 'N/A'">
+        <br>
+        </div>
     </div>
    
+  
    
           <!-- <p style="color: white;" class="card-text">{{metacriticScore}}/100</p> -->
    
@@ -16,6 +20,7 @@
         <span class="card-text">
           {{imdbScore}}/10
         </span>
+        
       </div>
      
     
@@ -27,3 +32,7 @@
       </div>
   </div>
 </div>
+
+<div *ngIf="imdbScore === 'N/A' || metacriticScore === 'N/A' || weScore == 0">
+  <br>
+  </div>

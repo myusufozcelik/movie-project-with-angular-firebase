@@ -8,10 +8,10 @@ export const environment = {
   apiKeyTmdb: '1809a55509c3d4f7842300e2a5529fbb',
   apiKeyOmdb: '5bf6e8dc',
   detailOmdbMovies: 'http://www.omdbapi.com/?i=',
-  popularMovies: `https://api.themoviedb.org/3/movie/popular?api_key=1809a55509c3d4f7842300e2a5529fbb&language=en-US&page=1`,
-  nowPlayingMovies: `https://api.themoviedb.org/3/movie/now_playing?api_key=1809a55509c3d4f7842300e2a5529fbb&language=en-US&page=1`,
-  topRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=1809a55509c3d4f7842300e2a5529fbb&language=en-US&page=1`,
-  upcomingMovies: `https://api.themoviedb.org/3/movie/upcoming?api_key=1809a55509c3d4f7842300e2a5529fbb&language=en-US&page=1`,
+  popularMovies: `https://api.themoviedb.org/3/movie/popular?api_key=1809a55509c3d4f7842300e2a5529fbb&language=tr&page=1`,
+  nowPlayingMovies: `https://api.themoviedb.org/3/movie/now_playing?api_key=1809a55509c3d4f7842300e2a5529fbb&language=tr&page=1`,
+  topRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=1809a55509c3d4f7842300e2a5529fbb&language=tr&page=1`,
+  upcomingMovies: `https://api.themoviedb.org/3/movie/upcoming?api_key=1809a55509c3d4f7842300e2a5529fbb&language=tr&page=1`,
   detailMovies: 'https://api.themoviedb.org/3/movie'
 };
 

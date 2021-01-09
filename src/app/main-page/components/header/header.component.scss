@@ -29,3 +29,14 @@ $white: #fff !default;
   }
 }  
 
+.background {
+  background-size: cover;
+
+  position: relative;
+}
+.carousel-item{
+  height: 60rem;
+} 
+.carousel-item img{
+  height: 60rem;
+}

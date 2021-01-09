@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { MovieService } from 'src/app/services/movie/movie.service';
+import { Movie } from 'src/app/models/movie.model';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  movieFirst: Movie;
+  movies: Movie[];
+  constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
+    this.movieService.getNowPlaying()
+    .subscribe(movies => {
+      this.movies = movies.slice(0, 5);
+      this.movieFirst = this.movies[0];
+      this.movies = this.movies.slice(1, 5);
+    });
   }
 
 }

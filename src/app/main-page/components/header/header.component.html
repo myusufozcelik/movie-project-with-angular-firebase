@@ -1,4 +1,4 @@
-<header class="masthead d-flex">
+<!-- <header class="masthead d-flex">
     <div class="container text-center my-auto">
       <h1 class="mb-1">DEVAMI GELECEK</h1>
       <h3 class="mb-5">
@@ -7,4 +7,42 @@
       <a class="btn btn-primary btn-xl js-scroll-trigger" href="#portfolio">Daha Fazla Seçenek</a>
     </div>
     <div class="overlay"></div>
-  </header>
+  </header> -->
+
+  <div class="bd-example">
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://image.tmdb.org/t/p/original/{{movieFirst?.backdrop_path}}" class="d-block w-100"  alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>
+              {{movieFirst?.title}}
+            </h5>
+            <p>{{movieFirst?.overview}}</p>
+          </div>
+        </div>
+        <div class="carousel-item" *ngFor="let movie of movies">
+          <img src="https://image.tmdb.org/t/p/original/{{movie?.backdrop_path}}"  class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>{{movie?.title}}</h5>
+            <p>{{movie?.overview}}</p>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
