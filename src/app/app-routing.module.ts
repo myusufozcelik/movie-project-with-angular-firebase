@@ -1,3 +1,4 @@
+import { ListsComponent } from './menu/lists/lists.component';
 import { CategoriesComponent } from './menu/categories/categories.component';
 import { MovieListsPageComponent } from './movies-page/movie-lists-page/movie-lists-page.component';
 import { GenresMainPageComponent } from './genres-page/genres-main-page/genres-main-page.component';
@@ -20,8 +21,11 @@ const routes: Routes = [
   {path: 'person/:id', component: PersonMainPageComponent},
   {path: 'person/movies/:id', component: PersonMovieAllComponent},
   {path: 'genres/:genresId', component: GenresMainPageComponent},
+  {path: 'movies/country/:countryId', component: GenresMainPageComponent},
   {path: 'movies/:movieType', component: MovieListsPageComponent},
   {path: 'menu/categories', component: CategoriesComponent},
+  {path: 'movies/search/:searchValue', component: GenresMainPageComponent},
+  {path: 'menu/lists', component: ListsComponent},
   {path: '', redirectTo: 'main', pathMatch: 'full'}
 ];
 

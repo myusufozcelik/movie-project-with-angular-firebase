@@ -1,15 +1,12 @@
-  <div class="text-dark mt-5">
-  
-     
-       
-<div class="flip" *ngFor="let categories of movieCategories; let i = index;"  (click)="goToGenres(categories.id)">
-  <div  class="front" style="background-image: url('{{ imagePaths[i].firstImage}}')">
-     <h1 class="text-shadow">{{categories.name}}</h1>
+<div class="text-dark mt-5 ml-5">
+  <a href="/">
+  <img class="main_page_logo" src="../assets/img/flags/filmbul.png"> </a>
+  <div class="flip" *ngFor="let categories of movieCategories; let i = index;" (click)="goToGenres(categories.id)">
+    <div class="front" style="background-image: url('{{ imagePaths[i].firstImage}}')">
+      <h1 class="text-shadow">{{categories.name}}</h1>
+    </div>
+    <div class="back" style="background-image: url('{{imagePaths[i].secondImage}}')">
+      <h1 class="text-shadow">{{categories.name}}</h1>
+    </div>
   </div>
-  <div class="back" style="background-image: url('{{imagePaths[i].secondImage}}')">
-    <h1 class="text-shadow">{{categories.name}}</h1>
-  </div>
-</div>
-       
-   
 </div>

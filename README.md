@@ -33,3 +33,7 @@ Yapılacaklar:
 34) app-routing işlemleri düzenlenecek. Örn; Search işleminde movie/?search gibi adrese yansıyacak.
 35) Imdb puanı genres bölümüne eklenecek
 36) Home logosu eklenip tıklayınca ana sayfaya yönlendirecek
+37) Search kısmında tek bir sonuç geldiğinde başlığı alt alta yazıyor
+38) Rastgele Film Öner, Top 250 Imdb, Top 100 Biz, İletişim Sayfası, Listeler Sayfasında Header kısmı yapılacak
+39) Film sayfasında benzer filmler boş gelirse başrol oyuncusunun filmlerini getir
+40) Loading ekle, Lazyloader ekle, Logoyu Angular logosunun yerine koy

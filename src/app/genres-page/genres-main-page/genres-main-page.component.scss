@@ -8,10 +8,10 @@ $white: #fff !default;
     z-index: 10;
     display: flex;
     align-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 3.1rem;
+    height: 3.1rem;
     margin: 1rem;
-    opacity: .5;
+    opacity: .3;
 
     &:hover {
         opacity: 1;
@@ -26,7 +26,7 @@ $white: #fff !default;
     height: auto;
     padding-top: 8rem;
     padding-bottom: 8rem;
-    background: linear-gradient(90deg, fade-out($white, 0.9) 0%, fade-out($white, 0.9) 100%),   url('../../../assets/img/trende_movies.jpg');
+    background: linear-gradient(90deg, fade-out($white, 0.9) 0%, fade-out($white, 0.9) 100%),   url('../../../assets/img/trend_movies.jpg');
 
     background-position: center center;
     background-repeat: no-repeat;

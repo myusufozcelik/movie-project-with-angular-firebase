@@ -3,8 +3,8 @@
       <img class="main_page_logo" src="../assets/img/flags/filmbul.png" routerLink="/">
      <span>
     </span>
-        <div class="container text-center my-auto"> 
-            <h1 class="mt-2">{{genres?.name}} Filmleri</h1>
+        <div class="container text-center my-auto" > 
+            <h1 class="justify-content-center">{{genres?.name}} Filmleri</h1>
             <!-- <button class="btn btn-info btn-xl js-scroll-trigger" (click)="getMovies(1)">Daha Fazla Seçenek</button> -->
           </div>
           <div class="overlay"></div>
@@ -48,10 +48,9 @@
  -->
     <div class="album py-5 bg-light">
       <div class="container mt-5">
-
         <div class="row">
-          <div class="col-md-3" *ngFor="let movie of movies">
-            <div class="card mb-3 box-shadow " >
+          <div class="col-md-3"  *ngFor="let movie of movies">
+            <div class="card mb-3 box-shadow" >
                 
                 <img class="card-img-top" style="cursor: pointer;" src="https://image.tmdb.org/t/p/w300/{{movie?.poster_path}}" [routerLink]="['/movie/', movie.id]">
                 <span class="star" *ngIf="movie?.vote_average !==0">

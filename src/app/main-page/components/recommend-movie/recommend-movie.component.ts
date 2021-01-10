@@ -22,7 +22,6 @@ export class RecommendMovieComponent implements OnInit, OnChanges {
    }
 
   ngOnInit(): void {
-    console.log(this.type);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -40,7 +39,6 @@ getMoviesLists(type: string): any {
 }
 
 goToMoreMovies(movieType): any {
-  console.log(movieType);
   this.router.navigate([`/movies/${movieType}`]);
 }
 

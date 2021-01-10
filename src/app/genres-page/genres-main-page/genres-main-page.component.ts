@@ -28,22 +28,42 @@ export class GenresMainPageComponent implements OnInit {
   getSearchResults: Movie[];
   filterType: string;
   startOne: boolean;
+  countryId: any;
   constructor(private movieService: MovieService, private router: Router, private activatedRoute: ActivatedRoute) {
 
    }
 
   ngOnInit(): void {
    // tslint:disable-next-line: no-string-literal
-   this.id = this.activatedRoute.snapshot.paramMap.get('genresId');
+   this.countryId = this.activatedRoute.snapshot.paramMap.get('countryId');
+   if (this.countryId) {
+     this.id = this.countryId;
+   }
+   else {
+    this.id = this.activatedRoute.snapshot.paramMap.get('genresId');
+   }
    this.getMovies(this.activePage);
   }
-
-
 
   getMovies(page: number): any {
     this.isSearch = false;
     this.isFilter = false;
     this.isLoading = true;
+    if (this.countryId) {
+        this.movieService.getMoviesWithFilter(undefined, page, undefined, this.id)
+        .subscribe(data => {
+          this.isLoading = true;
+          // tslint:disable-next-line: no-string-literal
+          this.totalPages = data['total_pages'];
+          // tslint:disable-next-line: no-string-literal
+          this.movies = data['results'].filter(movie => movie.poster_path !== null);
+          console.log(this.movies);
+          this.movieService.getGenres()
+          // this.genres = tr
+          this.isLoading = false;
+        });
+    }
+    else {
     this.movieService.getMoviesWithFilter(undefined, page, this.id)
     .subscribe(data => {
       this.isLoading = true;
@@ -57,11 +77,10 @@ export class GenresMainPageComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.genres = data.filter(genres => genres.id === +this.id)[0];
-        
-        console.log(this.genres);
       });
       this.isLoading = false;
     });
+  }
   }
 
 
@@ -81,11 +100,7 @@ export class GenresMainPageComponent implements OnInit {
     window.scrollTo(0, 460);
   }
 
-  // goToMovie(movieId: number):any {
-  //   this.router.navigate([`/movie/${movieId}`]);
-  // }
-
-  getSearchMovies(event: any): any {
+  getSearchMovies(event?: any): any {
     this.isSearch = true;
     this.searchValue = event;
     console.log(this.searchValue , this.activePage);
@@ -99,31 +114,30 @@ export class GenresMainPageComponent implements OnInit {
     });
     }
 
-//   this.movieService.getMoviesWithFilter(genreFilter, this.activePage, this.genresId)
-    //   .subscribe(movie => {
-    //       console.log(movie);
-    //       this.filterMovie.emit(genreFilter);
-    //   });
-    // }
-    // else {
-    //   this.movieService.getMoviesWithFilter(genreFilter, 1, null)
-    //   .subscribe(movie => {
-    //       console.log(movie);
-    //       this.filterMovie.emit(movie);
-    //   });
-
-
   getFilterMovies(event: any): any {
     this.isFilter = true;
     this.filterType = event;
     if (this.filterType !== null) {
-      this.movieService.getMoviesWithFilter(this.filterType, this.activePage, String(this.genres.id))
-      .subscribe(movieFilter => {
-        // tslint:disable-next-line: no-string-literal
-        this.movies = movieFilter['results'].filter(data => data.poster_path !== null);
-        // tslint:disable-next-line: no-string-literal
-        this.totalPages = movieFilter['total_pages'];
-      });
+
+      if (this.countryId) {
+        this.movieService.getMoviesWithFilter(this.filterType, this.activePage, undefined, this.id)
+        .subscribe(movieFilter => {
+          // tslint:disable-next-line: no-string-literal
+          this.movies = movieFilter['results'].filter(data => data.poster_path !== null);
+          // tslint:disable-next-line: no-string-literal
+          this.totalPages = movieFilter['total_pages'];
+        });
+      }
+
+      else {
+        this.movieService.getMoviesWithFilter(this.filterType, this.activePage, String(this.genres.id))
+        .subscribe(movieFilter => {
+          // tslint:disable-next-line: no-string-literal
+          this.movies = movieFilter['results'].filter(data => data.poster_path !== null);
+          // tslint:disable-next-line: no-string-literal
+          this.totalPages = movieFilter['total_pages'];
+        });
+      }
     }
   }
   // gotoTop(): any {
