@@ -18,6 +18,7 @@ $white: #fff !default;
     }
 }
 
+
 .masthead {
     
     position: relative;
@@ -26,8 +27,6 @@ $white: #fff !default;
     height: auto;
     padding-top: 8rem;
     padding-bottom: 8rem;
-    background: linear-gradient(90deg, fade-out($white, 0.9) 0%, fade-out($white, 0.9) 100%),   url('../../../assets/img/trend_movies.jpg');
-
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -215,3 +214,5 @@ body {
       margin-bottom: 20px;
     }
   }
+
+

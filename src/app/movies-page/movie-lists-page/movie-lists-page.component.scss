@@ -1,3 +1,73 @@
 h1 {
     text-transform: uppercase;
 }
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    font-family: sans-serif;
+    background-color: #f1f1f1; 
+}
+
+
+.main_page_logo {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    width: 3.1rem;
+    height: 3.1rem;
+    margin: 1rem;
+    opacity: .3;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.masthead {
+    
+    position: relative;
+    display: table;
+    width: 100%;
+    height: auto;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+    h1 {
+      font-size: 3.8rem;
+      margin: 0;
+      margin-left: 14rem;
+      padding: 0;
+      color: rgb(255, 248, 248);
+    }
+
+    .btn {
+        margin-top: 5rem; 
+        margin-left: 5rem;
+    }
+
+    .btn:hover {
+        opacity: 0.9;
+        
+    }
+
+    @media (min-width: 992px) {
+      height: 47vh;
+      h1 {
+        font-size: 5.5rem;
+      }
+  
+    
+  }
+}  

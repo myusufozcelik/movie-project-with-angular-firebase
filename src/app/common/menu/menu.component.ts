@@ -21,8 +21,9 @@ export class MenuComponent implements OnInit {
   }
 
   goToSearchPage(event): any {
+    if (event !== undefined) {
     this.router.navigate([`/movies/search/${event}`]);
     document.getElementsByClassName('navigation')[0].classList.toggle('active');
   }
-
+}
 }

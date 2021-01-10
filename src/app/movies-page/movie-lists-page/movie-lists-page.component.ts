@@ -19,6 +19,7 @@ export class MovieListsPageComponent implements OnInit {
   isSearch = false;
   searchValue: string;
   totalPages: number;
+  randomNumber = 0;
 
   constructor(private movieService: MovieService, private activedRouter: ActivatedRoute) { }
 
@@ -26,6 +27,7 @@ export class MovieListsPageComponent implements OnInit {
     this.type = this.activedRouter.snapshot.params.movieType;
     this.getMovies(this.activePage);
     this.headerControl(this.type);
+    this.randomNumber = Math.floor(Math.random() * 30);
   }
 
   getMovies(page: number): any {
@@ -78,10 +80,6 @@ export class MovieListsPageComponent implements OnInit {
     }
   }
 
-
-  gotoTop() {
-
-  }
 
 
 }

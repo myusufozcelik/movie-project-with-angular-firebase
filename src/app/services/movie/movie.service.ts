@@ -60,12 +60,12 @@ export class MovieService {
   }
 
   getMovieDetail(movieId: number): Observable<Movies> {
-    return this.httpClient.get<Movies>(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.apiKey}&language=tr&page=1`);
+    return this.httpClient.get<Movies>(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.apiKey}&language=tr&page=1&include_adult=false`);
   }
 
   getSimilar(movieId: number): Observable<Movie[]> {
     // tslint:disable-next-line: max-line-length
-    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${this.apiKey}&language=tr&page=1`)
+    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${this.apiKey}&language=tr&page=1&include_adult=false`)
     // tslint:disable-next-line: no-string-literal
     .pipe(map(result => result['results']));
   }
@@ -89,45 +89,45 @@ export class MovieService {
   }
 
   getVideos(movieId: number): Observable<Video> {
-    return this.httpClient.get<Video>(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${this.apiKey}&language=en-US`)
+    return this.httpClient.get<Video>(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${this.apiKey}&language=en-US&include_adult=false`)
     // tslint:disable-next-line: no-string-literal
     .pipe(map(result => result['results']));
   }
 
   getPeopleDetails(personId: number): Observable<Person> {
-      return this.httpClient.get<Person>(`https://api.themoviedb.org/3/person/${personId}?api_key=1809a55509c3d4f7842300e2a5529fbb&language=en-US`);
+      return this.httpClient.get<Person>(`https://api.themoviedb.org/3/person/${personId}?api_key=1809a55509c3d4f7842300e2a5529fbb&language=en-US&include_adult=false`);
   }
 
   getPeopleMovies(peopleName: string, peopleSurname: string): Observable<Movie[]> {
 
-    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/search/person?api_key=${this.apiKey}&language=en-US&query=${peopleName}%20${peopleSurname}&adult=false`)
+    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/search/person?api_key=${this.apiKey}&language=tr&query=${peopleName}%20${peopleSurname}&include_adult=false`)
     // tslint:disable-next-line: no-string-literal
     .pipe(map(result => result['results']));
   }
 
   getPeopleMoviesWithId(peopleId: number): Observable<Movie[]> {
-    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/person/${peopleId}/movie_credits?api_key=${this.apiKey}&language=en-US`)
+    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/person/${peopleId}/movie_credits?api_key=${this.apiKey}&language=tr&include_adult=false`)
     // tslint:disable-next-line: no-string-literal
     .pipe(map(result => result['cast']));
   }
 
   getMovies(movieId: number): Observable<Movies[]> {
-    return this.httpClient.get<Movies[]>(`${this.movieDetails}/${movieId}?api_key=${this.apiKey}`);
+    return this.httpClient.get<Movies[]>(`${this.movieDetails}/${movieId}?api_key=${this.apiKey}&include_adult=false`);
   }
 
   getGenres(): Observable<Genres[]>{
-    return this.httpClient.get<Genres[]>(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.apiKey}&language=tr`)
+    return this.httpClient.get<Genres[]>(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.apiKey}&language=tr&include_adult=false`)
     // tslint:disable-next-line: no-string-literal
     .pipe(map(result => result['genres']));
   }
 
   getSearchMovies(keyword: string, page = 1): Observable<Movie[]> {
-    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${keyword}&page=${page}`);
+    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${keyword}&page=${page}&include_adult=false`);
   }
 
   // tslint:disable-next-line: max-line-length
   getMoviesWithFilter(sortBy?: any, page = 1, genres?: string, languages?: string, lteScore?: number, gteScore?: number, releaseDate?: number): Observable<Movie[]> {
-    let api = `https://api.themoviedb.org/3/discover/movie?api_key=${this.apiKey}&page=${page}&language=tr`;
+    let api = `https://api.themoviedb.org/3/discover/movie?api_key=${this.apiKey}&page=${page}&language=tr&include_adult=false`;
     if (sortBy) {
       // tslint:disable-next-line: no-unused-expression
       api =  api.concat(`&sort_by=${sortBy}`);
