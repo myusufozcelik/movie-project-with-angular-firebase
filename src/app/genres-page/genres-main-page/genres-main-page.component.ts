@@ -3,7 +3,7 @@ import { Genres } from './../../models/genres.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { Movie } from 'src/app/models/movie.model';
-import { Component, HostListener, Input, OnChanges, OnInit, SimpleChanges, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -29,20 +29,23 @@ export class GenresMainPageComponent implements OnInit {
   filterType: string;
   startOne: boolean;
   countryId: any;
+  getSearchValue: any;
   constructor(private movieService: MovieService, private router: Router, private activatedRoute: ActivatedRoute) {
 
    }
-
   ngOnInit(): void {
-   // tslint:disable-next-line: no-string-literal
+   this.getSearchValue = this.activatedRoute.snapshot.paramMap.get('searchValue');
    this.countryId = this.activatedRoute.snapshot.paramMap.get('countryId');
-   if (this.countryId) {
+   this.id = this.activatedRoute.snapshot.paramMap.get('genresId');
+   if (this.getSearchValue) {
+    this.getSearchMovies(this.getSearchValue);
+  }
+  else if (this.countryId) {
      this.id = this.countryId;
    }
    else {
-    this.id = this.activatedRoute.snapshot.paramMap.get('genresId');
+    this.getMovies(this.activePage);
    }
-   this.getMovies(this.activePage);
   }
 
   getMovies(page: number): any {
@@ -58,7 +61,6 @@ export class GenresMainPageComponent implements OnInit {
           // tslint:disable-next-line: no-string-literal
           this.movies = data['results'].filter(movie => movie.poster_path !== null);
           console.log(this.movies);
-          this.movieService.getGenres()
           // this.genres = tr
           this.isLoading = false;
         });
@@ -100,7 +102,7 @@ export class GenresMainPageComponent implements OnInit {
     window.scrollTo(0, 460);
   }
 
-  getSearchMovies(event?: any): any {
+  getSearchMovies(event: any): any {
     this.isSearch = true;
     this.searchValue = event;
     console.log(this.searchValue , this.activePage);

@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -8,15 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-
+  activePage = 1;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line: typedef
   showNav() {
-    document.getElementsByClassName("navigation")[0].classList.toggle("active");
+    document.getElementsByClassName('navigation')[0].classList.toggle('active');
+  }
+
+  goToSearchPage(event): any {
+    this.router.navigate([`/movies/search/${event}`]);
+    document.getElementsByClassName('navigation')[0].classList.toggle('active');
   }
 
 }

@@ -1,4 +1,4 @@
-<div class="navigation">
+<div #navigation class="navigation" >
   <div class="ham-btn" (click)="showNav()">
     <span></span>
     <span></span>
@@ -6,7 +6,12 @@
     
   </div>
   <div class="links">
-    <app-search></app-search>
+
+    <div class="link">
+      <a>
+    <app-search (searchMovie)="goToSearchPage($event.value)" [activePage]="activePage"></app-search>
+  </a>
+  </div>
     <div class="link">
       <a href="/menu/categories">Kategoriler</a>
     </div>
