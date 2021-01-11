@@ -75,9 +75,10 @@ export class SearchMovieComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
-  saveMovieSearch(type= '28', imdb= '7-8', release= '2020', origin= 'Amerika') {
+  saveMovieSearch(type= '28', imdb= '7-8', release= '2020', origin= 'en') {
     const page = 1;
     const scores = imdb.split('-', 2);
+    console.log(`${page} & ${type} ${origin} & ${Number(scores[0])} & ${Number(scores[1])}, ${Number(release)}`)
     this.movieService.getMoviesWithFilter('popularity.desc', page, type, origin, Number(scores[0]), Number(scores[1]), Number(release))
     .subscribe(data => {
       // tslint:disable-next-line: no-string-literal
@@ -85,8 +86,6 @@ export class SearchMovieComponent implements OnInit {
     });
     this.closeSearchTab();
     this.openMovie = true;
-  //  this.router.navigate(['/deneme']);
-    // this.error = 'Error';
   }
 
   // tslint:disable-next-line: typedef

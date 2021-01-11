@@ -32,7 +32,7 @@
     <div class="info_section">
       <div class="movie_header">
         <span (click)="goToMoviePage(movieDetail.id)">
-        <img class="locandina" src="https://image.tmdb.org/t/p/w300/{{movieDetail?.poster_path}}" style="cursor: pointer;"/>
+        <img class="locandina" src="https://image.tmdb.org/t/p/w342/{{movieDetail?.poster_path}}" style="cursor: pointer;"/>
         <h1>{{movieDetail?.original_title}}</h1>
       </span>
         <h4>{{movieDetail?.release_date | date: ['yyyy']}}
@@ -76,7 +76,7 @@
         </ul>
       </div>
     </div>
-    <div *ngIf="openCardBoolean" class="blur_back movie_back" style="background: url('https://image.tmdb.org/t/p/original/{{movieDetail?.backdrop_path}}')">
+    <div *ngIf="openCardBoolean" class="blur_back movie_back " style="background: url('https://image.tmdb.org/t/p/original/{{movieDetail?.backdrop_path}}')">
     </div>
   </div>
 <div class="alert-box-actions">

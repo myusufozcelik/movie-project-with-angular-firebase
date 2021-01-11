@@ -30,11 +30,18 @@ export class RecommendMovieComponent implements OnInit, OnChanges {
 
 
 getMoviesLists(type: string): any {
+  console.log(type);
   this.movieService.getMovieListsWithType(type, 1)
   .subscribe(movie => {
     // tslint:disable-next-line: no-string-literal
     this.movies = movie['results'];
-    this.movies = this.movies.slice(0, 5);
+    console.log(this.movies);
+    if (type === 'top_rated') {
+      this.movies = this.movies.slice(3, 8);
+    }
+    else {
+      this.movies = this.movies.slice(0, 5);
+    }
   });
 }
 

@@ -9,7 +9,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class FilterMovieComponent implements OnInit {
 
-  filterList = ['Popülerliğe Göre', 'Çıkış Tarihine Göre', 'Puana Göre', 'Varsayılan'];
+  filterList = ['Popülerliğe Göre (Varsayılan)', 'Çıkış Tarihine Göre', 'Puana Göre'];
   @Input() genresId;
   @Input() activePage;
   @Output() filterMovie = new EventEmitter();

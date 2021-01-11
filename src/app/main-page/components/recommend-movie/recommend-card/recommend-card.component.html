@@ -1,6 +1,6 @@
 <div class="row">
 <div class="card h-100 card-body mb-3 box-shadow bg-dark" style="width: 18rem;" *ngFor="let movie of movies">
-  <img src="https://image.tmdb.org/t/p/w300/{{movie?.poster_path}}" style="cursor: pointer; height: 450px;" (click)="loadMovie(movie?.id)" alt=""> 
+  <img src="https://image.tmdb.org/t/p/w300/{{movie?.poster_path}}" style="cursor: pointer; height: 400px;" (click)="loadMovie(movie?.id)" alt=""> 
    <div class="card-body">
     <p class="card-text" style="text-align: center; color: antiquewhite; font-family: Verdana, Geneva, Tahoma, sans-serif;">{{movie?.title}}</p>
   </div>

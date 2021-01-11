@@ -123,8 +123,10 @@ export class GenresMainPageComponent implements OnInit {
     .subscribe(movie => {
       // tslint:disable-next-line: no-string-literal
       this.movies = movie['results'].filter(data => data.poster_path !== null);
+      console.log(this.movies);
         // tslint:disable-next-line: no-string-literal
       this.totalPages = movie['total_pages'];
+      this.headerName = event;
     });
     }
 

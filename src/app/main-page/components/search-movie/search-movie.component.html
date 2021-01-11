@@ -38,7 +38,7 @@
               <label class="for-checkbox-budget" style="padding-right: 18px;" for="movieType-5">							
                 <span data-hover="Korku">Korku</span>
               </label>
-              <input class="checkbox-budget" type="radio" name="movieType" value="12-16-80-99-10751-36-10402-9648-878-10752-37" id="movieType-6" [(ngModel)]="movieTypeData">
+              <input class="checkbox-budget" type="radio" name="movieType" value="12|16|80|99|10751|36|10402|9648|878|10752|37" id="movieType-6" [(ngModel)]="movieTypeData">
               <label class="for-checkbox-budget" style="padding-right: 15px;" for="movieType-6">							
                 <span data-hover="Diğer">Diğer</span>
               </label>
@@ -52,10 +52,10 @@
 
         </div>
         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-          <span class="service-icon rounded-circle mx-auto mb-3" (click)="getImdbScore()" style="cursor: pointer; background-image: url(../../../../assets/img/imdb.png); background-color:#F2DB83; background-repeat: no-repeat; background-size: cover;">
+          <span class="service-icon rounded-circle mx-auto mb-3" (click)="getImdbScore()" style="cursor: pointer; background-image: url(../../../../assets/img/flags/filmbul.png); background-color:#F2DB83; background-repeat: no-repeat; background-size: cover;">
           </span>
           <h4>
-            <strong class="header-movie noselect" (click)="getImdbScore()">IMDB Puanı</strong>
+            <strong class="header-movie noselect" (click)="getImdbScore()">FilmOx Puanı</strong>
           </h4>
           
           
@@ -140,7 +140,7 @@
               <label class="for-checkbox-budget" style="padding-right: 20px;" for="originCountry-1" >
                 <span data-hover="Amerika">Amerika</span>
               </label>
-              <input class="checkbox-budget" type="radio" name="originCountry" value="uk-sv-sr-sl-sk-ru-ro-pt-pl-no-nl-nb-lv-lt-it-is-hu-hr-fr-fi-et-es-el-de-da-cs-bg" id="originCountry-2" [(ngModel)]="originCountryData">
+              <input class="checkbox-budget" type="radio" name="originCountry" value="uk|sv|sr|sl|sk|ru|ro|pt|pl|no|nl|nb|lv|lt|it|is|hu|hr|fr|fi|et|es|el|de|da|cs|bg" id="originCountry-2" [(ngModel)]="originCountryData">
               <label class="for-checkbox-budget" style="padding-right: 20px;" for="originCountry-2">							
                 <span data-hover="Avrupa">Avrupa</span>
               </label>
@@ -156,7 +156,7 @@
               <label class="for-checkbox-budget" style="padding-right: 8px;" for="originCountry-5">							
                 <span data-hover="Yerli">Yerli</span>
               </label>
-              <input class="checkbox-budget" type="radio" name="originCountry" value="zh-vi-uz-th-ka-ja-id-he-fa-ee-ar" id="originCountry-6" [(ngModel)]="originCountryData">
+              <input class="checkbox-budget" type="radio" name="originCountry" value="zh|vi|uz|th|ka|ja|id|he|fa|ee|ar" id="originCountry-6" [(ngModel)]="originCountryData">
               <label class="for-checkbox-budget" style="padding-right: 10px;" for="originCountry-6">							
                 <span data-hover="Diğer">Diğer</span>
               </label>
@@ -174,7 +174,6 @@
   </section>
 
 <app-selected-movie [openMovie]="openMovie" [movie]="movies" *ngIf="openMovie" (close)="onButtonExit()">
- 
 </app-selected-movie>
 
 <div>
