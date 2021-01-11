@@ -37,3 +37,4 @@ Yapılacaklar:
 38) Rastgele Film Öner, Top 250 Imdb, Top 100 Biz, İletişim Sayfası, Listeler Sayfasında Header kısmı yapılacak
 39) Film sayfasında benzer filmler boş gelirse başrol oyuncusunun filmlerini getir
 40) Loading ekle, Lazyloader ekle, Logoyu Angular logosunun yerine koy
+41) Kategori kısmında bulunan aramada kategoriye göre arama yapılsın. 

@@ -21,7 +21,7 @@
       <div class="container mt-5">
         <div class="row">
           <div class="col-md-3" *ngFor="let movie of movies">
-            <div class="card h-100 card-body mb-3 box-shadow bg-dark">     
+            <div class="card h-100 card-body mb-3 box-shadow bg-dark">   
                 <img class="card-img-top" style="cursor: pointer;" src="https://image.tmdb.org/t/p/w300/{{movie?.poster_path}}" [routerLink]="['/movie/', movie.id]">
                 <span class="star" *ngIf="movie?.vote_average !==0">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" style="color: #f3ce13;" viewBox="0 0 16 16">

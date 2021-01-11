@@ -78,6 +78,7 @@ export class GenresMainPageComponent implements OnInit {
           this.totalPages = data['total_pages'];
           // tslint:disable-next-line: no-string-literal
           this.movies = data['results'].filter(movie => movie.poster_path !== null);
+          console.log(this.movies);
           this.isLoading = false;
         });
     }
@@ -92,6 +93,7 @@ export class GenresMainPageComponent implements OnInit {
       this.movieService.getGenres()
       // tslint:disable-next-line: no-shadowed-variable
       .subscribe(data => {
+        console.log(data)
         this.genres = data.filter(genres => genres.id === +this.id)[0];
       });
       this.isLoading = false;

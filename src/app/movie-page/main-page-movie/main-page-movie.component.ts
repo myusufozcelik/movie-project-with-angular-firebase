@@ -53,6 +53,7 @@ export class MainPageMovieComponent implements OnInit {
       .subscribe(data => {
         this.isLoading = true;
         this.movieDetail = data;
+        console.log(this.movieDetail);
         this.movieId = data.id;
         this.movieService.getMoviesOmdb(this.movieDetail.imdb_id)
           // tslint:disable-next-line: no-shadowed-variable
