@@ -15,14 +15,7 @@ export class SearchComponent implements OnInit {
   }
 
   getSearchMovie(searchInput): any {
-    console.log(searchInput.value);
-    console.log(this.activePage);
     this.searchMovie.emit(searchInput);
-    // this.movieService.getSearchMovies(searchInput.value, this.activePage)
-    //   .subscribe(movie => {
-    //     // tslint:disable-next-line: no-string-literal
-    //     console.log(movie);
-    //   });
   }
 
 

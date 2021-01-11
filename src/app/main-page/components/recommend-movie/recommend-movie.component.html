@@ -9,7 +9,7 @@
     <input type="radio" id="tab3" value="now_playing" name="tab-control">
     <input type="radio" id="tab4" value="upcoming" name="tab-control">
     <ul>
-      <li title="Features"><label for="tab1" role="button"><br><span >Trend Filmler</span></label></li>
+      <li title="Features"><label for="tab1" role="button"><br><span>Trend Filmler</span></label></li>
       <li title="Delivery Contents"><label for="tab2" role="button"><br><span>Popüler Filmler</span></label></li>
       <li title="Shipping"><label for="tab3" role="button"><br><span>Vizyondakiler</span></label></li>
       <li title="Returns"><label for="tab4" role="button"><br><span>Vizyona Girecekler</span></label></li>
@@ -22,31 +22,9 @@
       <section *ngFor="let typeMovie of typeList">
         <app-recommend-card [movies]="movies"></app-recommend-card>
         <div class="bottom-right">
-          <button class="btn btn-outline-secondary" (click)="goToMoreMovies(typeMovie)">Daha fazla...</button>
-          </div>
+          <button class="btn btn-secondary" (click)="goToMoreMovies(typeMovie)">Daha fazla...</button>
+        </div>
       </section>
     </div>
-    
-  </div>
-
-
-</div>
-
-
-<!-- <div class="content-section bg-light">
-
-<div class="l-container">
-  <div class="b-game-card">
-    <div class="b-game-card__cover" style="background-image: url();"></div>
-  </div>
-  <div class="b-game-card">
-    <div class="b-game-card__cover" style="background-image: url();"></div>
-  </div>
-  <div class="b-game-card">
-    <div class="b-game-card__cover" style="background-image: url();"></div>
-  </div>
-  <div class="b-game-card">
-    <div class="b-game-card__cover" style="background-image: url();"></div>
   </div>
 </div>
-</div> -->

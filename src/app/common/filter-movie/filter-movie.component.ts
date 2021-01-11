@@ -20,9 +20,6 @@ export class FilterMovieComponent implements OnInit {
   }
 
   getFilterValue(filterValue: HTMLInputElement): any {
-    console.log(filterValue.innerText);
-    console.log(this.genresId);
-    console.log(this.activePage);
     let genreFilter;
     if (this.genresId !== undefined || this.genresId !== null ) {
       if (filterValue.innerText === this.filterList[0] || filterValue.innerText === this.filterList[3]) {

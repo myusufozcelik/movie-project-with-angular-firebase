@@ -4,7 +4,9 @@
     </span>      
 
         <div class="container text-center my-auto" > 
-            <h1 class="justify-content-center">{{genres?.name}} Filmleri</h1>
+            <h1 *ngIf="genres?.name" class="justify-content-center">{{genres?.name}} Filmleri</h1>
+            <h1 *ngIf="genres?.name === null">{{headerName}}</h1>
+            <h1 *ngIf="searchValue" style="text-transform: capitalize;">{{searchValue}}</h1>
             <!-- <button class="btn btn-info btn-xl js-scroll-trigger" (click)="getMovies(1)">Daha Fazla Seçenek</button> -->
           </div>
           <div class="overlay"></div>
@@ -15,12 +17,11 @@
 <div style="float: left !important;">
   <app-filter-movie [genresId]="genres?.id" [activePage]="activePage" (filterMovie)="getFilterMovies($event)"></app-filter-movie>
 </div>
-    <div class="album py-5 bg-light">
+    <div class="album py-5 bg-dark">
       <div class="container mt-5">
         <div class="row">
           <div class="col-md-3" *ngFor="let movie of movies">
-            <div class="card mb-3 box-shadow" >
-                
+            <div class="card h-100 card-body mb-3 box-shadow bg-dark">     
                 <img class="card-img-top" style="cursor: pointer;" src="https://image.tmdb.org/t/p/w300/{{movie?.poster_path}}" [routerLink]="['/movie/', movie.id]">
                 <span class="star" *ngIf="movie?.vote_average !==0">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" style="color: #f3ce13;" viewBox="0 0 16 16">
@@ -29,13 +30,12 @@
                 {{movie?.vote_average}}
             </span>
                 <div class="card-body">
-                 <p class="card-text h5 text-center">{{movie?.title}}</p> 
+                 <p class="card-text h5 text-center" style="color: aliceblue;">{{movie?.title}}</p> 
                 <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
+                  <!-- <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-primary" *ngFor="let movies of movie.genre_ids">{{movies}}</button>
-                    <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
-                  </div>
-                  <small class="text-muted">{{movie?.popularity}}</small>
+                   <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> 
+                  </div> -->
                 </div>
               </div>
             </div>

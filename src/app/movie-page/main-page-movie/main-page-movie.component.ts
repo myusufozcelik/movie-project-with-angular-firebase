@@ -53,7 +53,6 @@ export class MainPageMovieComponent implements OnInit {
       .subscribe(data => {
         this.isLoading = true;
         this.movieDetail = data;
-        console.log(this.movieDetail);
         this.movieId = data.id;
         this.movieService.getMoviesOmdb(this.movieDetail.imdb_id)
           // tslint:disable-next-line: no-shadowed-variable
@@ -63,8 +62,6 @@ export class MainPageMovieComponent implements OnInit {
               this.movieDetail.overview = data.Plot
             }
             this.omdbData = data;
-            // this.originFlag = `../../../assets/img/flags/${this.omdbData.Country}.png`;
-            console.log(this.omdbData);
             this.isLoading = false;
           });
       });
@@ -73,7 +70,6 @@ export class MainPageMovieComponent implements OnInit {
       .subscribe(data => {
         this.isLoading = true;
         this.movieRecommend = data.filter(recommend => recommend.poster_path !== null).slice(0, 8);
-        console.log(this.movieRecommend);
         this.isLoading = false;
       });
 
@@ -90,10 +86,8 @@ export class MainPageMovieComponent implements OnInit {
     this.movieService.getMovieDirector(movieId)
       .subscribe(data => {
         this.isLoading = true;
-        console.log(data);
         // tslint:disable-next-line: no-shadowed-variable
         this.director = data.filter(data => data.job === 'Director');
-        console.log(this.director);
         this.isLoading = false;
       });
 

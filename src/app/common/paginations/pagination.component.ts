@@ -36,7 +36,6 @@ export class PaginationsComponent implements OnInit, OnChanges {
   }
 
   pageDivide(): void {
-    console.log(this.totalPage); // 560
   }
 
   restartArrays(page: number, start: number = 1): any {

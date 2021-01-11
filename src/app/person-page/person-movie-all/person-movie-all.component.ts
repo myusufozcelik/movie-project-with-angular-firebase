@@ -12,32 +12,30 @@ import { Component, OnInit } from '@angular/core';
 export class PersonMovieAllComponent implements OnInit {
 
   id: number;
-  person: Person; 
+  person: Person;
   personMovies: Movie[];
 
   constructor(private movieService: MovieService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    // tslint:disable-next-line: no-string-literal
     this.id = +this.route.snapshot.params['id'];
     this.getMovies();
     this.getPersonDetail();
   }
 
-  getPersonDetail() {
+  getPersonDetail(): any {
     this.movieService.getPeopleDetails(this.id)
     .subscribe(data => {
       this.person = data;
     });
   }
 
-  getMovies() {
-    
+  getMovies(): any {
     this.movieService.getPeopleMoviesWithId(this.id)
     .subscribe(data => {
-      console.log(data);
-      this.personMovies = data.filter(data => data.poster_path !== null).sort((a,b) => b.popularity - a.popularity)
-      
-    })
+      this.personMovies = data.filter(movie => movie.poster_path !== null).sort((a, b) => b.popularity - a.popularity);
+    });
   }
 
   moviePage(movieId): any {

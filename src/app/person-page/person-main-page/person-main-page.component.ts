@@ -19,6 +19,7 @@ export class PersonMainPageComponent implements OnInit {
   constructor(private movieService: MovieService, private router: ActivatedRoute, private route: Router) { }
 
   ngOnInit(): void {
+    // tslint:disable-next-line: no-string-literal
     this.id = +this.router.snapshot.params['id'];
     this.getPersonDetail();
     this.getMovieDetail();
@@ -28,12 +29,6 @@ export class PersonMainPageComponent implements OnInit {
     this.movieService.getPeopleDetails(this.id).
     subscribe(data => {
       this.person = data;
-      console.log(this.person);
-      // this.movieService.getPeopleMovies(this.person.name.split(" ",1)[0], this.person.name.split(" ",2)[1])
-      // .subscribe(data => {
-      //   this.personMovies = data[0].known_for;
-      //   console.log(this.personMovies)
-      // });
     });
   }
 
@@ -43,8 +38,7 @@ export class PersonMainPageComponent implements OnInit {
     .subscribe(data => {
       // tslint:disable-next-line: no-shadowed-variable
       // tslint:disable-next-line: max-line-length
-      this.personMovies = data.filter(data => data.poster_path !== null && data.adult === false).sort((a, b) => b.popularity - a.popularity).slice(0, 8);
-      console.log(this.personMovies);
+      this.personMovies = data.filter(person => person.poster_path !== null && person.adult === false).sort((a, b) => b.popularity - a.popularity).slice(0, 8);
      });
   }
 

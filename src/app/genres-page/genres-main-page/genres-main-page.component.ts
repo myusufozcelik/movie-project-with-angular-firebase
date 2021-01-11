@@ -1,9 +1,10 @@
-import { filter } from 'rxjs/operators';
+import { count, filter } from 'rxjs/operators';
 import { Genres } from './../../models/genres.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { Movie } from 'src/app/models/movie.model';
 import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 
 @Component({
@@ -28,26 +29,41 @@ export class GenresMainPageComponent implements OnInit {
   randomNumber = 0;
   getSearchResults: Movie[];
   filterType: string;
+  headerName: string;
   startOne: boolean;
   countryId: any;
   getSearchValue: any;
   constructor(private movieService: MovieService, private router: Router, private activatedRoute: ActivatedRoute) {
+    this.randomNumber = Math.floor(Math.random() * 30);
    }
 
   ngOnInit(): void {
    this.getSearchValue = this.activatedRoute.snapshot.paramMap.get('searchValue');
    this.countryId = this.activatedRoute.snapshot.paramMap.get('countryId');
    this.id = this.activatedRoute.snapshot.paramMap.get('genresId');
-   this.randomNumber = Math.floor(Math.random() * 30);
    if (this.getSearchValue) {
     this.getSearchMovies(this.getSearchValue);
+    return;
   }
-  else if (this.countryId) {
+   if (this.countryId) {
      this.id = this.countryId;
+     if (this.countryId === 'tr'){
+        this.headerName = 'Yerli Filmler';
+     }
+    else if (this.countryId === 'hi') {
+       this.headerName = 'Hint Filmleri';
+     }
+    else if (this.countryId === 'ko|zh|vi|th|ka|ja|id|he|fa|ar') {
+       this.headerName = 'Asya Filmleri';
+      }
+    else if (this.countryId === 'en') {
+       this.headerName = 'U.S.A. & U.K. Filmleri';
+     }
+     else {
+       this.headerName = 'Avrupa Filmleri';
+     }
    }
-   else {
-    this.getMovies(this.activePage);
-   }
+   this.getMovies(this.activePage);
   }
 
   getMovies(page: number): any {
@@ -62,8 +78,6 @@ export class GenresMainPageComponent implements OnInit {
           this.totalPages = data['total_pages'];
           // tslint:disable-next-line: no-string-literal
           this.movies = data['results'].filter(movie => movie.poster_path !== null);
-          console.log(this.movies);
-          // this.genres = tr
           this.isLoading = false;
         });
     }
@@ -75,12 +89,9 @@ export class GenresMainPageComponent implements OnInit {
       this.totalPages = data['total_pages'];
       // tslint:disable-next-line: no-string-literal
       this.movies = data['results'].filter(movie => movie.poster_path !== null);
-      console.log(this.movies);
-      console.log(this.movies[0]?.backdrop_path);
       this.movieService.getGenres()
       // tslint:disable-next-line: no-shadowed-variable
       .subscribe(data => {
-        console.log(data);
         this.genres = data.filter(genres => genres.id === +this.id)[0];
       });
       this.isLoading = false;
@@ -90,13 +101,11 @@ export class GenresMainPageComponent implements OnInit {
 
 
   getPageInfo(activePageNumber: number): any {
-    console.log(activePageNumber);
     this.activePage = activePageNumber;
     if (!this.isSearch && !this.isFilter) {
       this.getMovies(this.activePage);
     }
     else if (this.isSearch && !this.isFilter){
-      console.log(this.searchValue);
       this.getSearchMovies(this.searchValue);
     }
     else {
@@ -108,10 +117,8 @@ export class GenresMainPageComponent implements OnInit {
   getSearchMovies(event: any): any {
     this.isSearch = true;
     this.searchValue = event;
-    console.log(this.searchValue , this.activePage);
     this.movieService.getSearchMovies(this.searchValue, this.activePage)
     .subscribe(movie => {
-      console.log(movie);
       // tslint:disable-next-line: no-string-literal
       this.movies = movie['results'].filter(data => data.poster_path !== null);
         // tslint:disable-next-line: no-string-literal

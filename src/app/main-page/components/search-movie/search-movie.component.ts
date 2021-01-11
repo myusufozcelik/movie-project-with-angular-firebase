@@ -82,7 +82,6 @@ export class SearchMovieComponent implements OnInit {
     .subscribe(data => {
       // tslint:disable-next-line: no-string-literal
       this.movies = data['results'];
-      console.log(this.movies);
     });
     this.closeSearchTab();
     this.openMovie = true;
@@ -98,7 +97,6 @@ export class SearchMovieComponent implements OnInit {
   // tslint:disable-next-line: typedef
   onButtonExit() {
     this.openMovie = false;
-    console.log(this.openMovie);
   }
 
 }

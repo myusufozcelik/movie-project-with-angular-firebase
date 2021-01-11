@@ -12,10 +12,9 @@ import { environment } from 'src/environments/environment';
 export class CategoriesComponent implements OnInit {
 
   movieCategories: Genres[];
-  path = environment.picturePath; //..//../assets/img/menu
+  path = environment.picturePath;
   // tslint:disable-next-line: max-line-length
-  imagePaths = [    
-
+  imagePaths = [
     {firstImage: `${this.path}/action_1.jpg`, secondImage: `${this.path}/action_2.jpg`},
     {firstImage: `${this.path}/adventure_2.jpg`, secondImage: `${this.path}/adventure_1.jpg`},
     {firstImage: `${this.path}/animation_1.jpg`, secondImage: `${this.path}/animation_2.jpg`},
@@ -44,7 +43,6 @@ export class CategoriesComponent implements OnInit {
     this.movieService.getGenres().subscribe(genres => {
       // tslint:disable-next-line: max-line-length
       this.movieCategories = genres;
-      console.log(this.movieCategories);
     });
   }
 
