@@ -12,6 +12,12 @@ body {
   justify-content: center;
 }
 
+
+.loader {
+  left: 50%;
+  margin-left: -4em;
+}
+
 svg {
   overflow: visible;
   width: 100px;
@@ -64,4 +70,13 @@ svg {
     stroke-dasharray: $path-length - 1 $path-length;
     stroke-dashoffset: -($path-length - 1);
   }
+}
+
+.loader {
+  position: fixed;
+left: 0px;
+top: 0px;
+width: 100%;
+height: 100%;
+z-index: 9999;
 }

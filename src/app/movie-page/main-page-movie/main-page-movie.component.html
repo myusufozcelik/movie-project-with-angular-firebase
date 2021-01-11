@@ -83,7 +83,7 @@
                             </p>
                         </div>
                     </div> --><span  style="float: right; ">  </span>
-                    <h3 class="display-4">
+                    <h3 *ngIf="movieDetail?.title !== movieDetail?.original_title" class="display-4">
                         {{movieDetail?.title}}
                     </h3>
                     <div>

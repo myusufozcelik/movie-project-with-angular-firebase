@@ -117,6 +117,7 @@ export class GenresMainPageComponent implements OnInit {
   }
 
   getSearchMovies(event: any): any {
+    document.getElementById('')
     this.isSearch = true;
     this.searchValue = event;
     this.movieService.getSearchMovies(this.searchValue, this.activePage)

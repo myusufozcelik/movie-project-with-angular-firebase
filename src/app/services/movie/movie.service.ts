@@ -122,7 +122,7 @@ export class MovieService {
   }
 
   getSearchMovies(keyword: string, page = 1): Observable<Movie[]> {
-    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${keyword}&page=${page}&include_adult=false`);
+    return this.httpClient.get<Movie[]>(`https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&query=${keyword}&page=${page}&include_adult=false&language=tr`);
   }
 
   // tslint:disable-next-line: max-line-length

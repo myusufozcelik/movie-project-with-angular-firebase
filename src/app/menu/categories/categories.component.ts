@@ -13,6 +13,7 @@ export class CategoriesComponent implements OnInit {
 
   movieCategories: Genres[];
   path = environment.picturePath;
+  showLoading = true;
   // tslint:disable-next-line: max-line-length
   imagePaths = [
     {firstImage: `${this.path}/action_1.jpg`, secondImage: `${this.path}/action_2.jpg`},
@@ -43,6 +44,7 @@ export class CategoriesComponent implements OnInit {
     this.movieService.getGenres().subscribe(genres => {
       // tslint:disable-next-line: max-line-length
       this.movieCategories = genres;
+      this.showLoading = false;
     });
   }
 
