@@ -18,7 +18,10 @@
                 <br>
                 <p class="mt-4">
                    <span class="h3 text-light"> 
-                  {{person?.birthday}}
+                  {{person?.birthday}} 
+                  <span *ngIf="person?.deathday">
+                     / {{person?.deathday}}
+                  </span>
                 </span>
                 </p>
                 <br>
@@ -26,9 +29,6 @@
                     <span class="h4 text-light"> 
                         {{person?.place_of_birth}}
                       </span>
-                </p>
-                <p *ngIf="person?.deathday !== null" class="mt-4">
-                    - {{person?.deathday}}
                 </p>
                 <br>
 
@@ -61,7 +61,7 @@
                    <div>
                        <p class="w-20 font-weight-bold text-muted h2 row row-pading mt-3 "
                         style="line-height: 2.2vw; margin-top: 5rem; float: right; ">
-                        {{person?.biography}}
+                        {{person?.biography | person}}
                        </p>
                        
                    </div>

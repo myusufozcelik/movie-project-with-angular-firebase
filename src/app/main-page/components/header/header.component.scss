@@ -10,7 +10,6 @@ $white: #fff !default;
     padding-top: 8rem;
     padding-bottom: 8rem;
     background: linear-gradient(90deg, fade-out($white, 0.9) 0%, fade-out($white, 0.9) 100%),   url('../../../../assets/img/bg-masthead.jpg');
-
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -29,16 +28,18 @@ $white: #fff !default;
   }
 }  
 
-
-
 .background {
   background-size: cover;
 
   position: relative;
 }
-.carousel-item{
-  height: 60rem;
-} 
-.carousel-item img{
-  height: 60rem;
+
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .carousel-item {
+    height: 50rem;
+  } 
+  .carousel-item img {
+    height: 50rem;
+  }
 }

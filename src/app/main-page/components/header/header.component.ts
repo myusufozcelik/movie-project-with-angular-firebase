@@ -20,6 +20,8 @@ export class HeaderComponent implements OnInit {
       this.movieFirst = this.movies[0];
       this.movies = this.movies.slice(1, 5);
     });
+    console.log(window.screen.height)
+    console.log(window.screen.width) // width : 1920 
   }
 
 }
