@@ -1,8 +1,6 @@
 img:hover {
-  transform: translateY(-5%);
-  box-shadow: 0 4rem 8rem rgba(0, 0, 0, .2);
-  transition: .2s;
-  transition-timing-function: ease-in-out;
-  transition-delay: 0.05s;
-  border: 10px solid transparent black;
+  box-shadow: 0 0px 10px rgba(159, 150, 175, 0.5);
+  transform: translateY(-20px);
+  transition: 0.3s ease-in;
+
 }

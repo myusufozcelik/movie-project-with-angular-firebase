@@ -1,21 +1,25 @@
-    <header class="masthead d-flex" style=" background: url('https://image.tmdb.org/t/p/original//{{movies[randomNumber]?.backdrop_path}}');  background-position: center center; background-repeat: no-repeat; background-size: cover;">
-      <a href="/">
-      <img class="main_page_logo" src="../assets/img/flags/filmbul.png" >
-    </a>
-     <span>
-    </span>      
+<header class="masthead d-flex"
+  style=" background: url('https://image.tmdb.org/t/p/original//{{movies[randomNumber]?.backdrop_path}}');  background-position: center center; background-repeat: no-repeat; background-size: cover;">
+  <a href="/">
+    <img class="main_page_logo" src="../assets/img/flags/filmbul.png">
+  </a>
+  <span>
+  </span>
+  <div class="container text-center my-auto">
+    <h1 class="justify-content-center">{{movieListHeader}}</h1>
+    <!-- <button class="btn btn-info btn-xl js-scroll-trigger" (click)="getMovies(1)">Daha Fazla Seçenek</button> -->
+  </div>
+  <div class="overlay"></div>
+</header>
+<div style="float: right;">
+  <app-search [activePage]="activePage" (searchMovie)="getSearchMovies($event.value)"></app-search>
+</div>
 
-        <div class="container text-center my-auto" > 
-            <h1 class="justify-content-center">{{movieListHeader}}</h1>
-            <!-- <button class="btn btn-info btn-xl js-scroll-trigger" (click)="getMovies(1)">Daha Fazla Seçenek</button> -->
-          </div>
-          <div class="overlay"></div>
-        </header> 
-      <div style="float: right;">
-        <app-search [activePage]="activePage" (searchMovie)="getSearchMovies($event.value)"></app-search>
-      </div>
+<app-movie-card [movies]="movies"></app-movie-card>
+<div class="d-flex justify-content-center mb-5 bg-dark">
+  <app-paginations [totalPage]="totalPages" (onPageChange)="getPageInfo($event)"></app-paginations>
+</div>
 
-      <app-movie-card [movies]="movies"></app-movie-card>
-      <div class="d-flex justify-content-center mb-5 bg-dark">
-      <app-paginations [totalPage]="totalPages" (onPageChange)="getPageInfo($event)"></app-paginations>
-    </div>
+<div *ngIf="isLoading" class="loader">
+  <app-loading></app-loading>
+</div>

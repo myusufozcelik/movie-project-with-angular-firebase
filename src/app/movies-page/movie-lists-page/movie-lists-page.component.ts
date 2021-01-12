@@ -17,6 +17,7 @@ export class MovieListsPageComponent implements OnInit {
   activePage = 1;
   movieListHeader;
   isSearch = false;
+  isLoading = false;
   searchValue: string;
   totalPages: number;
   randomNumber = 0;
@@ -34,11 +35,13 @@ export class MovieListsPageComponent implements OnInit {
     this.isSearch  = false;
     this.movieService.getMovieListsWithType(this.type, page)
     .subscribe(movie => {
+      this.isLoading = true;
       // tslint:disable-next-line: no-string-literal
       this.totalPages = movie['total_pages'];
       // tslint:disable-next-line: no-string-literal
       this.movies = movie['results'];
       this.movies = this.movies.filter(data => data.poster_path !== null);
+      this.isLoading = false;
     });
   }
 
@@ -58,10 +61,12 @@ export class MovieListsPageComponent implements OnInit {
     this.searchValue = event;
     this.movieService.getSearchMovies(this.searchValue, this.activePage)
     .subscribe(movie => {
+      this.isLoading = true;
       // tslint:disable-next-line: no-string-literal
       this.movies = movie['results'].filter(data => data.poster_path !== null);
       // tslint:disable-next-line: no-string-literal
       this.totalPages = movie['total_pages'];
+      this.isLoading = false;
     });
   }
 
