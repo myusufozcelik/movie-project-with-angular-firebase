@@ -16,10 +16,9 @@ export class SelectedMovieComponent implements OnInit, OnChanges {
 
   openTrailerBoolean = false;
   openCardBoolean = true;
-  imdbScore = 6.7;
-  ourScore =  6.5;
   currentMovie: Movie;
   movieNumber = 0;
+  isRandomMovies = false;
   videoUrl;
   // tslint:disable-next-line: no-output-native
   @Input() openMovie: boolean;

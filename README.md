@@ -22,12 +22,8 @@ Yapılacaklar:
 22) Film ekranında oyuncuların üstüne yönetmen bilgisi eklenecek ****
 23) Film Sıralama seçeneği eklenecek ****
 24) Giriş yapan kullanıcının beğendiği filmler bir sayfada gösterilecek.
-25) Film sayfasında ödüller gösterilecek
 26) Recommend sayfası yapılacak. Kullanıcının daha önce girdiği filmlere göre filmler önerilecek
-28) Loading ekranı eklenecek.
 29) 404 ekranı eklenecek.
-30) Gösterilen film kartlarında imdb puanını da sağ üst ya da sol üst köşede göster!
-31) Arama işlemi yanında bir seçenek olacak (movie,).
 32) Filmleri ya da butonları yeni sekmede açabilmek için düzenleme yap. 
 33) http://localhost:4200/movie/403300 gibi filmlerde recommend movies gelmiyor. Bunun yerine başka bir şey getir.
 34) app-routing işlemleri düzenlenecek. Örn; Search işleminde movie/?search gibi adrese yansıyacak.

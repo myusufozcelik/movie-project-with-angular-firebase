@@ -21,7 +21,7 @@
                 </a>
             </div>
             <div class="col-lg-6">
-                <a class="portfolio-item" href="#!">
+                <a class="portfolio-item"(click)="goToRandomMoviePage()" style="cursor: pointer;" >
                     <div class="caption">
                         <div class="caption-content">
                             <div class="h2">Rastgele Film Öner</div>
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <img class="img-fluid" src="../../../../assets/img/portfolio-2.jpg" alt="">
-                </a>
+                </a>                  
             </div>
             <div class="col-lg-6">
                 <a class="portfolio-item" href="#!">
@@ -56,3 +56,5 @@
         </div>
     </div>
 </section>
+
+<app-selected-movie [openMovie]="openMovie" [movie]="movies" *ngIf="openMovie" (close)="onButtonExit()"></app-selected-movie>
