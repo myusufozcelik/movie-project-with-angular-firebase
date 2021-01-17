@@ -13,7 +13,7 @@ export class CategoriesComponent implements OnInit {
 
   movieCategories: Genres[];
   path = environment.picturePath;
-  showLoading = true;
+  showLoading = false;
   // tslint:disable-next-line: max-line-length
   imagePaths = [
     {firstImage: `${this.path}/action_1.jpg`, secondImage: `${this.path}/action_2.jpg`},
@@ -38,13 +38,17 @@ export class CategoriesComponent implements OnInit {
 ];
 
 
-  constructor(private movieService: MovieService, private router: Router) { }
+  constructor(private movieService: MovieService, private router: Router) {
+    setTimeout(() => {
+      this.showLoading = false;
+    }, 1500);
+    this.showLoading = true;
+   }
 
   ngOnInit(): void { // LAZYLOADING EKLE
     this.movieService.getGenres().subscribe(genres => {
       // tslint:disable-next-line: max-line-length
       this.movieCategories = genres;
-      this.showLoading = false;
     });
   }
 

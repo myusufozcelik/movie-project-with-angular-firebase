@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class ListsComponent implements OnInit {
 
   movies: Movie[];
+  showLoading = false;
 
   listDetails = [
     {flag: 'https://www.flaticon.com/svg/static/icons/svg/197/197484.svg', name: 'U.S.A. & U.K.', value: 'en', picture: 'https://image.tmdb.org/t/p/w342//cvaBVpS0GzKqBd63pFT8f1E8OKv.jpg'},
@@ -22,7 +23,12 @@ export class ListsComponent implements OnInit {
   ];
 
 
-  constructor(private movieService: MovieService, private router: Router) { }
+  constructor(private movieService: MovieService, private router: Router) {
+    setTimeout(() => {
+      this.showLoading = false;
+    }, 1000);
+    this.showLoading = true;
+   }
 
   ngOnInit(): void {
   }

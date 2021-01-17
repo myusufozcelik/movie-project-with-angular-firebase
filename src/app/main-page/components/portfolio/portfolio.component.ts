@@ -14,7 +14,7 @@ export class PortfolioComponent implements OnInit {
   movieType = ['28', '35', '18', '14', '27', '12', '16', '80', '99', '10751', '36', '10402', '9648', '878', '10752', '37'];
   imdbScore = ['4-6', '6-7', '7-8', '8-9', '9-10'];
   releaseDate = ['1980', '1990', '2000', '2010', '2020'];
-  originCountry = ['en', 'it', 'ru', 'es', 'fr', 'de', 'hi', 'ko', 'tr', 'zh', 'id', 'he', 'ja'];
+  originCountry = ['en', 'it', 'ru', 'es', 'fr', 'de', 'hi', 'ko', 'tr', 'he', 'ja'];
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
@@ -32,6 +32,8 @@ export class PortfolioComponent implements OnInit {
        .subscribe(data => {
          // tslint:disable-next-line: no-string-literal
          this.movies = data['results'];
+         this.movies = this.movies.filter(movie => movie.backdrop_path !== null && movie.overview !== '' && movie.poster_path !== null)
+         .slice(0, 1);
        });
        this.openMovie = true;
   }
