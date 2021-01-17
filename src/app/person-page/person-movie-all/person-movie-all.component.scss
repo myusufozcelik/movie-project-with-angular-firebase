@@ -122,3 +122,22 @@
     color: #fff;
     opacity: 1;
 }
+
+.main_page_logo {
+    position: absolute;
+    top: 0;
+    display: block;
+    right: 0;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    
+    opacity: .3;
+
+    &:hover {
+        opacity: 1;
+    }
+}

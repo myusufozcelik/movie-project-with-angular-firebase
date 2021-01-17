@@ -10,10 +10,13 @@
                     </svg>
                     {{person?.popularity}}
                 </h6>
+                <img class="main_page_logo" src="../assets/img/flags/filmbul.png">
+
                 <p class="mt-4">
 
                     <br>
-                    <img src="https://image.tmdb.org/t/p/w300/{{person?.profile_path}}">
+                    <a href="/">
+                        <img class="main_page_logo" src="../assets/img/flags/filmbul.png"> </a>
                 </p>
                 <br>
 
@@ -39,7 +42,7 @@
 
                 <p class="mt-4">
 
-                    <span>
+                    <span *ngIf="person?.homepage !== null">
 
                         <a target="_" href="{{person?.homepage}}">
                             <h3 class="text-link h4">Web Sitesi</h3>
