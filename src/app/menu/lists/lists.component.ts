@@ -24,10 +24,6 @@ export class ListsComponent implements OnInit {
 
 
   constructor(private movieService: MovieService, private router: Router) {
-    setTimeout(() => {
-      this.showLoading = false;
-    }, 1000);
-    this.showLoading = true;
    }
 
   ngOnInit(): void {
