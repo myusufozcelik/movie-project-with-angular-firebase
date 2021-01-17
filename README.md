@@ -37,3 +37,7 @@ Yapılacaklar:
 44) Arama kısmında ilk aranan değer 3.sayfada kaldığında başka bir arama yapıldığında 3.sayfadan devam ediyor
 45) Film kategori sayfasına tıklanma sayısı ve thums up thumbs down ekle
 46) Yeni arama ve filtreleme yapıldıysa currentPage = 1 yap. 
+47) Menü resimleri için api yaz. 
+48) Genreste filmler ilk açıldığında beyazlığı gider
+49) Header kısmındaki resimde bazıları tekrar ediyor ona bak.
+49) Bazı filmlerin yazısı recommendsi kapatıyor (31451, 10637, 1628, 621 gibi)
