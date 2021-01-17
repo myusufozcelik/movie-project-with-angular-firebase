@@ -35,3 +35,5 @@ Yapılacaklar:
 40) Loading ekle, Lazyloader ekle, Logoyu Angular logosunun yerine koy
 41) Kategori kısmında bulunan aramada kategoriye göre arama yapılsın. ?
 44) Arama kısmında ilk aranan değer 3.sayfada kaldığında başka bir arama yapıldığında 3.sayfadan devam ediyor
+45) Film kategori sayfasına tıklanma sayısı ve thums up thumbs down ekle
+46) Yeni arama ve filtreleme yapıldıysa currentPage = 1 yap. 
