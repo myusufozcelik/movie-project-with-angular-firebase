@@ -3,6 +3,7 @@ import { InterceptorService } from './../../services/interceptor/interceptor.ser
 import { Movie } from './../../models/movie.model';
 import { MovieService } from './../../services/movie/movie.service';
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-movie-lists-page',
@@ -22,7 +23,8 @@ export class MovieListsPageComponent implements OnInit {
   totalPages: number;
   randomNumber = 0;
 
-  constructor(private movieService: MovieService, private activedRouter: ActivatedRoute) { }
+  constructor(private movieService: MovieService, private activedRouter: ActivatedRoute) {
+   }
 
   ngOnInit(): void {
     this.type = this.activedRouter.snapshot.params.movieType;

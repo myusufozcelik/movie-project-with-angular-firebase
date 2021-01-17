@@ -1,4 +1,4 @@
-<div class="pagination-wrapper">
+<div *ngIf="arrays !== undefined" class="pagination-wrapper">
     <div class="pagination">
       <a *ngIf="arrays[0] !== 1" class="prev page-numbers" (click)="onClickPage(1)" href="javascript:;">
        İlk Sayfa
