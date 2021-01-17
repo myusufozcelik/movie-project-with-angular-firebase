@@ -10,7 +10,11 @@ export class MenuComponent implements OnInit {
 
   activePage = 1;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    };
+  }
 
   ngOnInit(): void {
   }
@@ -21,9 +25,11 @@ export class MenuComponent implements OnInit {
   }
 
   goToSearchPage(event): any {
-    if (event !== undefined) {
+    const searchText = event;
+    if (searchText !== undefined) {
     this.router.navigate([`/movies/search/${event}`]);
     document.getElementsByClassName('navigation')[0].classList.toggle('active');
   }
 }
+
 }
