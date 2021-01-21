@@ -1,10 +1,8 @@
-import { count, filter } from 'rxjs/operators';
 import { Genres } from './../../models/genres.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { Movie } from 'src/app/models/movie.model';
 import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 
 @Component({
@@ -117,6 +115,8 @@ export class GenresMainPageComponent implements OnInit {
   }
 
   getSearchMovies(event: any): any {
+    this.router.navigate([`/movies/search/${event}`]);
+
     document.getElementById('');
     this.isSearch = true;
     this.searchValue = event;
