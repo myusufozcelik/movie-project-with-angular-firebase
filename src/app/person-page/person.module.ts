@@ -1,3 +1,4 @@
+import { CommonModules } from './../common/common.module';
 import { PersonMainPageComponent } from './person-main-page/person-main-page.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -9,7 +10,8 @@ import { PersonPipe } from './person.pipe';
 @NgModule({
   declarations: [PersonMainPageComponent, PersonMovieAllComponent, PersonPipe],
   imports: [
-    CommonModule
+    CommonModule,
+    CommonModules
   ]
 })
 export class PersonModule { }

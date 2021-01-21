@@ -35,9 +35,9 @@ export class MovieListsPageComponent implements OnInit {
 
   getMovies(page: number): any {
     this.isSearch  = false;
+    this.isLoading = true;
     this.movieService.getMovieListsWithType(this.type, page)
     .subscribe(movie => {
-      this.isLoading = true;
       // tslint:disable-next-line: no-string-literal
       this.totalPages = movie['total_pages'];
       // tslint:disable-next-line: no-string-literal

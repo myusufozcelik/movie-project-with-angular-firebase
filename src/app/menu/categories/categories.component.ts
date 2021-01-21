@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Genres } from 'src/app/models/genres.model';
 import { MovieService } from 'src/app/services/movie/movie.service';
@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss']
 })
-export class CategoriesComponent implements OnInit {
+export class CategoriesComponent implements OnInit, AfterViewInit {
 
   movieCategories: Genres[];
   path = environment.picturePath;
@@ -39,17 +39,19 @@ export class CategoriesComponent implements OnInit {
 
 
   constructor(private movieService: MovieService, private router: Router) {
-    setTimeout(() => {
-      this.showLoading = false;
-    }, 1500);
     this.showLoading = true;
    }
+
 
   ngOnInit(): void { // LAZYLOADING EKLE
     this.movieService.getGenres().subscribe(genres => {
       // tslint:disable-next-line: max-line-length
       this.movieCategories = genres;
     });
+  }
+
+  ngAfterViewInit(): void {
+    this.showLoading = false;
   }
 
   goToGenres(id: number): any {

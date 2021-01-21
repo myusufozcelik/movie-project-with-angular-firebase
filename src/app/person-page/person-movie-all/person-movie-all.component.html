@@ -20,19 +20,19 @@
                 <br>
 
                 <p class="mt-4">
-                    <span class="h2 font-weight-bold text-light" >
+                    <span class="h2 font-weight-bold text-light" style="margin-left: 1rem;">
                         {{person?.name}}
                     </span>
                 </p>
                 <br>
                 <p class="mt-4">
-                    <span class="h3 text-light">
+                    <span class="h3 text-light" style="margin-left: 1rem;">
                         {{person?.birthday}}
                     </span>
                 </p>
                 <br>
                 <p class="mt-4">
-                    <span class="h4 text-light">
+                    <span class="h4 text-light" style="margin-left: 1rem;">
                         {{person?.place_of_birth}}
                     </span>
                 </p>
@@ -43,8 +43,8 @@
 
                     <span *ngIf="person?.homepage !== null">
 
-                        <a target="_" href="{{person?.homepage}}">
-                            <h3 class="text-link h4">Web Sitesi</h3>
+                        <a target="_" href="{{person?.homepage}}" >
+                            <h3 class="text-link h4" style="margin-left: 1rem;">Web Sitesi</h3>
                         </a>
 
                     </span>
@@ -66,3 +66,7 @@
         </div>
     </div>
 </div>
+
+<div *ngIf="isLoading" class="loader">
+    <app-loading></app-loading>
+    </div>

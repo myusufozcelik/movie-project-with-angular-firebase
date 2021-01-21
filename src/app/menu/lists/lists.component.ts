@@ -1,7 +1,7 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from './../../models/movie.model';
 import { MovieService } from './../../services/movie/movie.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './lists.component.html',
   styleUrls: ['./lists.component.scss']
 })
-export class ListsComponent implements OnInit {
+export class ListsComponent implements OnInit, AfterViewInit {
 
   movies: Movie[];
   showLoading = false;
@@ -24,10 +24,15 @@ export class ListsComponent implements OnInit {
 
 
   constructor(private movieService: MovieService, private router: Router) {
+    
    }
+  ngAfterViewInit(): void {
+   
+  }
 
   ngOnInit(): void {
   }
+  
 
   getMovies(language: any): any {
     this.router.navigate([`/movies/country/${language}`]);

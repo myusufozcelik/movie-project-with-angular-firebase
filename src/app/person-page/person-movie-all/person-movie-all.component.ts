@@ -14,6 +14,7 @@ export class PersonMovieAllComponent implements OnInit {
   id: number;
   person: Person;
   personMovies: Movie[];
+  isLoading = false;
 
   constructor(private movieService: MovieService, private route: ActivatedRoute, private router: Router) { }
 
@@ -32,9 +33,11 @@ export class PersonMovieAllComponent implements OnInit {
   }
 
   getMovies(): any {
+    this.isLoading = true;
     this.movieService.getPeopleMoviesWithId(this.id)
     .subscribe(data => {
       this.personMovies = data.filter(movie => movie.poster_path !== null).sort((a, b) => b.popularity - a.popularity);
+      this.isLoading = false;
     });
   }
 
