@@ -20,18 +20,18 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="https://image.tmdb.org/t/p/original/{{movieFirst?.backdrop_path}}" class="d-block w-100"  alt="...">
+          <img src="https://image.tmdb.org/t/p/original/{{movieFirst?.backdrop_path}}" class="d-block w-100" alt="..." style="opacity: .7;">
           <div class="carousel-caption d-none d-md-block">
-            <h4>
+            <h4 class="text-uppercase">
               {{movieFirst?.title}}
             </h4>
             <p>{{movieFirst?.overview}}</p>
           </div>
         </div>
         <div class="carousel-item" *ngFor="let movie of movies">
-          <img src="https://image.tmdb.org/t/p/original/{{movie?.backdrop_path}}"  class="d-block w-100" alt="...">
+          <img src="https://image.tmdb.org/t/p/original/{{movie?.backdrop_path}}" style="opacity: .7;"  class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
-            <h4>{{movie?.title}}</h4>
+            <h4 class="text-uppercase">{{movie?.title}}</h4>
             <p>{{movie?.overview}}</p>
           </div>
         </div>

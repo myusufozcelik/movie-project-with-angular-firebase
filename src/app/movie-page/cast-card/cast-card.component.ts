@@ -18,7 +18,7 @@ export class CastCardComponent implements OnInit {
   }
 
   goToPersonPage(personId: number) {
-    this.router.navigate([`/person/${personId}`])
+    this.router.navigate([`/person/movies/${personId}`])
   }
 
 }
