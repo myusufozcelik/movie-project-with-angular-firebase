@@ -16,7 +16,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.movieService.getNowPlaying()
     .subscribe(movies => {
-      this.movies = movies.slice(0, 5);
+      this.movies = movies.filter(movie => movie.overview !== '')
+      this.movies = this.movies.slice(0, 5);
       this.movieFirst = this.movies[0];
       this.movies = this.movies.slice(1, 5);
     });
