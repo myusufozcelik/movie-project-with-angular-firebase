@@ -1,7 +1,9 @@
 
 Sitenin linki için; 
 https://filmox-demo.web.app/main 
--Powered by Firebase-
+
+
+
 Sitenin bazı kısımları henüz responsive tasarımda değildir!
 
 
