@@ -1,5 +1,12 @@
 
-Yapılacaklar: 
+Sitenin linki için; 
+https://filmox-demo.web.app/main 
+-Powered by Firebase-
+Sitenin bazı kısımları henüz responsive tasarımda değildir!
+
+
+
+ToDo List: 
 0) Gelmeyen film açıklamaları için dili en olarak tekrar bir api yazılacak overview boş ise o gösterilecek.
 1) Ana sayfadaki filtrele bölümü düzenlenecek ***
 2) Responsive Tasarım Yapılacak *****
